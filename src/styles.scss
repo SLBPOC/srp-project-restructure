@@ -23,7 +23,28 @@ a {
     cursor: pointer;
 }
 
-.mat-typography, .mdc-form-field {
+.margin-l-10 {
+    margin-left: 10px;
+}
+
+.margin-l-15 {
+    margin-left: 15px;
+}
+
+.margin-t-10 {
+    margin-top: 10px;
+}
+
+.align-center {
+    text-align: center !important;
+}
+
+.space-nowrap {
+    white-space: nowrap;
+}
+
+.mat-typography,
+.mdc-form-field {
     font-family: var(--font-Slb-San-Medium) !important;
 }
 
@@ -102,64 +123,40 @@ button {
 
 .mat-typography {
     .main-container {
-
         .container-title {
-
             width: 100%;
-
             padding: 10px 20px;
-
             display: flex;
-
             align-items: center;
-            border-bottom: 1px solid #e6e6e6;
-
-            // justify-content: space-between;
-
+            // border-bottom: 1px solid #e6e6e6;
             background-color: #0C0D1A;
             justify-content: space-between !important;
 
-
             .container-title-content {
-
                 display: flex;
-
                 align-items: center;
 
+                svg {
+                    vertical-align: text-top;
+                }
             }
 
-
-
             h1 {
-
                 color: #fff;
-
                 margin: 0px;
-
                 padding-left: 10px;
-
                 font-size: 20px !important;
-
                 position: relative;
-
             }
 
             .action-btn-info {
-
-                font-size: 14px;
-
+                font-size: 12px;
                 font-weight: 700;
-
-                background-color: #6BA7FF;
-
-                border: 1px solid #6BA7FF;
-
-                color: #080912;
-
-                padding: 12px 16px;
-
+                background-color: #0014DC;
+                border: 1px solid #0014DC;
+                color: #fff;
+                padding: 12px 20px;
                 border-radius: 40px;
-
             }
 
         }
@@ -508,7 +505,7 @@ button {
     }
 
     .mat-mdc-select-arrow {
-        color: #fff;
+        color: #505575;
     }
 
     .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
@@ -605,10 +602,10 @@ button {
             left: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
         }
 
-        .mdc-checkbox {
-            height: 12px;
-            flex: 0 0 14px;
-        }
+        // .mdc-checkbox {
+        //     height: 12px;
+        //     flex: 0 0 14px;
+        // }
 
         .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
             border-color: #ADB1C7;
@@ -675,22 +672,22 @@ button {
         cursor: pointer;
     }
 
-    .select-filter-header {
-        display: flex;
-        justify-content: space-between;
+    // .select-filter-header {
+    //     display: flex;
+    //     justify-content: space-between;
 
-        .select-filter-title {
-            color: #fff;
-            font-size: 14px;
-            font-weight: 700;
-        }
+    //     .select-filter-title {
+    //         color: #fff;
+    //         font-size: 14px;
+    //         font-weight: 700;
+    //     }
 
-        .select-filter-close {
-            color: #fff;
-            font-size: 14px;
-            font-weight: 700;
-        }
-    }
+    //     .select-filter-close {
+    //         color: #fff;
+    //         font-size: 14px;
+    //         font-weight: 700;
+    //     }
+    // }
 
     .select-filter-section {
         margin-top: 18px;
@@ -753,16 +750,17 @@ button {
             left: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
         }
 
-        .mdc-checkbox {
-            height: 12px;
-            flex: 0 0 14px;
-        }
+        // .mdc-checkbox {
+        //     height: 12px;
+        //     flex: 0 0 14px;
+        // }
 
         .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
             border-color: #ADB1C7;
             background-color: #080912;
         }
-        ::ng-deep{
+
+        ::ng-deep {
             .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
                 border-color: #ADB1C7 !important;
                 background-color: #051464 !important;
@@ -772,7 +770,7 @@ button {
                 color: #fff !important;
             }
         }
-        
+
 
 
     }
@@ -803,7 +801,7 @@ button {
 //Added for comman form field section
 .form-field-sec-section {
     .input-lbl {
-        color: rgba(222, 197, 197, 1);
+        color: #080912;
         font-size: 12px;
         font-family: var(--font-Slb-San-Medium);
         line-height: 32px;
@@ -859,48 +857,920 @@ button:hover {
     max-height: unset;
 }
 
+// added dark theme css for custom alert ------ start
+
+.dark-theme {
+    .border-bottom {
+        border-bottom: 1px solid #6E728D !important;
+    }
+
+    .border-right {
+        border-right: 1px solid #6E728D;
+    }
+
+    .main-container-custom-alert {
+        width: 1410px;
+        height: auto;
+        background-color: #404352;
+        border-radius: 8px;
+        color: #EBECF2;
+        padding-bottom: 10px;
+
+        .cust-alert-header {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+
+            .mat-mdc-icon-button.mat-mdc-button-base {
+                width: 20px;
+                height: 20px;
+                padding: 0;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+
+            .mat-mdc-icon-button .mat-mdc-button-touch-target {
+                position: absolute;
+                top: 50%;
+                height: 32px;
+                left: 50%;
+                width: 32px;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .mat-mdc-checkbox-touch-target {
+            height: 36px;
+            width: 36px;
+        }
+
+        .mdc-checkbox .mdc-checkbox__background {
+            top: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
+            left: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
+        }
+
+        .mdc-checkbox {
+            flex: 0 0 14px;
+        }
+
+        .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+            border-color: #ADB1C7;
+            background-color: #080912;
+        }
+
+        .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+            border-color: #FABB42;
+            background-color: #3A83FF;
+        }
+
+        .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+            color: #080912;
+        }
+
+        .select-filter-section {
+            margin-top: 18px;
+
+            .select-lbl {
+                font-size: 12px;
+                color: #EBECF2;
+                padding: 4px 0;
+                font-weight: 700;
+            }
+
+            .mat-mdc-form-field {
+                display: block;
+                margin-bottom: 10px;
+
+                .mat-mdc-text-field-wrapper {
+                    background-color: #080912E5;
+                    border-radius: 10px;
+                    padding: 8px 12px;
+                    border: 1px solid #8B90ADBF;
+                }
+
+                .mat-mdc-text-field-wrapper:hover {
+                    border-color: #fff;
+                }
+
+                mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+                .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+                .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--invalid .mdc-text-field__input {
+                    caret-color: #ADB1C7;
+                }
+
+                .mdc-line-ripple::after,
+                .mdc-line-ripple::before {
+                    border-bottom-width: 0 !important;
+                }
+
+                .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+                    color: #fff !important;
+                }
+
+                .mat-mdc-select-placeholder {
+                    color: #ADB1C7;
+                }
+
+                .mat-mdc-select-arrow {
+                    color: #fff;
+                }
+
+                .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+                    padding-top: 1px;
+                    padding-bottom: 1px;
+                    padding-left: 2px;
+                }
+
+                .mat-mdc-form-field-infix {
+                    min-height: fit-content;
+                    padding: 0;
+                    font-size: 16px;
+                }
+            }
+
+        }
+
+        .calender-alrt-filter-section-date-range {
+            .calender-alrt-filter-date-range-title {
+                color: #EBECF2;
+                font-size: 12px;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+
+            .mat-mdc-button.mat-unthemed {
+                border-radius: 8px;
+                color: #EBECF2;
+                background: #22263D;
+            }
+
+            .mat-calendar-arrow {
+                fill: #fff;
+            }
+
+            .mat-calendar-previous-button::after,
+            .mat-calendar-next-button::after {
+                color: #fff;
+            }
+
+            .mat-calendar-table-header {
+                color: #8B90AD;
+
+            }
+
+            .mat-calendar-body-label,
+            .mat-calendar-body-cell-content {
+                color: #EBECF2;
+            }
+
+            .mat-calendar-table-header-divider::after {
+                background: #8B90AD;
+            }
+
+            .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+                border-color: #6BA7FF;
+            }
+
+            .mat-calendar-body-selected {
+                background-color: #3A83FF;
+                color: #fff !important;
+                border-color: #FABB42;
+                border-width: 2px !important;
+            }
+
+            .mat-calendar-body-in-range::before {
+                background: #505575;
+            }
+
+            .ngx-mat-timepicker {
+                form .ngx-mat-timepicker-table {
+                    margin-left: 20%;
+
+                    .ngx-mat-timepicker-tbody tr td .mat-mdc-icon-button {
+                        height: 55px;
+                        width: 55px;
+                        line-height: 24px;
+                        padding: 0;
+                    }
+
+                    .ngx-mat-timepicker-tbody tr td .mat-mdc-form-field {
+                        width: 40px;
+                        height: 40px;
+                        text-align: center;
+                        background: #080912;
+                        border-radius: 10px;
+                        padding: 4px;
+                        max-width: 40px;
+                    }
+                }
+            }
+
+        }
+
+        .custom-alrt-action-btn-grp {
+            display: flex;
+            justify-content: end;
+            padding: 10px 30px;
+            border-top: 1px solid #313652;
+
+            .action-btn {
+                font-size: 12px;
+                background-color: #080912;
+                border: 1px solid #6BA7FF;
+                color: #fff;
+                padding: 6px 16px;
+                height: 35px;
+                border-radius: 40px;
+                width: auto;
+            }
+
+            .active {
+                background-color: #6BA7FF;
+                color: #080912;
+            }
+        }
+
+        .mat-mdc-table,
+        .mat-mdc-paginator {
+            background: transparent;
+
+            .mat-mdc-icon-button svg,
+            .mat-mdc-icon-button img {
+                width: 18px;
+                height: 18px;
+            }
+
+            .mat-mdc-slide-toggle {
+                vertical-align: super;
+            }
+        }
+    }
+}
+
+// added dark theme css for custom alert ------ end
+
+
+// light theme css start from here.
 .light-theme {
 
-    .mat-mdc-paginator-container{
-        padding:10px 8px !important;
+    //css added for dynacard info by swapnil starts
+    .dynacardinfo-wrapper {
+
+        .timeframe{
+            background: #ececec;
+            border-radius: 30px;
+            border: 1px solid #ececec;
+            padding: 2px;
+            text-align: right;
+
+            button{
+                margin: 0px 10px;
+                border-radius: 0px;
+                padding: 10px;
+                border:none !important;
+
+                &.selected{
+                    background: #fff !important;
+                    border-radius: 30px;
+                    color: #000;
+
+                }
+            }
+            
+        }
+
+        
+
+        .action-btn-info{
+            font-size: 12px;
+    font-weight: 700;
+    background-color: #0014DC;
+    border: 1px solid #0014DC;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 40px;
+        }
+        /*Css added by mg for dynacard info left panel start*/
+
+        .well-search {
+
+            background: #ffffff;
+
+
+
+            .label-title {
+
+                color: #272C39;
+
+                font-size: 12px;
+
+                font-family: var(--font-Slb-San-bold);
+
+                font-weight: 700;
+
+                padding: 9px 15px;
+
+            }
+
+
+
+            .search-list {
+
+                margin-top: 10px;
+
+                padding: 10px 10px 10px 10px;
+
+
+
+                .searchBar {
+
+                    width: auto;
+
+                    display: block;
+
+
+
+                    #searchQueryInput {
+
+                        background: rgba(239, 240, 245, 1);
+
+                        border-color: rgba(139, 144, 173, 1);
+
+                        background-image: url('./assets/images/light-search.svg');
+
+                        background-repeat: no-repeat;
+
+                        background-position: 12px 10px;
+
+                        width: 100%;
+
+                        height: 36px;
+
+                        outline: none;
+
+                        border: 1px solid #8B90AD;
+
+                        border-radius: 20px;
+
+                        padding: 0 10px 0px 45px;
+
+                        font-size: 16px;
+
+                        color: #ADB1C7;
+
+
+
+                        &::placeholder {
+
+                            color: rgba(80, 85, 117, 1);
+
+                        }
+
+                    }
+
+
+
+                    #searchQuerySubmit {
+
+                        margin-left: -2.5rem;
+
+                        background: none;
+
+                        border: none;
+
+                        outline: none;
+
+
+
+                        svg {
+
+                            vertical-align: baseline;
+
+
+
+                            path {
+
+                                fill: #505575;
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+
+
+                .wellname-list-section {
+
+                    h2 {
+
+                        font-size: 16px;
+
+                        color: #272C39;
+
+                        font-family: 'SLB Sans Bold';
+
+                        font-weight: 700;
+
+                        padding: 15px 10px 10px 10px;
+
+                        margin: 0px;
+
+                    }
+
+
+
+                    ul {
+
+                        list-style: none;
+
+                        padding: 0px 0px 10px 0px;
+
+
+
+                        li {
+
+                            display: inline-flex;
+
+                            padding: 10px 10px;
+
+                            width: 100%;
+
+                            border-bottom: 1px solid #C7D0D8;
+
+                            color: #000000;
+
+                            font-size: 14px;
+
+                            font-weight: 500;
+
+                            font-family: var(--font-Slb-San-Medium);
+
+                            line-height: 23px;
+
+
+
+                            .success-priorityCircle {
+
+                                width: 16px;
+
+                                height: 16px;
+
+                                background-color: #008DA9;
+
+                                border-radius: 8px;
+
+                                display: block;
+
+                                margin: 3px 10px 3px 0px;
+
+                            }
+
+
+
+                            .high-priorityCircle {
+
+                                width: 16px;
+
+                                height: 16px;
+
+                                background-color: #D11F1F;
+
+                                border-radius: 8px;
+
+                                display: block;
+
+                                margin: 3px 10px 3px 0px;
+
+                            }
+
+
+
+                            .med-priorityCircle {
+
+                                width: 16px;
+
+                                height: 16px;
+
+                                background-color: #EA910D;
+
+                                border-radius: 8px;
+
+                                display: block;
+
+                                margin: 3px 10px 3px 0px;
+
+                            }
+
+
+
+                            .defaul-priorityCircle {
+
+                                width: 16px;
+
+                                height: 16px;
+
+                                background-color: #939393;
+
+                                border-radius: 8px;
+
+                                display: block;
+
+                                margin: 3px 10px 3px 0px;
+
+                            }
+
+                        }
+
+
+
+                        .well-list-active {
+
+                            background: #F1F4F9;
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+
+
+
+
+        }
+
+        /*Css added by mg for dynacard info left panel end*/
+        .well-tabs {
+            position: relative;
+            background-color: #fff;
+
+            .mat-mdc-tab.mdc-tab {
+                height: 48px !important;
+            }
+
+            .mat-mdc-tab-labels {
+
+                border: 1px solid #CCCFDE;
+                background-color: #EBECF2;
+                border-radius: 30px;
+                display: inline-flex
+            }
+
+            .mdc-tab--active {
+                background-color: #fff;
+                border-radius: 30px !important;
+            }
+
+            .mdc-tab__text-label {
+                color: #22263D;
+                font-family: 'SLB SANS BOLD';
+                font-size: 14px !important;
+            }
+
+            .mdc-tab {
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .mdc-tab-indicator {
+                display: none;
+            }
+
+            .tabrightsec {
+                position: absolute;
+                top: 20px;
+                right: 100px;
+                display: inline-flex;
+            }
+
+            .status-cards {
+
+
+                .card-listing {
+                    width: 100%;
+                    margin-bottom: 0px;
+                    padding-left: 0px;
+
+                    li {
+                        display: inline-block;
+                        list-style: none;
+                        font-family: 'SLB SANS MEDIUM';
+                        font-size: 14px;
+                        color: #8B90AD;
+                        border-right: 1px solid #EBECF2;
+                        padding: 10px 30px;
+
+                        span {
+                            color: #22263D;
+                        }
+                    }
+                }
+            }
+
+            .mat-mdc-tab-header {
+                padding: 10px 20px;
+            }
+
+            .mat-mdc-tab-body-wrapper {
+                border: 1px solid #ececec;
+            }
+
+            .chart-wrapper {
+                background-color: #fff;
+
+                .chart-categories {
+                    ul {
+                        list-style: none;
+
+                        padding: 0px 10px 10px 10px;
+
+                        li {
+
+                            display: inline-flex;
+
+                            padding: 10px 10px;
+
+                            width: 100%;
+
+                            border-bottom: 1px solid #C7D0D8;
+
+                            color: #000000;
+
+                            font-size: 14px;
+
+                            font-weight: 500;
+
+                            font-family: var(--font-Slb-San-Medium);
+
+                            line-height: 23px;
+
+                        }
+                    }
+                }
+            }
+
+            .chart-wrapper {
+                background-color: #fff;
+
+                .chart-categories {
+                    ul {
+                        list-style: none;
+
+                        padding: 0px 10px 10px 10px;
+
+                        li {
+
+                            display: block;
+
+                            padding: 10px 10px;
+
+                            width: 100%;
+
+                            border-bottom: 1px solid #C7D0D8;
+
+                            color: #000000;
+
+                            font-size: 14px;
+
+                            font-weight: 500;
+
+                            font-family: var(--font-Slb-San-Medium);
+
+                            line-height: 23px;
+
+                            span {
+                                margin: 3px 10px 3px 0px;
+                                vertical-align: middle;
+                                display: inline-flex;
+
+                                &.card-count {
+                                    float: right;
+                                    text-align: right;
+                                    font-size: 14px;
+                                    color: #0014DC;
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        /*added for right section table start*/
+        .padding0px {
+            padding: 0px;
+        }
+
+        .panel-section {
+            box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14);
+            background: #fff;
+            padding: 0px;
+            float: left;
+            display: block;
+            margin: 10px 0px;
+            width: 100%;
+            min-height: 500px;
+        }
+
+        .left-sec-table {
+            .tableContainer {
+                .mat-mdc-row td:first-child {
+                    width: auto;
+                }
+
+                .align-center {
+                    text-align: center;
+                }
+
+                .mat-mdc-row td:nth-child(3) {
+                    width: 30%;
+                }
+
+                .svg1 {
+                    display: inline;
+                }
+
+                img,
+                svg {
+                    vertical-align: text-bottom;
+                }
+
+                .mdc-data-table__cell,
+                .mdc-data-table__header-cell {
+                    padding: 0px 6px !important;
+                }
+            }
+        }
+
+
+        /*added for right section end*/
+        .card-details-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #272C39;
+            margin: 20px 10px;
+        }
+        .card-details-section {
+            .mat-mdc-card-content {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+        }
+
+        .dynacardinfo-card-deatils {
+            background-color: #fff;
+            padding: 15px;
+
+
+            .mdc-data-table__header-cell {
+                padding: 16px 16px !important;
+                vertical-align: top;
+            }
+
+            .card-details-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: #272C39;
+                margin-bottom: 20px;
+                font-family: var(--font-Slb-San-bold)
+            }
+
+            .dynacard-cust-table-sec {
+                background-color: #EBECF2 !important;
+            }
+
+            .mat-mdc-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+                border: 1px solid #50557580;
+                background-color: #EBECF2BF;
+                border-radius: 8px;
+                padding: 8px 12px;
+
+            }
+
+            .mat-mdc-form-field .mat-mdc-select-placeholder {
+                color: #505575;
+            }
+
+            .tableContainer .mat-mdc-table .mdc-data-table__header-cell {
+                font-size: 18px;
+                font-weight: 700;
+                color: #22263D;
+
+                .thheadind-sec {
+                    display: flex;
+                }
+
+                div span {
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #6C7191;
+                    white-space: initial;
+                }
+            }
+        }
+
+        .secondcard-grid{
+            .tableContainer .mdc-data-table__cell{
+                font-size: 14px !important;
+            }
+        }
     }
 
-    .menuButton{
-        color:#505575 !important;
+    
+
+    //css added for dynacard info by swapnil ends
+
+    .mat-mdc-paginator-container {
+        padding: 10px 15px !important;
     }
+
+    .menuButton {
+        color: #505575 !important;
+    }
+
     .mat-mdc-paginator-icon {
         fill: #505575 !important;
     }
-  
+
     .controller-status-btn-danger {
-        // background: rgba(220, 87, 87, 0.2) !important;
-        background: #CCCFDE !important;
-        // border: 1px solid rgba(220, 87, 87, 1) !important;
+
+        background: rgba(209, 31, 31, 0.15);
+
         box-shadow: none;
-        color:#D11F1F !important;
+
+        color: #000 !important;
+
         border-radius: 4px !important;
+
+        border:1px solid #D11F1F;
+
     }
+
+ 
 
     .controller-status-btn-info {
-        background: #CCCFDE !important;
-        // background: rgba(8, 138, 231, 0.2) !important;
-        // border: 1px solid rgba(8, 138, 231, 1) !important;
-        box-shadow: none !important;
-        color: #1946A2 !important;
-        border-radius: 4px !important;
-    }
 
+        background: rgba(234, 145, 13, 0.15) !important;
+
+        box-shadow: none !important;
+
+        color: #000 !important;
+
+        border-radius: 4px !important;
+
+        border: 1px solid #EA910D;
+
+    }
     .controller-status-btn-default {
-        background:#CCCFDE !important;
-        // background: rgba(106, 106, 106, 0.2) !important;
-        // border: 1px solid rgba(106, 106, 106, 1) !important;
-        box-shadow: none !important;
-        color: #168244 !important;
-        border-radius: 4px !important;
-    }
 
+        background: rgba(22, 130, 68, 0.15) !important;
+
+        box-shadow: none !important;
+
+        color: #000 !important;
+
+        border-radius: 4px !important;
+
+        border:1px solid #168244;
+
+    }
     .mat-drawer-content {
-        background:#EBECF2 !important;
+        background: #EBECF2 !important;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -909,16 +1779,40 @@ button:hover {
         background: #EBECF2 !important;
     }
 
-    .filterborder{
-        border: 1px solid #e6e6e6;
-        border-radius: 8px;
+    .filterborder {
+        // border: 1px solid #e6e6e6;
+        // border-radius: 8px;
         overflow: hidden;
+        .mat-mdc-tab-list {
+            border-bottom: 1px solid #CCCFDE;
+        }
+        .mat-mdc-tab.mdc-tab {
+            height: 52px;
+            flex-grow: 1;
+            .mdc-tab__content .mdc-tab__text-label{
+                font-size: 16px !important;
+                color:#22263D;
+                font-family: "SLB SANS MEDIUM";
+                font-weight: 700;
+                }
+            .mdc-tab-indicator {
+                padding: 0 30px;
+                background: #fff;
+            }
+        }
+        .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label, .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+            color: #000B9E;
+        }
+        .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {
+            border-color: #000B9E;
+        }
     }
 
-    .mdc-tab--active { 
+    .mdc-tab--active {
         background: #fff !important;
 
-     }
+    }
+
     .mat-mdc-tab:hover .mdc-tab__ripple::before {
 
         opacity: .04;
@@ -926,169 +1820,173 @@ button:hover {
         background-color: #080912;
 
     }
-    
-
-.mdc-tab__ripple::before{background:#ddd !important; opacity: 0.04;}
-
-.mat-mdc-tab .mdc-tab-indicator__content--underline {
-
-    border-color: var(--tabBorder);
-
-}
 
 
+    .mdc-tab__ripple::before {
+        background: #ddd !important;
+        opacity: 0.04;
+    }
 
-.mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline {
+    .mat-mdc-tab .mdc-tab-indicator__content--underline {
 
-    border-color: var(--tabBorder);
+        border-color: var(--tabBorder);
 
-}
+    }
 
 
 
-.mat-mdc-tab:hover .mdc-tab__ripple::before {
+    .mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline {
 
-    opacity: .04;
+        border-color: var(--tabBorder);
 
-    background-color: #080912;
-
-}
+    }
 
 
 
-.mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,
+    .mat-mdc-tab:hover .mdc-tab__ripple::before {
 
-.mat-mdc-tab.mdc-tab--active .mat-ripple-element {
+        opacity: .04;
 
-    opacity: .04;
+        background-color: #080912;
 
-    background-color: #080912;
-
-}
+    }
 
 
 
-.mat-mdc-tab-body-wrapper {
+    .mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,
 
-    background: #171A2E;
+    .mat-mdc-tab.mdc-tab--active .mat-ripple-element {
 
-    box-shadow: 0px 0px 1px #fff;
+        opacity: .04;
 
-}
+        background-color: #080912;
+
+    }
 
 
 
-.mat-mdc-tab .mat-ripple-element {
+    .mat-mdc-tab-body-wrapper {
 
-    opacity: .12;
+        background: #171A2E;
 
-    background-color: #080912;
+        box-shadow: 0px 0px 1px #fff;
 
-}
+    }
+
+
+
+    .mat-mdc-tab .mat-ripple-element {
+
+        opacity: .12;
+
+        background-color: #080912;
+
+    }
 
 
 
     //added css for left filter and sort 
-    .left-wellFilter{
-        position:relative;
+    .left-wellFilter {
+        position: relative;
+        background-color: #fff !important;
 
-        .filterapplyBtn{
-            position:fixed;
-            bottom:10px;
+        .filterapplyBtn {
+            position: fixed;
+            bottom: 10px;
 
-            .mdc-button__label{
-                display:flex;
+            .mdc-button__label {
+                display: flex;
                 justify-content: space-between;
                 font-size: 14px;
-                color:#fff;
+                color: #fff;
                 width: 100%;
-               
+
             }
         }
-     
-        .mat-expansion-panel-header.mat-expanded{
+
+        .mat-expansion-panel-header.mat-expanded {
             height: inherit;
         }
 
 
-        .priorityalign{
-            display:inline-block
+        .priorityalign {
+            display: inline-block
         }
- 
+
         ::ng-deep {
 
-           
+
             .mat-mdc-tab .mdc-tab-indicator__content--underline {
-        
+
                 border-color: var(--tabBorder);
-        
+
             }
-        
-        
-        
+
+
+
             .mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline {
-        
+
                 border-color: var(--tabBorder);
-        
+
             }
-        
-        
-        
+
+
+
             .mat-mdc-tab:hover .mdc-tab__ripple::before {
-        
+
                 opacity: .04;
-        
+
                 background-color: #080912;
-        
+
             }
-        
-        
-        
+
+
+
             .mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,
-        
+
             .mat-mdc-tab.mdc-tab--active .mat-ripple-element {
-        
+
                 opacity: .04;
-        
+
                 background-color: #080912;
-        
+
             }
-        
-        
-        
+
+
+
             .mat-mdc-tab-body-wrapper {
-        
+
                 background: #171A2E;
-        
+
                 box-shadow: 0px 0px 1px #fff;
-        
+
             }
-        
-        
-        
+
+
+
             .mat-mdc-tab .mat-ripple-element {
-        
+
                 opacity: .12;
-        
+
                 background-color: #080912;
-        
+
             }
-        
+
         }
-       
-        background-color: #fff !important;
-    
-        .label{
-            color:#051464 !important;
+
+
+
+        .label {
+            color: #051464 !important;
             font-size: 18px;
 
-            &.applyfilterHead{
+            &.applyfilterHead {
                 font-size: 18px !important;
                 font-family: 'SLB Sans Bold';
             }
         }
-    
-        .filterBtn{
+
+        .filterBtn {
             background-color: #CCCFDE;
             border-radius: 4px;
             padding: 10px;
@@ -1096,172 +1994,180 @@ button:hover {
             margin: 20px 0 0 20px;
             box-shadow: none !important;
             font-family: 'SLB SANS MEDIUM';
-            
+
         }
-    
-        .mat-expansion-panel:not([class*=mat-elevation-z]){
+
+        .mat-expansion-panel:not([class*=mat-elevation-z]) {
             box-shadow: none !important;
             border-radius: 0px;
         }
-    
-       
-        .mat-mdc-slider{
-    
-        width: 75% !important;
-        margin: 10px auto !important;
-    
+        .mat-mdc-slider {
+
+            width: 75% !important;
+            margin: 10px auto !important;
         }
-    
-        .mat-mdc-slider .mdc-slider__thumb-knob{
+        .mat-mdc-slider .mdc-slider__thumb-knob {
             background-color: #E6E6E6 !important;
             border-color: #CBCBCB !important;
         }
-    
-        .mat-mdc-slider .mdc-slider__track--inactive{
+
+        .mat-mdc-slider .mdc-slider__track--inactive {
             background-color: #E6E6E6;
             opacity: 1;
         }
-    
-        .mat-mdc-slider .mdc-slider__track--active_fill{
+
+        .mat-mdc-slider .mdc-slider__track--active_fill {
             border-color: #3BAB46 !important;
         }
-    
+
         .mdc-slider .mdc-slider__value-indicator {
             transform: initial;
             opacity: 1;
             border-radius: 8px;
             border: 1px solid #ADB1C7;
             background-color: #EFF0F5;
+            color:#000 !important;
+
         }
-        .mdc-slider .mdc-slider__value-indicator::after, .mdc-slider .mdc-slider__value-indicator::before {
+
+        .mdc-slider .mdc-slider__value-indicator::after,
+        .mdc-slider .mdc-slider__value-indicator::before {
             display: none;
         }
-    
-        .mat-expansion-panel-body{
-            padding:0 !important
+
+        .mat-expansion-panel-body {
+            padding: 0 !important
         }
-        .mat-expansion-panel-content{
+
+        .mat-expansion-panel-content {
             padding: 0 20px !important;
         }
-       .applyfilterBtn .mat-mdc-raised-button:not(:disabled){
-        background-color: #0014DC;
-        border-radius: 20px;
-        width:410px;
-       }
-        .margin0{ margin:0px}
-        .mat-accordion{
-    
+
+        .applyfilterBtn .mat-mdc-raised-button:not(:disabled) {
+            background-color: #0014DC;
+            border-radius: 20px;
+            width: 375px;
+        }
+
+        .margin0 {
+            margin: 0px
+        }
+
+        .mat-accordion {
+
             border-bottom: 1px solid #ECEFF1;
-    
-            padding:0px;
-    
-            .mat-expansion-panel-header-description, .mat-expansion-indicator::after{
-                color:#051464;
+
+            padding: 0px;
+
+            .mat-expansion-panel-header-description,
+            .mat-expansion-indicator::after {
+                color: #051464;
                 width: 14px;
                 height: 14px;
             }
-    
-            .mat-mdc-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled){
-                border:1px solid #8B90AD;
+
+            .mat-mdc-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+                border: 1px solid #8B90AD;
                 background-color: #EFF0F5;
                 border-radius: 28px;
                 padding: 8px 12px;
-       
+
             }
-    
-            
-    
-            h4{
+
+
+
+            h4 {
                 font-size: 18px !important;
-                color:#051464 !important;
+                color: #051464 !important;
                 font-family: 'SLB Sans Bold' !important;
                 margin-bottom: 0px;
             }
-    
-            .mdc-form-field{
-                label{
-                    color:#051464;
-                    font-size: 16px;    
+
+            .mdc-form-field {
+                label {
+                    color: #051464;
+                    font-size: 16px;
                 }
-    
+
                 ::ng-deep {
-           
-                    label[for = "checkbox-00-input"] {
-                  
+
+                    label[for="checkbox-00-input"] {
+
                         color: red !important;
-                    
-                      }
-                    
-                      label[for = "checkbox-01-input"] {
-                    
+
+                    }
+
+                    label[for="checkbox-01-input"] {
+
                         color: green !important;
-                    
-                      }
-                    
-                      label[for = "checkbox-10-input"] {
-                    
+
+                    }
+
+                    label[for="checkbox-10-input"] {
+
                         color: red !important;
-                    
-                      }
-                    
-                      label[for = "checkbox-11-input"] {
-                    
+
+                    }
+
+                    label[for="checkbox-11-input"] {
+
                         color: skyblue !important;
-                    
-                      }
-                    
-                      label[for = "checkbox-12-input"] {
-                    
+
+                    }
+
+                    label[for="checkbox-12-input"] {
+
                         color: black !important;
-                    
-                      }
-               
-              }
-                
-                .mdc-checkbox__background{
-                    border: 2px solid #ADB1C7 !important;
-                    border-radius: 5px;
+
+                    }
+
                 }
-    
-                .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
-                    background-color: #051464 !important;
-    
-                }
-    
-                .mdc-checkbox__mixedmark {
-                    width: 94%;
-                }
-    
-                .mdc-checkbox__checkmark{
-                    width:85%;
-                    left:1px;
-                    top:1px;
-                }
-               
+
+                // .mdc-checkbox__background{
+                //     border: 2px solid #ADB1C7 !important;
+                //     border-radius: 5px;
+                // }
+
+                // .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background{
+                //     background-color: #051464 !important;
+
+                // }
+
+                // .mdc-checkbox__mixedmark {
+                //     width: 94%;
+                // }
+
+                // .mdc-checkbox__checkmark{
+                //     width:85%;
+                //     left:1px;
+                //     top:1px;
+                // }
+
             }
-    
-            .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
-                border-color:#fff !important;
-            }
-            .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
-                color: #fff;
-            }
-    
+
+            // .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+            //     border-color:#fff !important;
+            // }
+            // .mat-mdc-checkbox .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+            //     color: #fff;
+            // }
+
         }
-      }
+    }
+
     .container-title {
         background-color: rgb(254, 254, 254) !important;
-        
+
 
         svg {
             path {
-                fill: rgba(80, 85, 117, 1) !important;
+                fill: #22263D !important;
             }
 
         }
 
         h1 {
-            color: rgba(80, 85, 117, 1) !important;
+            color: #22263D !important;
         }
     }
 
@@ -1280,16 +2186,16 @@ button:hover {
     }
 
     .select-filter {
-        background: rgba(251, 251, 253, 1) !important;
-        border: 1px solid rgba(110, 114, 141, 1) !important;
-        width: 340px;
-        border-radius: 12px;
+        // background: rgba(251, 251, 253, 1) !important;
+        // border: 1px solid rgba(110, 114, 141, 1) !important;
+        // width: 340px;
+        // border-radius: 12px;
 
-        .select-filter-header {
-            .select-filter-title {
-                color: rgba(5, 20, 100, 1) !important;
-            }
-        }
+        // .select-filter-header {
+        //     .select-filter-title {
+        //         color: rgba(5, 20, 100, 1) !important;
+        //     }
+        // }
 
         .select-filter-section {
             .select-lbl {
@@ -1297,31 +2203,32 @@ button:hover {
             }
         }
 
-        .mat-mdc-checkbox {
-            .mdc-form-field {
-                color: rgba(80, 85, 117, 1);
-            }
-        }
+        // .mat-mdc-checkbox {
+        //     .mdc-form-field {
+        //         color: rgba(80, 85, 117, 1);
+        //     }
+        // }
 
-        .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
-            border-color: rgba(173, 177, 199, 1) !important;
-            background-color: rgba(239, 240, 245, 1) !important;
-        }
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+        //     border-color: rgba(173, 177, 199, 1) !important;
+        //     background-color: rgba(239, 240, 245, 1) !important;
+        // }
 
-        .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
-            border-color: #ADB1C7 !important;
-            background-color:#051464 !important;
-        }
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+        //     border-color: #ADB1C7 !important;
+        //     background-color:#051464 !important;
+        // }
 
-        .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
-            color: #fff !important;
-        }
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+        //     color: #fff !important;
+        // }
 
         .mat-mdc-icon-button {
             svg {
                 width: 16px;
                 fill: rgba(80, 85, 117, 1);
-                path{
+
+                path {
                     fill: #505575;
                 }
             }
@@ -1331,20 +2238,65 @@ button:hover {
 
     // krishna's css for light theme
 
+    // all checkbox css for light theme ------------- start
+
+    .mat-mdc-checkbox {
+        label {
+            color: #505575;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+            border-color: #ADB1C7;
+            background-color: #EFF0F5;
+        }
+
+        .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+        .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
+            border-color: #FABB42 !important;
+            background-color: #000B9E !important;
+        }
+
+        .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+            border-color: #fff;
+        }
+
+        .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+            color: #fff;
+        }
+
+        .mdc-checkbox__ripple {
+            background: #000;
+        }
+
+
+    }
+
+    .mat-mdc-checkbox.mat-accent .mdc-checkbox--selected~.mdc-checkbox__ripple {
+        background: #000;
+    }
+
+
+    // all checkbox css for light theme ------------- end
+
     .mat-mdc-tab-body-wrapper {
         background-color: #FBFBFD;
     }
+
     .well-list-section {
         .well-header-section {
             display: flex;
             justify-content: space-between;
             margin-top: 15px;
             align-items: baseline;
+
             .card-title {
                 font-size: 18px;
                 color: #051464;
                 font-weight: 700;
             }
+
             .savelist {
                 background: #051464;
                 border-radius: 40px;
@@ -1352,16 +2304,19 @@ button:hover {
                 font-size: 14px;
                 font-weight: 500;
             }
+
             .clearlist {
                 font-size: 15px;
                 color: #505575;
                 font-weight: 500;
             }
         }
+
         .select-list {
             margin-top: 15px;
             display: flex;
             justify-content: space-around;
+
             .mat-mdc-slide-toggle {
                 label {
                     color: #505575;
@@ -1369,20 +2324,24 @@ button:hover {
                     font-weight: 500;
                 }
             }
+
             span {
                 color: #505575;
                 font-size: 16px;
                 font-weight: 500;
             }
         }
+
         .search-list {
             margin-top: 10px;
             padding: 10px 20px 10px 10px;
+
             .searchBar {
                 width: auto;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+
                 #searchQueryInput {
                     background: rgba(239, 240, 245, 1);
                     border-color: rgba(139, 144, 173, 1);
@@ -1402,13 +2361,16 @@ button:hover {
                         color: rgba(80, 85, 117, 1);
                     }
                 }
+
                 #searchQuerySubmit {
                     margin-left: -2.5rem;
                     background: none;
                     border: none;
                     outline: none;
+
                     svg {
                         vertical-align: baseline;
+
                         path {
                             fill: #505575;
                         }
@@ -1416,36 +2378,38 @@ button:hover {
                 }
             }
         }
+
         .select-field {
             .checkbox-section {
                 display: inline-block;
+
                 p {
                     width: 50%;
                     float: left;
-                    .mat-mdc-checkbox 
-                    {
-                        label 
-                        {
-                            color: #505575;
-                            font-size: 16px;
-                            font-weight: 500;
-                        }
-                        .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true]) ~ .mdc-checkbox__background {
-                            border-color: #ADB1C7;
-                            background-color: #EFF0F5;
-                        }
-                        .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
-                            border-color: #ADB1C7 !important;
-                            background-color: #051464 !important;
-                        }
-                        .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
-                            border-color: #fff;
-                        }
-                        .mdc-checkbox .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background .mdc-checkbox__checkmark {
-                            color: #fff;
-                        }
-            
-                    }
+                    // .mat-mdc-checkbox 
+                    // {
+                    //     label 
+                    //     {
+                    //         color: #505575;
+                    //         font-size: 16px;
+                    //         font-weight: 500;
+                    //     }
+                    //     .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true]) ~ .mdc-checkbox__background {
+                    //         border-color: #ADB1C7;
+                    //         background-color: #EFF0F5;
+                    //     }
+                    //     .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+                    //         border-color: #ADB1C7 !important;
+                    //         background-color: #051464 !important;
+                    //     }
+                    //     .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+                    //         border-color: #fff;
+                    //     }
+                    //     .mdc-checkbox .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background .mdc-checkbox__checkmark {
+                    //         color: #fff;
+                    //     }
+
+                    // }
                 }
             }
         }
@@ -1456,53 +2420,59 @@ button:hover {
             min-height: 495px;
             white-space: nowrap;
         }
-        .mat-tree-node, .mat-nested-tree-node {
+
+        .mat-tree-node,
+        .mat-nested-tree-node {
             font-weight: 700;
             font-size: 18px !important;
             color: #051464 !important;
         }
+
         .button__arrow {
             color: #051464 !important;
             width: 28px !important;
             height: 30px !important;
+
             .mat-icon {
                 height: 30px;
                 width: 30px;
             }
+
             .material-icons {
                 font-size: 30px;
             }
         }
-        .mat-mdc-checkbox .mdc-form-field {
-            margin-right: 4px;
-            vertical-align: bottom;
-            color: #051464;
-            height: 24px;
-            font-size: 18px !important;
-            font-weight: 700;
-        }
-        .mat-mdc-checkbox.status-lbl .mdc-form-field {
-            color: #505575;
-            font-size: 16px !important;
-            font-weight: 500;
-            
-        }
 
-        .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true]) ~ .mdc-checkbox__background {
-            border-color: #ADB1C7;
-            background-color: #EFF0F5;
-        }
-        .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
-            border-color: #ADB1C7 !important;
-            background-color: #051464 !important;
-        }
-        .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
-            border-color: #fff;
-        }
-        .mdc-checkbox .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background .mdc-checkbox__checkmark {
-            color: #fff;
-        }
-       
+        // .mat-mdc-checkbox .mdc-form-field {
+        //     margin-right: 4px;
+        //     vertical-align: bottom;
+        //     color: #051464;
+        //     height: 24px;
+        //     font-size: 18px !important;
+        //     font-weight: 700;
+        // }
+        // .mat-mdc-checkbox.status-lbl .mdc-form-field {
+        //     color: #505575;
+        //     font-size: 16px !important;
+        //     font-weight: 500;
+
+        // }
+
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true]) ~ .mdc-checkbox__background {
+        //     border-color: #ADB1C7;
+        //     background-color: #EFF0F5;
+        // }
+        // .mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background, .mdc-checkbox__native-control:enabled:indeterminate ~ .mdc-checkbox__background {
+        //     border-color: #ADB1C7 !important;
+        //     background-color: #051464 !important;
+        // }
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+        //     border-color: #fff;
+        // }
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled ~ .mdc-checkbox__background .mdc-checkbox__checkmark {
+        //     color: #fff;
+        // }
+
         .well-list-footer-section {
             display: flex;
             justify-content: center;
@@ -1517,4 +2487,457 @@ button:hover {
             }
         }
     }
+
+    //    srp alert page css for light theme
+
+    .main-alerts {
+        .margin-15 {
+            margin: 15px;
+        }
+
+        .border-right {
+            border-right: 1px solid #CCCFDE;
+        }
+
+        .pr-0 {
+            padding-right: 0 !important;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .category-container {
+            background-color: rgb(252, 252, 255);
+
+            .category-container-header {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid #CCCFDE;
+                padding: 15px 0 15px 24px;
+                align-items: center;
+
+                .category-title {
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: #22263D;
+                }
+
+            }
+
+            .prioritywrapper {
+                ul {
+                    padding-left: 0px;
+                    margin-bottom: 0;
+
+                    li {
+                        width: auto;
+                        display: inline-block;
+                        padding-right: 20px;
+                        font-size: 12px !important;
+                        color: #fff;
+                        font-family: 'SLB Sans Regular';
+
+                        &.priority {
+                            position: relative;
+                            margin-left: 20px;
+                            font-size: 20px;
+                            color: #505575;
+                            font-weight: 700;
+
+                            &:before {
+                                position: absolute;
+                                left: -24px;
+                                content: "";
+                                height: 15px;
+                                width: 21px;
+                                margin-bottom: 15px;
+                                top: 2px;
+                                border-radius: 2px
+                            }
+
+                            &.high {
+                                &:before {
+                                    background-color: #D11F1F
+                                }
+                            }
+
+                            &.medium {
+                                &:before {
+                                    background-color: #FABB42
+                                }
+                            }
+
+                            &.low {
+                                &:before {
+                                    background-color: #28A228;
+                                }
+                            }
+
+                            &.cleared {
+                                &:before {
+                                    background-color: #9F9F9F;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .category-content-block {
+                display: flex;
+
+
+            }
+        }
+
+        td.actionbtn {
+            .headIcon-btn {
+                svg {
+                    path {
+                        fill: #051464;
+                    }
+                }
+            }
+
+        }
+    }
+
+    // srp custom alerts css for light theme 
+    .border-bottom {
+        border-bottom: 1px solid #CCCFDE;
+    }
+
+    .border-right {
+        border-right: 1px solid #CCCFDE;
+    }
+
+    .main-container-custom-alert {
+        width: 1410px;
+        height: auto;
+        background-color: #e9e9e9cc;
+        border-radius: 8px;
+        color: #22263D;
+        padding-bottom: 10px;
+        max-height: 89vh;
+        overflow-y: auto;
+
+        .cust-alert-header {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+
+            .mat-mdc-icon-button.mat-mdc-button-base {
+                width: 20px;
+                height: 20px;
+                padding: 0;
+                margin: 0;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+
+                    path {
+                        fill: #6D7189;
+                    }
+                }
+            }
+
+            .mat-mdc-icon-button .mat-mdc-button-touch-target {
+                position: absolute;
+                top: 50%;
+                height: 32px;
+                left: 50%;
+                width: 32px;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        // .mat-mdc-checkbox-touch-target {
+        //     height: 36px;
+        //     width: 36px;
+        // }
+
+        // .mdc-checkbox .mdc-checkbox__background {
+        //     top: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
+        //     left: calc((var(--mdc-checkbox-state-layer-size) - 23px) / 2);
+        // }
+
+        // .mdc-checkbox {
+        //     flex: 0 0 14px;
+        // }
+
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+        //     border-color: #ADB1C7;
+        //     background-color: #080912;
+        // }
+
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+        //     border-color: #FABB42;
+        //     background-color: #3A83FF;
+        // }
+
+        // .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+        //     color: #080912;
+        // }
+
+        .select-filter-section {
+            margin-top: 18px;
+
+            .select-lbl {
+                font-size: 16px;
+                color: #051464;
+                padding: 4px 0;
+                font-weight: 700;
+            }
+
+            .mat-mdc-form-field {
+                display: block;
+                margin-bottom: 2px;
+
+                .mat-mdc-text-field-wrapper {
+                    background-color: #EFF0F5;
+                    border-radius: 10px;
+                    padding: 8px 12px;
+                    border: 1px solid #8B90AD;
+                    will-change: unset;
+                }
+
+                .mat-mdc-text-field-wrapper:hover {
+                    border-color: #8B90AD;
+                }
+
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__leading,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__notch,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-notched-outline .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+                .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+                .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+                .mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+                    border: none;
+                }
+
+                .mdc-text-field--invalid .mdc-text-field__input {
+                    caret-color: #ADB1C7;
+                    margin: 0;
+                }
+
+                .mdc-text-field__input {
+                    background: transparent !important;
+                    color: #000 !important;
+                    padding: 13px 0 !important;
+                    height: 24px !important;
+                    width: 100%;
+                    /* margin-left: 10px; */
+                    border-radius: 6px;
+                    /* margin-bottom: 10px; */
+                    border: 1px solid #ececec !important;
+                    margin: 0 !important;
+                }
+
+                .mdc-line-ripple::after,
+                .mdc-line-ripple::before {
+                    border-bottom-width: 0 !important;
+                }
+
+                .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+                    color: #505575 !important;
+                }
+
+                .mat-mdc-select-placeholder {
+                    color: #505575;
+                }
+
+                .mat-mdc-select-arrow {
+                    color: #505575;
+                }
+
+                .mdc-text-field--no-label:not(.mdc-text-field--outlined):not(.mdc-text-field--textarea) .mat-mdc-form-field-infix {
+                    padding-top: 1px;
+                    padding-bottom: 1px;
+                    padding-left: 2px;
+                }
+
+                .mat-mdc-form-field-infix {
+                    min-height: fit-content;
+                    padding: 0;
+                    font-size: 16px;
+                }
+
+                .mdc-text-field--outlined .mdc-notched-outline {
+                    display: none;
+                }
+            }
+
+        }
+
+        .calender-alrt-filter-section-date-range {
+            .calender-alrt-filter-date-range-title {
+                color: #051464;
+                font-size: 16px;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+
+            .mat-mdc-button.mat-unthemed {
+                border-radius: 8px;
+                color: #22263D;
+                font-size: 16px;
+                font-weight: 700;
+                background: transparent;
+            }
+
+            .mat-calendar-arrow {
+                fill: #22263D;
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                margin: 0px 0 0 6px;
+                vertical-align: baseline;
+            }
+
+            .mat-calendar-previous-button::after,
+            .mat-calendar-next-button::after {
+                color: #22263D;
+            }
+
+            .mat-calendar-table-header {
+                color: #505575;
+
+            }
+
+            .mat-calendar-table-header th {
+                font-size: 13px;
+                font-weight: 500;
+            }
+
+            .mat-calendar-body-label {
+                color: #22263D;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .mat-calendar-body-cell-content {
+                color: #22263D;
+                font-size: 12px;
+                font-weight: 500;
+            }
+
+            .mat-calendar-table-header-divider::after {
+                background: #8B90AD;
+            }
+
+            .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+                border-color: #0014DC;
+            }
+
+            .mat-calendar-body-selected {
+                background-color: #000B9E;
+                color: #fff !important;
+                border-color: #FABB42;
+                border-width: 2px !important;
+            }
+
+            .mat-calendar-body-in-range::before {
+                background: #0014DC;
+                opacity: 5%;
+            }
+
+            .ngx-mat-timepicker {
+                form .ngx-mat-timepicker-table {
+                    margin-left: 20%;
+
+                    .ngx-mat-timepicker-tbody tr td .mat-mdc-icon-button {
+                        height: 55px;
+                        width: 55px;
+                        line-height: 24px;
+                        padding: 0;
+                    }
+
+                    .ngx-mat-timepicker-tbody tr td .mat-mdc-form-field {
+                        width: 40px;
+                        height: 40px;
+                        text-align: center;
+                        background: #fff;
+                        border-radius: 10px;
+                        padding: 4px;
+                        max-width: 40px;
+                        border: 1px solid #ADB1C7;
+                        margin-left: 7px;
+                    }
+
+                    .mdc-text-field__input {
+                        background: #fff !important;
+                        color: #000 !important;
+                        padding: 0px !important;
+                        height: 35px !important;
+                        width: 100%;
+                        margin-left: 0px;
+                        border-radius: 6px;
+                        margin-bottom: 0px;
+                        border: 0 !important;
+                        margin-top: -10px;
+                        font-size: 14px !important;
+                        font-weight: 700 !important;
+                    }
+                }
+            }
+
+        }
+
+        .custom-alrt-action-btn-grp {
+            display: flex;
+            justify-content: end;
+            padding: 10px 30px;
+            border-top: 1px solid #CCCFDE;
+
+            .action-btn {
+                font-size: 12px;
+                background-color: #fff;
+                border: 1px solid #CCCFDE;
+                color: #505575;
+                padding: 6px 16px;
+                height: 35px;
+                border-radius: 40px;
+                width: auto;
+            }
+
+            .active {
+                background-color: #0014DC;
+                color: #fff;
+            }
+        }
+
+        .mat-mdc-table,
+        .mat-mdc-paginator {
+            background: transparent;
+
+            .mat-mdc-icon-button svg,
+            .mat-mdc-icon-button img {
+                width: 18px;
+                height: 18px;
+            }
+
+            .mat-mdc-slide-toggle {
+                vertical-align: super;
+            }
+        }
+    }
+
 }

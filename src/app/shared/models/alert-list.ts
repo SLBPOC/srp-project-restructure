@@ -4,5 +4,6 @@ export interface AlertList {
     date: Date;
     desc: string;
     status: string;
+    category: string;
     action: string;
 }

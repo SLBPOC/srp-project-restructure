@@ -44,6 +44,10 @@ import { WellTreeSearchComponent } from './components/well-tree-search/well-tree
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { WellTreeListComponent } from './components/well-tree-list/well-tree-list.component';
+import { CustomAlertService } from './services/customAlert.service';
+import { NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     StylePaginatorDirective,
     WellTreeView,
     WellTreeSearchComponent,
+    WellTreeListComponent,
   ],
   imports: [
     CommonModule,
@@ -88,13 +93,14 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatProgressSpinnerModule,
     MatSliderModule,
     MtxTooltipModule,
-    
+    NgxMatTimepickerModule,
     MatInputModule,
     MatSelectModule,
       ],
   exports: [
     WellTreeSearchComponent,
     WellTreeView,
+    WellTreeListComponent,
     HighchartsChartModule,
     FormsModule,
     RouterModule,
@@ -130,8 +136,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatExpansionModule,
     MatSliderModule,
     MtxTooltipModule,
+    NgxMatTimepickerModule
   ],
   providers: [
+    DatePipe,
     BsModalService,
     AlertListService,
     WellsService,
@@ -140,7 +148,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     DashboardService,
     ChecklistDatabase,
     DynacardService,
-    
+    CustomAlertService
 
   ],
     entryComponents: []

@@ -47,8 +47,9 @@ import { AlgomitFiltertabsComponent } from './components/well-details-view/algom
     WellListRoutingModule,
     SharedModule,
   ],
-  // exports: [
-  //   WellTreeSearchComponent, WellTreeView
-  // ]
+  exports: [
+    WellFilterAndSortComponent
+    // WellTreeSearchComponent, WellTreeView
+  ]
 })
 export class WellListModule { }
