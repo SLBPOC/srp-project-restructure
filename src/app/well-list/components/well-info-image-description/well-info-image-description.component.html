@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <!-- <div class="row well-info border">
+    <app-well-info></app-well-info>
+  </div> -->
+  <div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-12 m-r-l-auto ">
+      <mat-icon class="icon-1 info-icon button-type-none" matTooltip="{{'Gateway Id = ' + dataResult?.gatewayId}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-2 info-icon button-type-none" matTooltip="{{'GearBox Load Percentage = ' + dataResult?.gearBoxLoadPercentage}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-3 info-icon button-type-none" matTooltip="{{'Calculated Pump Intake Pressure = ' + dataResult?.calculatedPumpIntakePressure}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-4 info-icon button-type-none" matTooltip="{{'Surface Unit Information = ' + dataResult?.surfaceUnitInformation}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-5 info-icon button-type-none" matTooltip="{{'Stroke Length (Inches) = ' + dataResult?.strokeLengthInInches}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-6 info-icon button-type-none" matTooltip="{{'Casing Head Pressure = ' + dataResult?.casingHeadPressure}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-7 info-icon button-type-none" matTooltip="{{'Tubing Head Pressure = ' + dataResult?.tubingHeadPressure}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-8 info-icon button-type-none" matTooltip="{{'Load = ' + dataResult?.load}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <mat-icon class="icon-9 info-icon button-type-none" matTooltip="{{'SPM = ' + dataResult?.spm}}" matTooltipPosition="above" matTooltipClass="tooltip-well-info-image">info_outline</mat-icon>
+      <!-- <i class="fa fa-info info-icon icon-1" matTooltip="{{dataResult?.gatewayId}}" aria-hidden="true"></i> -->
+      <!-- <i class="fa fa-info info-icon icon-2" matTooltip="{{dataResult?.gearBoxLoadPercentage}}" aria-hidden="true"></i> -->
+      <!-- <i class="fa fa-info info-icon icon-3" matTooltip="{{dataResult?.gearBoxLoadPercentage}}" aria-hidden="true"></i>
+      <i class="fa fa-info info-icon icon-4" matTooltip="{{dataResult?.surfaceUnitInformation}}" aria-hidden="true"></i>
+      <i class="fa fa-info info-icon icon-5" matTooltip="{{dataResult?.strokeLengthInInches}}" aria-hidden="true"></i> -->
+      <!-- <i class="fa fa-info info-icon icon-6"
+        matTooltip="{{dataResult?.tubingHeadPressure || dataResult?.casingHeadPressure}}" aria-hidden="true"></i>
+      <i class="fa fa-info info-icon icon-7" matTooltip="{{dataResult?.gearBoxLoadPercentage}}" aria-hidden="true"></i>
+      <i class="fa fa-info info-icon icon-8" matTooltip="{{dataResult?.gearBoxLoadPercentage}}" aria-hidden="true"></i>
+      <i class="fa fa-info info-icon icon-9" matTooltip="{{dataResult?.calculatedPumpIntakePressure}}"
+        aria-hidden="true"></i> -->
+
+      <img src="../../../../assets/images/srp-diagram.jpg" alt="">
+
+      <div class="well-info-details">
+        <div class="well-info-details-content">
+          <p>Last Well Test</p>
+          <p><span>Test Gas: </span> <span> {{dataResult?.lastWellTestData?.testGasData}}</span></p>
+          <p><span>Test Oil: </span> <span> {{dataResult?.lastWellTestData?.testOil}}</span></p>
+          <p><span>Test Water: </span> <span> {{dataResult?.lastWellTestData?.testWater}}</span></p>
+          <p><span>Test Gross: </span> <span> {{dataResult?.lastWellTestData?.testGross}}</span></p>
+          <p>12/2/2023 12:00:00 AM</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

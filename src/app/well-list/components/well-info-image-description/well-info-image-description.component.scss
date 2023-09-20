@@ -1,0 +1,112 @@
+.container-fluid {
+
+  .well-info {
+    height: 150px;
+  }
+
+  .well-info-details {
+    position: absolute;
+    min-height: 100px;
+    // border: 1px solid;
+    width: 300px;
+    left: 168px;
+    top: 510px;
+
+    .well-info-details-content {
+      p {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  i {
+    font-size: 20px;
+    color: #0d6efd;
+    border: 1px solid;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .info-icon {
+    font-size: 35px;
+    color: blue;
+    width: 35px;
+    height: 35px;
+  }
+
+
+
+  .icon-1 {
+    position: absolute;
+    left: 13%;
+    top: 21%;
+  }
+
+  .icon-2 {
+    position: absolute;
+    left: 31.5%;
+    top: 14.8%;
+  }
+
+  .icon-3 {
+    position: absolute;
+    left: 33.5%;
+    top: 5%;
+  }
+
+  .icon-4 {
+    position: absolute;
+    left: 41.3%;
+    top: 28%;
+  }
+
+  .icon-5 {
+    position: absolute;
+    left: 74%;
+    top: 8%;
+  }
+
+  .icon-6 {
+    position: absolute;
+    left: 63%;
+    top: 40.5%;
+  }
+
+  .icon-7 {
+    position: absolute;
+    left: 63%;
+    top: 57%;
+  }
+
+  .icon-8 {
+    position: absolute;
+    left: 74%;
+    top: 15%;
+  }
+
+  .icon-9 {
+    position: absolute;
+    left: 65%;
+    top: 29%;
+  }
+
+  .m-r-l-auto {
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+  }
+}

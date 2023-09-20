@@ -1,0 +1,29 @@
+<div class="container-fluid">  
+   <div class="row">
+     <div class="col-9 border">
+       <div style="width: 100%; min-height: 500px; display: block" id="bubble-chart"></div>
+     </div>
+     <div class="col-3 border">
+       <div class="row p-2 legend-color" *ngFor="let data of chartInfo; let i = index">
+         <div class="col-8 text-md-start">
+           <!-- <CircleIcon/>  -->
+           <i class="{{data?.symbolClass}}" [ngStyle]="{color: data?.symbolColor}" aria-hidden="true"> </i>
+           <!-- <i [ngClass]="
+           data?.symbol === 'circle' ? 'fa fa-circle' : 
+           data?.symbol === 'circle' ? 'fa fa-circle' : 
+           data?.symbol === 'circle' ? 'fa fa-circle' : 
+           data?.symbol === 'circle' ? 'fa fa-circle' : 
+           data?.symbol === 'circle' ? 'fa fa-circle' : 
+           data?.symbol === 'circle' ? 'fa fa-circle' : 'fa fa-diamond'
+           
+           " aria-hidden="true"> </i> -->
+ 
+           {{data?.type}}
+         </div>
+         <div class="col-4 text-md-end">{{data?.value}}
+           
+         </div>
+      </div>
+     </div>
+   </div>
+ </div>

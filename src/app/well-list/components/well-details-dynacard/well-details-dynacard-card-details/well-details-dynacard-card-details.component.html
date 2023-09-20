@@ -1,0 +1,103 @@
+<!-- <div class="dynacard-sec-right-second">
+    <div class="dynacard-sec-right-header">
+       <div class="dynacard-sec-right-header-title">
+          Cards Details
+       </div>
+    </div>
+    <div class="dynacard-sec-right-sub-header">
+       <div class="dynacard-sec-right-sub-header-title">
+          <div class="main-title">
+             <span class="circle bgcolor-aqua"></span> Pump Tagging
+          </div>
+          <span class="date-time">2023-06-21 13:14:59</span>
+       </div>
+       <div class="select-classification">
+          <mat-form-field>
+             <mat-select placeholder="Change Classification">
+                 <mat-option *ngFor="let food of foods" [value]="food.value">
+                 {{food.viewValue}}
+                 </mat-option>
+             </mat-select>
+          </mat-form-field>
+       </div>
+    </div>
+    <div class="divider"></div>
+    <div class="card-details-block">
+       <!-- <div class="mat-card">
+          <p class="pera-first">Minimum Polished Rod Load</p>
+          <p class="pera-second">17,829 lbs</p>
+          <p class="pera-third">Peak Polished Rod</p>
+       </div>
+       <div class="mat-card">
+          <p class="pera-first">Card Area</p>
+          <p class="pera-second">4,294.967 lbs</p>
+          <p class="pera-third">Pump Fillage</p>
+       </div>
+       <div class="mat-card">
+          <p class="pera-first">Pumping Speed (SPM)</p>
+          <p class="pera-second">600.0 spm</p>
+          <p class="pera-third">Peak Polished Rod</p>
+       </div>
+       <div class="mat-card">
+          <p class="pera-first">Surface Card Maximum Position</p>
+          <p class="pera-second">306.0 in</p>
+          <p class="pera-third">Surface Card</p>
+       </div>
+       <div class="mat-card">
+          <p class="pera-first">Surface Stroke Period</p>
+          <p class="pera-second">0.00 seconds</p>
+          <p class="pera-third"></p>
+       </div> -->
+<!-- <mat-card class="mat-card">
+      <div class="chips">
+        <div class="chip" *ngFor="let summary of dynacardSummaryData">
+          <div class="chip-label">{{ summary.label }}</div>
+          <div class="chip-value">{{ summary.value }}</div>
+        </div>
+      </div>
+        </mat-card> 
+
+        
+    </div>
+</div> -->
+
+<div class="dynacard-sec-right-second">
+   <div class="dynacard-sec-right-header">
+      <div class="dynacard-sec-right-header-title">
+         Cards Details
+      </div>
+   </div>
+   <div class="dynacard-sec-right-sub-header">
+      <div class="dynacard-sec-right-sub-header-title">
+         <div class="main-title">
+            <span class="circle bgcolor-aqua"></span> Pump Tagging
+         </div>
+         <span class="date-time">{{selectedTimeDetails.id}}</span>
+      </div>
+      <div class="select-classification">
+         <mat-form-field>
+            <mat-select placeholder="Change Classification">
+               <mat-option *ngFor="let welldata of welldata" [value]="welldata.value">
+                  {{welldata.viewValue}}
+
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+         <!-- <div class="container">
+            <select (change)="onSelect($event)">
+              <option *ngFor="let data of jsonData" [value]="data.value">{{data.label}}</option>
+            </select>
+            <p *ngIf="selectedValue">Selected Value: {{selectedValue}}</p>
+          </div> -->
+      </div>
+   </div>
+   <div class="divider"></div>
+   <div class="card-details-block">
+      <div *ngFor="let summary of selectedTimeDetails | keyvalue ">
+         <div class="mat-card" *ngIf="summary.key !== 'id'">
+            <p class="pera-first">{{mappingOfFields[summary.key]}}</p>
+            <p class="pera-second">{{summary.value}}</p>
+         </div>
+      </div>
+   </div>
+</div>

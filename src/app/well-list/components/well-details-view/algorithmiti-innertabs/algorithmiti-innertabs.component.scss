@@ -1,0 +1,123 @@
+.generic-tab {
+    position:relative;
+
+::ng-deep {
+
+        .mat-mdc-tab .mdc-tab-indicator__content--underline {
+
+            border-color: var(--tabBorder);
+
+        }
+
+        .select-filter-section .select-lbl{
+            text-align: left !important;
+        }
+
+        .mat-mdc-slide-toggle .mdc-label{
+            display: block !important;
+        }
+
+        .dynacard-historygraph{
+            text-align: center;
+            padding-top:50px;
+        }
+
+        .mat-mdc-tab.mdc-tab--active:hover .mdc-tab-indicator__content--underline {
+
+            border-color: var(--tabBorder);
+
+        }
+
+
+
+
+        .mat-mdc-tab:hover .mdc-tab__ripple::before {
+
+            opacity: .04;
+
+            background-color: #080912;
+
+        }
+
+
+
+
+        .mat-mdc-tab.mdc-tab--active .mdc-tab__ripple::before,
+
+        .mat-mdc-tab.mdc-tab--active .mat-ripple-element {
+
+            opacity: .04;
+
+            background-color: #080912;
+
+        }
+
+
+
+
+        .mat-mdc-tab-body-wrapper {
+
+            background: #171A2E;
+
+            box-shadow: 0px 0px 1px #fff;
+
+        }
+
+
+
+
+        .mat-mdc-tab .mat-ripple-element {
+
+            opacity: .12;
+
+            background-color: #080912;
+
+        }
+
+        .mat-mdc-tab-header .mat-mdc-tab .mdc-tab-indicator__content--underline{
+            border-bottom:3px solid #3A83FF !important;
+        }
+
+        h3{
+            font-size: 21px;
+            line-height: 31px;
+            font-family: 'SLB Sans Regular';
+            color:#ADB1C7;
+            margin: 20px 40px;
+        }
+        
+
+        .mat-mdc-tab.mdc-tab{
+            flex-grow: 0 !important;
+        }
+
+        .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label{
+
+            color:#3A83FF;
+        }
+    
+
+    }
+
+
+    .innertab-rightcont{
+        position:absolute;
+        right:0;
+        top:13px;
+        z-index:1000;
+
+        ul{
+            padding: 0px;
+            margin:0px;
+            display: flex;
+
+            li{
+                display: flex;
+                vertical-align: middle;
+                padding-right:15px;
+            }
+        }
+    }
+
+    
+}

@@ -1,0 +1,68 @@
+// .well-performance {
+//     display: flex;
+
+    // .chips {
+    //     width: 75%;
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     justify-content: space-evenly;
+
+    //     .chip {
+    //         border: 1px solid #ccc;
+    //         height: 3rem;
+    //         width: 25%;
+    //         margin: 1.5rem;
+    //         padding: 1rem;
+
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         gap: 0.5rem;
+
+    //         .chip-label {
+    //             font-size: 0.8rem;
+    //         }
+    //         .chip-value {
+    //             font-size: 1.2rem;
+    //             font-weight: bold;
+    //             margin-top: -2px;
+    //         }
+    //     }
+    // }
+    mat-card {
+        border: 1px solid #8b90ad;
+        background-color: #171a2e;
+        border-radius: 6px;
+        padding: 20px;
+       display:block;
+       width:100%;
+       float: left;
+      align-items: center;
+    
+        p,
+        span {
+          display: inline-flex;
+        }
+    
+        p {
+          padding-right: 30px;
+          margin: 0px;
+          font-size: 14px;
+          color: #6c7191;
+          font-family: "SLB Sans Medium";
+          text-transform: uppercase;
+          font-weight: 500;
+        }
+    
+        span {
+          font-size: 16px;
+          color: #ebecf2;
+          font-weight: 700;
+          letter-spacing: 5%;
+        }
+      }
+
+    // .performance-graph {
+    //     width: 25%;
+    //     border: 1px solid #ccc;
+    // }

@@ -1,0 +1,174 @@
+//dropdown box in left filter box starts
+::ng-deep {
+  .light-theme {
+
+    .mdc-menu-surface {
+      background-color: #fff !important;
+      border: 1px solid #CCCED9 !important;
+      border-radius: 12px !important;
+      box-shadow: none !important;
+
+      .mat-mdc-option .mdc-list-item__primary-text {
+        color: #505575 !important;
+      }
+    }
+
+    .mat-mdc-select-value {
+      color: #051464 !important
+    }
+
+    .mat-mdc-option .mat-icon,
+    .mat-mdc-option .mat-pseudo-checkbox-full {
+      border: 1px solid #ADB1C7 !important;
+    }
+
+    .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full::after,
+    .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full::after {
+      color: #fff !important;
+    }
+
+    .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-full,
+    .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-full {
+      background-color: #051464 !important;
+      border: 1px solid #ADB1C7 !important;
+    }
+  }
+}
+
+//dropdown box in left filter box ends
+
+.m-top-30 {
+  margin-top: 30px !important;
+}
+
+::ng-deep {
+  .mat-expansion-panel-header.mat-expanded {
+    height: auto;
+  }
+
+  .mdc-text-field__input {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 15px !important;
+    height: 32px !important;
+    width: 92%;
+    margin-left: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    border:1px solid #ececec !important;
+
+  }
+
+  //   .mat-expansion-panel-header {
+  //     height: 72px !important;
+  // }
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  .border {
+    border: 1px solid #e6e6e6 !important;
+  }
+}
+
+.container-fluid {
+  background-color: rgba(19, 22, 41, 0.9);
+  // margin-top: 20px;
+
+
+
+  // .row {
+  //   display: flex;
+  //   flex-direction: row;
+  //   padding: 15px;
+  // }
+  // .col-3 {
+  //   width: 33.33%;
+  // }
+  // .col-6 {
+  //   width: 50%;
+  // }
+  // .col-9 {
+  //   width: 66.66%
+  // }
+  // .col-12 {
+  //   width: 100%;
+  // }
+  .label {
+    padding: 10px !important;
+    font-size: 14px;
+    line-height: 16px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .fa-close {
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn-pills {
+    background-color: white;
+    border-radius: 12px;
+    margin-right: 5px;
+    padding: inherit;
+  }
+
+
+  .close {
+    margin: 5px;
+  }
+
+  .close>span {
+    font-size: 16px;
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1;
+    /* Firefox */
+  }
+
+
+}
+
+
+
+::ng-deep {
+
+  label[for="checkbox-00-input"] {
+
+    color: #D11F1F!important;
+
+  }
+
+  label[for="checkbox-01-input"] {
+
+    color: #28A228 !important;
+
+  }
+
+  label[for="checkbox-10-input"] {
+
+    color: #D11F1F !important;
+
+  }
+
+  label[for="checkbox-11-input"] {
+
+    color: #1946A2 !important;
+
+  }
+
+  label[for="checkbox-12-input"] {
+
+    color: black !important;
+
+  }
+
+}

@@ -1,0 +1,35 @@
+{
+  "commsStatus": [
+    { "value": "Comms Failed", "checked": false }, 
+    { "value": "Comms Established", "checked": false }
+  ],
+  "controllerStatus": [
+    { "value": "Shutdown", "checked": false }, 
+    { "value": "Hand (Manual)", "checked": false }, 
+    { "value": "Auto", "checked": false }
+  ],
+  "pumpingTypes": [
+    { "value": "Over Pumping", "checked": false }, 
+    { "value": "Optimum Pumping", "checked": false }, 
+    { "value": "Under Pumping", "checked": false }
+  ],
+  "spmSlider":{
+    "min": 0,
+    "max": 100,
+    "start": 0,
+    "end": 100
+  },
+  "pumpFillageSlider": {
+    "min": 0,
+    "max": 100,
+    "start": 0,
+    "end": 100
+  },
+  "inferredProductionSlider": {
+    "min": 0,
+    "max": 100,
+    "start": 0,
+    "end": 100
+  }
+
+}

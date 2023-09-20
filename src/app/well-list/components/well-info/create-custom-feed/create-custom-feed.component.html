@@ -1,0 +1,70 @@
+    <div class="align-center">
+       <div class="select-filter">
+          <div class="select-filter-header">
+             <div class="select-filter-title">Create Custom Feed</div>
+          </div>
+          <div class="select-filter-section" (click)="$event.stopPropagation()">
+             <div class="select-lbl">Well Name</div>
+             <mat-form-field>
+                <mat-select placeholder="Select Alert Type">
+                   <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{food.viewValue}}
+                   </mat-option>
+                </mat-select>
+             </mat-form-field>
+          </div>
+          <div class="select-filter-section" (click)="$event.stopPropagation()">
+             <div class="select-lbl">Users</div>
+             <mat-form-field>
+                <mat-select placeholder="Select Status">
+                   <mat-option *ngFor="let food of foods" [value]="food.value">
+                      {{food.viewValue}}
+                   </mat-option>
+                </mat-select>
+             </mat-form-field>
+          </div>
+          <div class="select-filter-section" (click)="$event.stopPropagation()">
+            <div class="select-lbl">Select Priorty</div>
+            <mat-form-field>
+               <mat-select placeholder="Select Status">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                     {{food.viewValue}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+         <div class="select-filter-section" (click)="$event.stopPropagation()">
+            <div class="select-lbl">Select Catagory</div>
+            <mat-form-field>
+               <mat-select placeholder="Select Status">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                     {{food.viewValue}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+         <div class="select-filter-section" (click)="$event.stopPropagation()">
+            <div class="select-lbl">Select oparator</div>
+            <mat-form-field>
+               <mat-select placeholder="Select Status">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                     {{food.viewValue}}
+                  </mat-option>
+               </mat-select>
+            </mat-form-field>
+         </div>
+         <div >
+            <div class="select-lbl">comments</div>
+            <mat-form-field>
+                <mat-label>Leave a comment</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+         </div>
+          <div class="select-filter-action-btn">
+             <button mat-flat-button class="action-btn active" (click)="createFeed()">Create </button>
+          </div>
+          <div class="select-filter-action-btn">
+            <button mat-flat-button class="action-btn active" (click)="createFeed()">cancel </button>
+         </div>
+       </div>
+    </div>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "type": "Pump Tagging",
+    "value": "0",
+    "symbolClass": "circle bgcolor-aqua"
+  },
+  {
+    "id": 2,
+    "type": "Last Storke Card",
+    "value": "0",
+    "symbolClass": "circle bgcolor-green"
+  },
+  {
+    "id": 3,
+    "type": "Distorted",
+    "value": "0",
+    "symbolClass": "squar  bgcolor-yellow"
+  },
+  {
+    "id": 4,
+    "type": "Flatlining",
+    "value": "0",
+    "symbolClass": "squar rotate bgcolor-magenta"
+  },
+  {
+    "id": 5,
+    "type": "Fluid Pound",
+    "value": "0",
+    "symbolClass": "circle bgcolor-orange"
+  },
+  {
+    "id": 6,
+    "type": "Gas Interference",
+    "value": "0",
+    "symbolClass": "squar bgcolor-perpal"
+  },
+  {
+    "id": 6,
+    "type": "High Fluid Level",
+    "value": "0",
+    "symbolClass": "squar rotate bgcolor-light-yellow"
+  },
+  {
+    "id": 6,
+    "type": "Very High Fluid Level",
+    "value": "0",
+    "symbolClass": "squar rotate bgcolor-pink"
+  },
+  {
+    "id": 6,
+    "type": "Other",
+    "value": "0",
+    "symbolClass": "squar rotate bgcolor-skyblue"
+  }
+]

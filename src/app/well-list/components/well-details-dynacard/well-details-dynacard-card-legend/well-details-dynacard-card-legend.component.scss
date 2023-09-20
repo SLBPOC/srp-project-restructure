@@ -1,0 +1,78 @@
+// .container-fluid {
+//     background-color: #ededed;
+
+//     .well-list, .well-performance, 
+//     .yesterday-cycle-count, 
+//     .yesterday-percent-run, 
+//     .classification-summary,
+//     .parameter-chart,
+//     .dashboard-alerts {
+//         background-color: white;
+//     }
+
+//     .well-list {
+//         min-height: 570px;
+//     }
+//     .well-performance, .yesterday-percent-run {
+//         min-height: 280px;
+//     }
+//     .well-performance {
+//         display: flex;
+
+//         .chips {
+//             width: 75%;
+//             display: flex;
+//             flex-wrap: wrap;
+//             justify-content: space-evenly;
+
+//             .chip {
+//                 border: 1px solid #ccc;
+//                 height: 3rem;
+//                 width: 25%;
+//                 margin: 1.5rem;
+//                 padding: 1rem;
+
+//                 display: flex;
+//                 align-items: center;
+//                 justify-content: center;
+//                 gap: 0.5rem;
+
+//                 .chip-label {
+//                     font-size: 0.8rem;
+//                 }
+//                 .chip-value {
+//                     font-size: 1.2rem;
+//                     font-weight: bold;
+//                     margin-top: -2px;
+//                 }
+//             }
+//         }
+
+//         .performance-graph {
+//             width: 25%;
+//             border: 1px solid #ccc;
+//         }
+//     }
+//     .classification-summary,
+//     .parameter-chart {
+//         min-height: 280px;
+//     }
+//     .dashboard-alerts{
+//         height: 460px;
+//     }
+//     [class^="col-"], [class*=" col-"] {
+//         border: none !important;
+//         margin-bottom: 15px;
+//     }
+//     h6 {
+//         font-size: 14px;
+//     }
+// }
+
+.legend-color{
+    font-size: 16px;
+    color: #ebecf2;
+}
+.rhombus{
+    transform: rotate(45deg);
+}

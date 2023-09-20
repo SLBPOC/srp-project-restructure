@@ -1,0 +1,124 @@
+<div class="generic-tab">
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+        <mat-tab label="Dynacards">
+            <div style=" height:500px;">
+
+            </div>>
+        </mat-tab>
+        <mat-tab label=" Shutdown & Startups"> Shutdown & Startups Content 2
+        </mat-tab>
+        <mat-tab label="Charting">Charting Content 3</mat-tab>
+        <mat-tab label="Smart ML">
+            <!--Smart ML start here-->
+            <div class="">
+                <div class="col-md-6">
+                    <div class="dynacard-pridiction">
+                        <div class="header-title">
+                            <div class="table-header">
+                                Dynacard Prediction (Total:1220,
+                                Normal:1059, Flatlining:47, Gas Interference:11, Pump Tagging:103)
+                            </div>
+                            <div class="toggle-button-txt">
+                                <mat-slide-toggle>Secondary Classification</mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div class="pridiction-table tableContainer  example-container mat-elevation-z8">
+                            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                                <!-- Priority Status Column -->
+                                <ng-container matColumnDef="status">
+                                    <th mat-header-cell *matHeaderCellDef class="checkbox-section">
+                                        <mat-checkbox></mat-checkbox>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element" class="checkbox-section">
+                                        <mat-checkbox></mat-checkbox>
+                                    </td>
+                                </ng-container>
+                                <!-- Timestamp -->
+                                <ng-container matColumnDef="well_name">
+                                    <th mat-header-cell *matHeaderCellDef> Timestamp</th>
+                                    <td mat-cell *matCellDef="let element" id="well_name"> {{element.well_name}} </td>
+                                </ng-container>
+                                <!-- Classification -->
+                                <ng-container matColumnDef="alerts_level">
+                                    <th mat-header-cell *matHeaderCellDef> Classification</th>
+                                    <td mat-cell *matCellDef="let element" id="alerts_level"> {{element.alerts_level}}
+                                    </td>
+                                </ng-container>
+                                <!--Confidence -->
+                                <ng-container matColumnDef="time_date">
+                                    <th mat-header-cell *matHeaderCellDef>Confidence</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.time_date}} </td>
+                                </ng-container>
+
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"> </tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="right-sec">
+                        <div class="top-section">
+                            <div class="select-filter-section" (click)="$event.stopPropagation()">
+                                <div class="select-lbl">&nbsp;</div>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Range Day">
+                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <button mat-icon-button class="button-type-none">
+                                <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M17.0527 3.2841C15.208 1.45345 12.6943 0.351562 10.0005 0.351562C4.48633 0.351562 0 4.81499 0 10.3016C0 15.7877 4.48633 20.2516 10.0005 20.2516C15.5146 20.2516 20 15.7877 20 10.3016H18.5C18.5 14.9647 14.6875 18.7591 10.0005 18.7591C5.31348 18.7591 1.5 14.9647 1.5 10.3016C1.5 5.63801 5.31348 1.84407 10.0005 1.84407C12.29 1.84407 14.4268 2.78077 15.9951 4.33644L13 7.31659H18.2188H20V5.67056V0.351562L17.0527 3.2841Z"
+                                        fill="white" />
+                                </svg>
+                            </button>
+                            <button mat-icon-button class="button-type-none">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M18.5 1.49951H1.5V11.104H5.13184V12.6021H0V0H20V12.6021H14.8691V11.104H18.5V1.49951ZM10.7515 3.63086V15.0024H15.002L10.002 20.0005L5.00195 15.0024H9.25244V3.63086H10.7515Z"
+                                        fill="#EBECF2" />
+                                </svg>
+                            </button>
+                            <div class="select-filter-section" (click)="$event.stopPropagation()">
+                                <div class="select-lbl">Reclassify As:</div>
+                                <mat-form-field>
+                                    <mat-select placeholder="Select Performance">
+                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                            {{food.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <button class="save-btton">Save</button>
+                        </div>
+                        <div class="bottom-section">
+                            <div class="div-button"><button class="save-btton red-border-button">2023-06-21 13:14:59
+                                    PM</button></div>
+                            <div class="toogel-right"><mat-slide-toggle>Scatter</mat-slide-toggle></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div style="color: #FFFFFF; text-align: center;">
+                        Graph display will be here
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!--Smart ML end here-->
+        </mat-tab>
+        <mat-tab label="Pump Test">Pump Test Content 3</mat-tab>
+        <mat-tab label="Reports">Reports Content 3</mat-tab>
+        <mat-tab label="Well View">Well View Content 3</mat-tab>
+        <mat-tab label="Alerts">Alerts Content 3</mat-tab>
+        <mat-tab label="Well Parameters">Well Parameters Content 3</mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,65 @@
+<div class="dynacard-sec-right-header">
+  <div class="dynacard-sec-right-header-title">
+    Cards
+  </div>
+  <div class="wrapper">
+    <ng-container *ngIf="(listOfTime | async )">
+      <div class="searchBar">
+        <input id="searchQueryInput" [(ngModel)]="searchText" type="text" (keyup)="searchTime()" name="searchQueryInput"
+          placeholder="Search" value="" />
+        <!-- <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M20 1.41992L18.583 0L10 8.60156L1.41699 0L0 1.41992L8.58301 10.0215L0.0429688 18.5801L1.45996 20L10 11.4414L18.54 20L19.957 18.5801L11.417 10.0215L20 1.41992Z"
+              fill="#CCCFDE" />
+          </svg>
+        </button> -->
+      </div>
+    </ng-container>
+
+    <ng-container #empty></ng-container>
+  </div>
+</div>
+<div class="mat-elevation-z8 tableContainer">
+  <table mat-table [dataSource]="listOfTime | async ">
+
+
+    <ng-container matColumnDef="#">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox class="checklist-leaf-node" [checked]="selectionTimeModel.isSelected(element)"
+          (change)="selectTime(element)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="card">
+      <th mat-header-cell *matHeaderCellDef>Card</th>
+      <td mat-cell *matCellDef="let element"> pumptagging </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="time">
+      <th mat-header-cell *matHeaderCellDef> Time</th>
+      <td mat-cell *matCellDef="let element"> {{element}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="minimunpolishedrodload">
+      <th mat-header-cell *matHeaderCellDef> Minimum Polishedrodload </th>
+      <td mat-cell *matCellDef="let element"> 1.0079 </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="peakpolishedrod">
+      <th mat-header-cell *matHeaderCellDef>Peak Polishedrod</th>
+      <td mat-cell *matCellDef="let element"> 30,310 lbs </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
+
+
+</div>

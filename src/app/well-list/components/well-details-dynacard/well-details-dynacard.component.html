@@ -1,0 +1,96 @@
+<div class="header border">
+  <h4 class="text-left title p-2" style="color:#ebecf2">
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+      </svg>
+    </span>
+    Dynacard
+  </h4>
+</div>
+
+<div class="container-fluid pt-2">
+  <div class="row">
+    <div class="col-md-12 mb-0 border">
+      <!-- <div class="d-flex"> -->
+        <div class="row">
+          <div class="col-md-9">
+            <app-dynacard-chips></app-dynacard-chips>
+          </div>
+          <div class="col-md-3">
+            <app-well-details-dynacard-barchart></app-well-details-dynacard-barchart>
+          </div>
+
+        <!-- </div> -->
+
+        <!-- <div class="performance-graph cahrtWidth">
+        </div> -->
+        <!-- <div class="col-md-12 mb-0 border">
+            <div class="well-performance shadow-sm p-2">
+              <div class="chips">
+                <div class="chip" *ngFor="let summary of dynacardSummaryData">
+                  <div class="chip-label">{{ summary.label }}</div>
+                  <div class="chip-value">{{ summary.value }}</div>
+                </div>
+              </div>
+              <div class="performance-graph">
+                <app-well-details-dynacard-barchart></app-well-details-dynacard-barchart>
+              </div>
+              
+            </div>
+          </div> -->
+        <!-- <div class="col-md-12 mb-0 p-0 border">
+            <div class="yesterday-cycle-count shadow-sm">
+              
+          
+            </div>
+          </div> -->
+        <!-- <div class="col-md-5 mb-0 border">
+            <div class="yesterday-percent-run shadow-sm p-0">
+             
+            </div>
+          </div> -->
+      </div>
+
+      <div class="row" style="margin-top: 10px">
+        <!-- <div class="col-md-4 border">
+            <div class="classification-summary shadow-sm p-2">
+            </div>
+          </div>
+          <div class="col-md-2 border">
+            <div class="classification-summary shadow-sm p-2">
+              <app-well-details-dynacard-card-legend></app-well-details-dynacard-card-legend>
+             
+            </div>
+          </div> -->
+        <div class="col-md-7">
+          <app-well-details-dynacard-card-legend></app-well-details-dynacard-card-legend>
+        </div>
+        <div class="col-md-5 border" style="padding-left: 0px">
+          <div class="parameter-chart shadow-sm p-0">
+            <app-well-details-dynacard-card-table></app-well-details-dynacard-card-table>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-7" style="padding-left: 0px">
+          <div class="parameter-chart shadow-sm p-0">
+            <app-well-details-dynacard-view-graph></app-well-details-dynacard-view-graph>
+          </div>
+        </div>
+        <div class="col-md-5 border" style="padding-left: 0px">
+          <div class="parameter-chart shadow-sm p-0">
+            <app-well-details-dynacard-card-details></app-well-details-dynacard-card-details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

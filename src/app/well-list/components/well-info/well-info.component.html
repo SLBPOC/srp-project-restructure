@@ -1,0 +1,76 @@
+<!-- <app-navigation>Well info</app-navigation>
+<button mat-button color="primary">Primary</button> -->
+<!-- <div class="main-container"> -->
+   <!-- <div class="row">
+      <div class="col-md-1 col-md-offset-11">
+         <button mat-button color="primary" (click)="createCustomFeed()">Feed</button>
+      </div>
+   </div> -->
+   <!-- <div class="container-title d-flex justify-content-between">
+      <span class="d-flex align-items-center">
+         <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+               d="M7.89746 12.919L2.86035 7.76407H19.9995V6.23543H2.86035L7.90039 1.08203L6.84131 0L0 7.00075L6.84082 14L7.89746 12.919Z"
+               fill="#EBECF2" />
+         </svg>
+         <h1>Well Info</h1>
+      </span>
+      <button mat-button color="primary" (click)="createCustomFeed()">Feed</button>
+   </div> -->
+   <!-- <div class="d-flex mx-2 mt-4"> -->
+      <div class="container-fluid">
+
+      <div class="row">
+         <!-- <div class="col-md-3 " *ngFor="let summary of dynacardSummaryData">
+            <mat-card>
+               <p>{{ summary.label }}</p>
+               <span>{{ summary.value }}</span>
+            </mat-card>
+         </div> -->
+         <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <p><label for="">Current SPM</label> <span class="label-val">{{dataResult?.spm}} spm</span></p>
+            </mat-card>
+         </div>
+         <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <p><label for="">Pump Fillage</label> <span class="label-val">{{dataResult?.pumpFillage}}%</span></p>
+            </mat-card>
+         </div>
+         <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <p><label for="">Well State</label> <span class="label-val">{{dataResult?.wellState}}</span></p>
+            </mat-card>
+         </div>
+         <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <p><label for="">Pump Card Diagnistics</label> <span class="label-val">{{dataResult?.pumpCardDiagnistics}}</span></p>
+            </mat-card>
+         </div>
+         <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <p><label for="">Inferred Production</label> <span class="label-val">{{dataResult?.inferredProduction || '--'}} bbls/day</span></p>
+            </mat-card>
+         </div>
+         <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <p><label for="">Load</label> <span class="label-val">{{dataResult?.load || '--'}}</span></p>
+            </mat-card>
+         </div>
+         <!-- <div class="col-md-3 ">
+            <mat-card class="text-center">
+               <a class="button-type-none" [routerLink]="['/wells/dyna/',2]"><p><label for="">DynaCard</label> <span class="label-val">--</span></p></a>
+            </mat-card>
+         </div> -->
+      </div>
+   <!-- </div> -->
+   <!-- <app-create-custom-feed></app-create-custom-feed> -->
+<!-- </div> -->
+
+ 
+   <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 ">
+         <app-well-info-image-description [wellId]="currentWellId"></app-well-info-image-description>
+      </div>
+   </div> 
+</div>
