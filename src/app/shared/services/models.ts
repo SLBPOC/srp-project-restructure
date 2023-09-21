@@ -7,7 +7,7 @@ export enum NodeType {
     Wells
   }
   
-  export interface Node extends WellModel {
+  export interface Node {
     Type: NodeType;
     Name: string;
     Children?: Node[];

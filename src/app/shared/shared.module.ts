@@ -48,6 +48,7 @@ import { WellTreeListComponent } from './components/well-tree-list/well-tree-lis
 import { CustomAlertService } from './services/customAlert.service';
 import { NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { DatePipe } from '@angular/common';
+import { EventListService } from './services/event-list.service';
 
 @NgModule({
   declarations: [
@@ -136,12 +137,13 @@ import { DatePipe } from '@angular/common';
     MatExpansionModule,
     MatSliderModule,
     MtxTooltipModule,
-    NgxMatTimepickerModule
+    NgxMatTimepickerModule,
   ],
   providers: [
     DatePipe,
     BsModalService,
     AlertListService,
+    EventListService,
     WellsService,
     TreeViewService,
     AlgorithmsAndMitigationsService,
