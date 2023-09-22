@@ -39,7 +39,7 @@ import { DashboardService } from './services/dashboard.service';
 import { StylePaginatorDirective } from './directives/style-paginator-dierctives';
 import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 import { DynacardService } from './services/dynacard.service';
-import { ChecklistDatabase, WellTreeView } from './components/well-tree-view/well-tree-view.component';
+import { WellTreeView } from './components/well-tree-view/well-tree-view.component';
 import { WellTreeSearchComponent } from './components/well-tree-search/well-tree-search.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -49,6 +49,7 @@ import { CustomAlertService } from './services/customAlert.service';
 import { NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { DatePipe } from '@angular/common';
 import { EventListService } from './services/event-list.service';
+import { HierarchyService } from './services/hierarchy-service.service';
 
 @NgModule({
   declarations: [
@@ -148,10 +149,10 @@ import { EventListService } from './services/event-list.service';
     TreeViewService,
     AlgorithmsAndMitigationsService,
     DashboardService,
-    ChecklistDatabase,
     DynacardService,
     CustomAlertService,
-    EventListService
+    EventListService,
+    HierarchyService
   ],
     entryComponents: []
 })

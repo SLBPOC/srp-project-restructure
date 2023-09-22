@@ -1,21 +1,39 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="well-tree">
-  <mat-nested-tree-node *matTreeNodeDef="let node" matTreeNodePaddingIndent="20">
+<mat-tree
+  [dataSource]="dataSource"
+  [treeControl]="treeControl"
+  class="well-tree"
+  #treeSelector
+>
+  <mat-nested-tree-node
+    *matTreeNodeDef="let node"
+    matTreeNodePaddingIndent="20"
+  >
     <li>
       <div class="mat-tree-node">
-        <mat-icon style="color: red;" class="mat-icon-rtl-mirror" *ngIf="notWellNode(node)">
+        <mat-icon
+          style="color: red"
+          class="mat-icon-rtl-mirror"
+          *ngIf="notWellNode(node)"
+        >
           clear
         </mat-icon>
         <div *ngIf="isCheckbox(node)">
-          <mat-checkbox class="checklist-leaf-node  status-lbl" [checked]="checklistSelection.isSelected(node.NodeId)"
-            (change)="todoLeafItemSelectionToggle(node)">
-            <span class="status" [ngClass]="node.isOn ? 'status_green':'status_red'"></span>
-            {{node.Name}}
+          <mat-checkbox
+            class="checklist-leaf-node status-lbl"
+            [checked]="checklistSelection.isSelected(node.nodeId)"
+            (change)="todoLeafItemSelectionToggle(node)"
+          >
+            <span
+              class="status"
+              [ngClass]="node.isOn ? 'status_green' : 'status_red'"
+            ></span>
+            {{ node.name }}
           </mat-checkbox>
         </div>
-        
+
         <div class="mdc-form-field" *ngIf="!isCheckbox(node)">
           <label>
-            {{node.Name}}
+            {{ node.name }}
           </label>
         </div>
       </div>
@@ -24,18 +42,27 @@
   </mat-nested-tree-node>
   <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
     <li class="example-tree-container">
-      <div class="mat-tree-node">
-
-        <button class="button__arrow" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.item">
+      <div class="mat-tree-node node-bg">
+        <button
+          class="button__arrow"
+          mat-icon-button
+          matTreeNodeToggle
+          [attr.aria-label]="'Toggle ' + node.item"
+        >
           <mat-icon matTreeNodeToggle class="mat-icon-rtl-mirror">
-            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+            {{ treeControl.isExpanded(node) ? "expand_more" : "chevron_right" }}
           </mat-icon>
         </button>
-        <mat-checkbox [checked]="descendantsAllSelected(node)" [indeterminate]="descendantsPartiallySelected(node)"
-          (change)="todoItemSelectionToggle(node)" *ngIf="isCheckbox(node)">{{node.Name}}</mat-checkbox>
+        <mat-checkbox
+          [checked]="descendantsAllSelected(node)"
+          [indeterminate]="descendantsPartiallySelected(node)"
+          (change)="todoItemSelectionToggle(node)"
+          *ngIf="isCheckbox(node)"
+          >{{ node.name }}</mat-checkbox
+        >
         <div class="mdc-form-field" *ngIf="!isCheckbox(node)">
           <label>
-            {{node.Name}}
+            {{ node.name }}
           </label>
         </div>
       </div>
@@ -46,7 +73,6 @@
       </ul>
       <div class="tree-line"></div>
     </li>
-
   </mat-nested-tree-node>
 </mat-tree>
 <div class="well-list-footer-section">
