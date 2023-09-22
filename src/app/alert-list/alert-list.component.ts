@@ -129,11 +129,11 @@ export class AlertListComponent implements OnInit {
   ngAfterViewInit() {
     // this.dataSource.paginator = this.paginator;
     fromEvent<any>(this.searchInput.nativeElement, 'keyup').pipe(
-      map(event => event.target.value),
+      map((event: any) => event.target.value),
       debounceTime(500),
       distinctUntilChanged(),
-      tap(x => this.searchText = x)
-    ).subscribe(x => {
+      tap((x: any) => this.searchText = x)
+    ).subscribe((x: any) => {
       if (x != undefined && x.trim() != "") {
         this.GetAlertListWithFilters();
       }
@@ -141,15 +141,15 @@ export class AlertListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.GetAlertListWithFilters();
-    this.treeviewService.selectedNodes.subscribe(x => {
-      if (x != undefined && x.length > 0 && x.some((m: any) => m.type == NodeType.Wells)) {
-        this.ids = x.filter((m: any) => m.type == NodeType.Wells).map((m: any) => m.nodeId);
-      }
-      else
-        this.ids = [];
-      this.GetAlertListWithFilters();
-    })
+    this.GetAlertListWithFilters();
+    // this.treeviewService.selectedNodes.subscribe(x => {
+    //   if (x != undefined && x.length > 0 && x.some((m: any) => m.type == NodeType.Wells)) {
+    //     this.ids = x.filter((m: any) => m.type == NodeType.Wells).map((m: any) => m.nodeId);
+    //   }
+    //   else
+    //     this.ids = [];
+    //   this.GetAlertListWithFilters();
+    // })
   }
 
   errorHandling() {
@@ -191,7 +191,7 @@ export class AlertListComponent implements OnInit {
       // }
 
     },
-    (err) => {
+    (err: any) => {
       this.errorHandling();
     });
   }
@@ -199,7 +199,7 @@ export class AlertListComponent implements OnInit {
   GetAlertListWithSortFilters(payload: any) {
     this.loading = true; 
     // var SearchModel = this.createModel();
-    this.service.getAlertList(payload).subscribe(response => {
+    this.service.getAlertList(payload).subscribe((response: any) => {
         this.loading = false;
         this.pageSizeOption = [10, 15, 20, response.alertsLevelDto.totalCount]
         this.alertList = response.alerts;
@@ -218,7 +218,7 @@ export class AlertListComponent implements OnInit {
         // this.Clear = response.alertsLevelDto.totalCleared;
         this.dataSource.paginator = this.paginator;
     },
-    (err) => {
+    (err: any) => {
       this.errorHandling();
     });
   }
@@ -304,7 +304,7 @@ export class AlertListComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
 
     },
-    (err) => {
+    (err: any) => {
       this.errorHandling();
     })
   }
@@ -519,7 +519,7 @@ export class AlertListComponent implements OnInit {
     debugger;
     this.loading = true;
     var payload = this.createModelReport();
-    this.service.getAlertListFilters(payload).subscribe(response => {
+    this.service.getAlertListFilters(payload).subscribe((response: any) => {
       this.dataSource = new MatTableDataSource<AlertList>(this.alertList);
      this.exportToXls(this.dataSource);
       })

@@ -1,1 +1,388 @@
-<router-outlet></router-outlet>
+<div class="main-container main-alerts">
+    <div class="container-title">
+      <div class="container-title-content">
+        <span>
+          <svg
+            width="20"
+            height="14"
+            viewBox="0 0 20 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.89746 12.919L2.86035 7.76407H19.9995V6.23543H2.86035L7.90039 1.08203L6.84131 0L0 7.00075L6.84082 14L7.89746 12.919Z"
+              fill="#EBECF2"
+            ></path>
+          </svg>
+        </span>
+        <h1>Events</h1>
+      </div>
+      <button
+        mat-flat-button=""
+        class="action-btn-info"
+        tabindex="0"
+        ng-reflect-router-link=""
+      >
+        Feed
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tableContainer">
+          <div class="tabletophead">
+            <div class="lefthead">
+              <h2>Events List</h2>
+            </div>
+            <div class="righthead">
+              <div class="searchBar">
+                <input
+                  id="searchQueryInput"
+                  #searchQueryInput
+                  type="text"
+                  name="searchQueryInput"
+                  [(ngModel)]="searchText"
+                  placeholder="Search By Well Name"
+                />
+                <button
+                  id="searchQuerySubmit"
+                  type="submit"
+                  name="searchQuerySubmit"
+                  (click)="GetEventListWithFilters()"
+                >
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12 0.851953L11.1498 0L6 5.16094L0.850195 0L0 0.851953L5.14981 6.01289L0.0257813 11.148L0.875977 12L6 6.86484L11.124 12L11.9742 11.148L6.8502 6.01289L12 0.851953Z"
+                      fill="#EDDEDE"
+                      (click)="RefreshGrid()"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="headIcons">
+                <ul>
+                  <li (click)="RefreshGrid()">
+                    <button mat-icon-button class="button-type-none headIcon-btn">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M17.0527 2.93254C15.208 1.10189 12.6943 0 10.0005 0C4.48633 0 0 4.46343 0 9.95004C0 15.4362 4.48633 19.9001 10.0005 19.9001C15.5146 19.9001 20 15.4362 20 9.95004H18.5C18.5 14.6132 14.6875 18.4076 10.0005 18.4076C5.31348 18.4076 1.5 14.6132 1.5 9.95004C1.5 5.28645 5.31348 1.49251 10.0005 1.49251C12.29 1.49251 14.4268 2.42921 15.9951 3.98488L13 6.96503H18.2188H20V5.319V0L17.0527 2.93254Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  </li>
+  
+                  <li>
+                    <button
+                      mat-icon-button
+                      [matMenuTriggerFor]="calenderFilter"
+                      class="button-type-none headIcon-btn"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.76172 7.75195H4.26172V9.25195H5.76172V7.75195ZM9.10449 7.75684H7.60449V9.25684H9.10449V7.75684ZM10.9473 7.75684H12.4473V9.25684H10.9473V7.75684ZM15.7891 7.75684H14.2891V9.25684H15.7891V7.75684ZM14.8252 11.6973L13.6055 12.917L12.3867 11.6973L11.3252 12.7578L12.5459 13.9775L11.3252 15.1973L12.3867 16.2578L13.6055 15.0381L14.8252 16.2578L15.8867 15.1973L14.667 13.9775L15.8867 12.7578L14.8252 11.6973ZM6.39551 12.917L7.61523 11.6973L8.67676 12.7578L7.45605 13.9775L8.67676 15.1973L7.61523 16.2578L6.39551 15.0381L5.17676 16.2578L4.11523 15.1973L5.33496 13.9775L4.11523 12.7578L5.17676 11.6973L6.39551 12.917ZM15.2666 4.49707V3.00977H18.502V18.5H1.50098V3.00977H4.74023V4.49707H6.24023V3.00977H13.7666V4.49707H15.2666ZM13.7666 0V1.50977H6.24023V0H4.74023V1.50977H0V20H20V1.50977H15.2666V0H13.7666Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <mat-menu #calenderFilter="matMenu" class="filter-container">
+        <div class="alrt-filter">
+          <div class="alrt-filter-header">
+            <div class="alrt-filter-title">Select</div>
+            <button
+              mat-icon-button class="alrt-filter-close button-type-none">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M16 1.13594L14.8664 0L8 6.88125L1.13359 0L0 1.13594L6.86641 8.01719L0.034375 14.8641L1.16797 16L8 9.15312L14.832 16L15.9656 14.8641L9.13359 8.01719L16 1.13594Z"
+                  fill="#CCCFDE"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="alrt-filter-section-btn-grp">
+            <button
+              mat-flat-button
+              class="select-btn"
+              (click)="setDateSelected(1)"
+            >
+              1 Day
+            </button>
+            <button
+              mat-flat-button
+              class="select-btn"
+              (click)="setDateSelected(2)"
+            >
+              1 Week
+            </button>
+            <button
+              mat-flat-button
+              class="select-btn"
+              (click)="setDateSelected(3)"
+            >
+              1 Month
+            </button>
+          </div>
+          <div class="calender-alrt-filter-section-date-range">
+            <div class="calender-alrt-filter-date-range-title">
+              Select Data Range
+            </div>
+            <div class="calender-alrt-filter-section-calender">
+              <mat-calendar
+                [selected]="selectedRangeValue"
+                (click)="$event.stopPropagation()"
+                (selectedChange)="selectedChange($event)"
+              >
+              </mat-calendar>
+            </div>
+          </div>
+          <div class="alrt-filter-action-btn-grp">
+            <button
+              mat-flat-button
+              class="action-btn"
+              (click)="resetDateRangeFilters()"
+            >
+              Reset
+            </button>
+            <button
+              mat-flat-button
+              class="action-btn active margin-l-10"
+              (click)="applyDateRangeFilter()"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </mat-menu>
+      <div class="col-md-12">
+        <div class="col-md-3 well-list-search">
+          <div class="h-100">
+            <div class="col-md-12 p-0 filterborder">
+              <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+                <mat-tab label="Well List">
+                  <app-well-tree-list
+                    (searchStr)="getWellTreeSearch($event)"
+                  ></app-well-tree-list
+                  >>
+                </mat-tab>
+                <mat-tab label="Filter & Sort">
+                  <!-- <app-well-filter-and-sort
+                    (filterRefresh)="filterAndSortAlerts($event)"
+                    [isEvent]="true"
+                  ></app-well-filter-and-sort> -->
+                  <app-event-filter-and-sort
+                    (filterRefresh)="filterAndSortAlerts($event)"
+                    [isEvent]="true"
+                  ></app-event-filter-and-sort>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="main-container main-alerts" #TABLE #table>
+            <div class="tableContainer padding-tb-15">
+              <div class="table-responsive table-section">
+                <table
+                  matSort
+                  mat-table
+                  [dataSource]="dataSource"
+                  (matSortChange)="onSortChanged($event)"
+                  class="mat-elevation-z8"
+                >
+                  <!-- <ng-container matColumnDef="EventId">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>No</th>
+                    <td
+                      mat-cell
+                      (click)="$event.stopPropagation()"
+                      *matCellDef="let element"
+                      id="well_name"
+                      class="align-col"
+                    >
+                      {{ element.eventId }}
+                    </td>
+                  </ng-container> -->
+                  <!-- Wells Name -->
+                  <ng-container matColumnDef="WellName">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                      Well Name
+                    </th>
+                    <td
+                      mat-cell
+                      (click)="$event.stopPropagation()"
+                      *matCellDef="let element"
+                      id="well_name"
+                      class="align-col"
+                    >
+                      {{ element.wellName }}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="EventType">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef>
+                      Event Type
+                    </th>
+                    <td
+                      mat-cell
+                      (click)="$event.stopPropagation()"
+                      *matCellDef="let element"
+                      class="align-col"
+                    >
+                      {{ element.eventType }}
+                    </td>
+                  </ng-container>
+                  <!-- Time and date -->
+                  <ng-container matColumnDef="CreationDateTime">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                      Date & Time
+                    </th>
+                    <td
+                      mat-cell
+                      (click)="$event.stopPropagation()"
+                      *matCellDef="let element"
+                      class="align-col"
+                    >
+                      {{ element.creationDateTime }}
+                    </td>
+                  </ng-container>
+  
+                  <!-- Comms Status -->
+                  <ng-container matColumnDef="UpdatedBy">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef>
+                      Update By
+                    </th>
+                    <td
+                      mat-cell
+                      (click)="$event.stopPropagation()"
+                      *matCellDef="let element"
+                      class="align-col"
+                    >
+                      {{ element.updatedBy }}
+                    </td>
+                  </ng-container>
+                  <!-- Comms Status -->
+                  <ng-container matColumnDef="EventDescription">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef>
+                      Description
+                    </th>
+                    <td
+                      mat-cell
+                      (click)="$event.stopPropagation()"
+                      *matCellDef="let element"
+                      class="align-col"
+                    >
+                      {{ element.eventDescription }}
+                    </td>
+                  </ng-container>
+                  <!-- Controller Status -->
+  
+                  <tr
+                    *matNoDataRow
+                    class="mat-mdc-row mdc-data-table__row cdk-row ng-star-inserted"
+                  >
+                    <td
+                      class="mat-mdc-cell mdc-data-table__cell cdk-cell ng-star-inserted text-center"
+                      *ngIf="loading == true"
+                      [attr.colspan]="displayedColumns.length"
+                    >
+                      <mat-progress-spinner
+                        mode="indeterminate"
+                        class="table-progressbar"
+                        style="margin: 0 auto"
+                      ></mat-progress-spinner>
+                    </td>
+                    <td
+                      class="mat-mdc-cell mdc-data-table__cell cdk-cell ng-star-inserted text-center"
+                      *ngIf="loading == false"
+                      [attr.colspan]="displayedColumns.length"
+                    >
+                      No Record Found
+                    </td>
+                  </tr>
+                  <tr
+                    *matNoDataRow
+                    class="mat-mdc-row mdc-data-table__row cdk-row ng-star-inserted"
+                  >
+                    <td
+                      class="mat-mdc-cell mdc-data-table__cell cdk-cell ng-star-inserted text-center"
+                      *ngIf="loading == true"
+                      [attr.colspan]="displayedColumns.length"
+                    >
+                      <mat-progress-spinner
+                        mode="indeterminate"
+                        class="table-progressbar"
+                        style="margin: 0 auto"
+                      ></mat-progress-spinner>
+                    </td>
+                    <td
+                      class="mat-mdc-cell mdc-data-table__cell cdk-cell ng-star-inserted text-center"
+                      *ngIf="loading == false"
+                      [attr.colspan]="displayedColumns.length"
+                    >
+                      No Records Found
+                    </td>
+                  </tr>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns"
+                  ></tr>
+                </table>
+              </div>
+              <mat-paginator
+                #paginator
+                style-paginator
+                (page)="pageChanged($event)"
+                [length]="TotalCount"
+                [pageIndex]="pageNumber"
+                [pageSize]="pageSize"
+                [pageSizeOptions]="pageSizeOption"
+                showFirstLastButtons
+              >
+              </mat-paginator>
+            </div>
+          </div>
+          <!-- <app-alerts-expandable-list></app-alerts-expandable-list> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -137,12 +137,13 @@ import { EventListService } from './services/event-list.service';
     MatExpansionModule,
     MatSliderModule,
     MtxTooltipModule,
-    NgxMatTimepickerModule
+    NgxMatTimepickerModule,
   ],
   providers: [
     DatePipe,
     BsModalService,
     AlertListService,
+    EventListService,
     WellsService,
     TreeViewService,
     AlgorithmsAndMitigationsService,
