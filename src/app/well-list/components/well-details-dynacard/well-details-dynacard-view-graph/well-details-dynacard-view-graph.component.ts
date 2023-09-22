@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, map, of, switchMap, takeUntil } from 'rxjs';
-import { DynacardService } from '../../../services/dynacard.service';
-import { DynaCardModel, DynacardModel2 } from '../../../model/dyna-card.model';
+import { DynacardService } from '../../../../shared/services/dynacard.service';
+// import { DynaCardModel, DynacardModel2 } from '../../../../shared/model/dyna-card.model';
 import * as Highcharts from 'highcharts';
+import { DynacardModel2 } from 'src/app/shared/models/dyna-card.model';
 
 @Component({
   selector: 'app-well-details-dynacard-view-graph',
@@ -35,7 +36,7 @@ export class WellDetailsDynacardViewGraphComponent implements OnInit, OnDestroy 
       else {
         return of(({ dynaDetails: undefined, name: obj.selected }));
       }
-    })).subscribe(x => {
+    })).subscribe((x: any) => {
       if (x.name == 'all')
         this.removeAllSeries();
       else
@@ -92,6 +93,7 @@ export class WellDetailsDynacardViewGraphComponent implements OnInit, OnDestroy 
   // }
 
   removeAllSeries() {
+    if(this.options.series)
     this.options.series.splice(0, this.options.series.length);
     this.updateHighChartFlag = true;
   }
@@ -102,14 +104,14 @@ export class WellDetailsDynacardViewGraphComponent implements OnInit, OnDestroy 
     if (addedOrRemoved) {
       var downhole = dynacard.map(x => [x.downhole_Card_Position, x.downhole_Card_Load]);
       var surface = dynacard.map(x => [x.surface_Card_Position, x.surface_Card_Load]);
-      this.options.series.push({
+      this.options?.series?.push({
         id: name + '-downhole',
         type: 'line',
         data: downhole,
         colorIndex: this.Index,
         name: name
       });
-      this.options.series.push({
+      this.options?.series?.push({
         id: name + '-surface',
         type: 'line',
         data: surface,
@@ -120,12 +122,13 @@ export class WellDetailsDynacardViewGraphComponent implements OnInit, OnDestroy 
       this.Index++;
     }
     else {
-      this.options.series.filter(
-        x => x.id == name + '-downhole' || x.id == name + '-surface'
+      this.options?.series?.filter(
+        (x: any) => x.id == name + '-downhole' || x.id == name + '-surface'
       ).forEach(
-        x => {
-          var id = this.options.series.findIndex(y => y.id == x.id);
-          this.options.series.splice(id, 1);
+        (x: any) => {
+          var id = this.options?.series?.findIndex(y => y.id == x.id);
+          if(id)
+          this.options?.series?.splice(id, 1);
         });
     }
     this.updateHighChartFlag = true;

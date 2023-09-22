@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+//import { WellName } from '../model/wellname';
+//import { WellModel } from '../model/wellModel';
 import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http'
 import { Subject } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
 import { NodeType, WellHierarchyResult } from '../models/models';
+import { environment } from 'src/environments/environment.development';
+
+const wellData = '../../assets/json-data/welllist-data.json';
 
 @Injectable({
   providedIn: 'root'

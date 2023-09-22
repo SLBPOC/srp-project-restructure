@@ -219,8 +219,9 @@
                          <!--Well List goes here.  -->
                       </mat-tab>
                       <mat-tab label="Filter & Sort">
-                         <app-well-filter-and-sort (filterRefresh)="filterAndSortAlerts($event)" 
-                         ></app-well-filter-and-sort>
+                        <app-well-filter-and-sort (filterRefresh)="filterAndSortAlerts($event)" 
+                        [customizeComponentName]="'alerts'"
+                        ></app-well-filter-and-sort>
                       </mat-tab>
                       
                    </mat-tab-group>

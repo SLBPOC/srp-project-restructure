@@ -34,6 +34,7 @@ export class CardDetailsModel {
     surfaceStrokeLength_in!: number;
     downholeStrokeLength_in!: number;
     totalFluid_in!: number
+  frame: any;
 }
 
 export interface Classification {

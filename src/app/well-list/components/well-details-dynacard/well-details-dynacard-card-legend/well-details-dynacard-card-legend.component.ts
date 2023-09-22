@@ -4,8 +4,8 @@ import * as Highcharts from 'highcharts';
 // theme(Highcharts);
 // import More from 'highcharts/highcharts-more';
 import { Subscription } from 'rxjs';
-import { AlgorithmsAndMitigationsService } from '../../../services/algorithms-and-mitigations.service';
-import { DynacardService } from '../../../services/dynacard.service';
+import { AlgorithmsAndMitigationsService } from '../../../../shared/services/algorithms-and-mitigations.service';
+import { DynacardService } from '../../../../shared/services/dynacard.service';
 
 // import Highcharts from 'highcharts'
 // More(Highcharts)
@@ -51,7 +51,7 @@ export class WellDetailsDynacardCardLegendComponent implements OnInit {
     // console.log(p.point.options.z)
   }
 
-  onShowEvent = (p) =>{
+  onShowEvent = (p: any) =>{
     console.log(p);
   }
 
@@ -137,4 +137,3 @@ export class WellDetailsDynacardCardLegendComponent implements OnInit {
     Highcharts.chart('bubble-chart', options);
   }
 }
-

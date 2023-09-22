@@ -83,7 +83,7 @@ export class WellinfoDynacardComponent implements OnInit {
   // });
   constructor(private _formBuilder: FormBuilder, private service: AlgorithmsAndMitigationsService, private dynaService: DynacardService) {
     this.dynaService.selectedClassification.subscribe(
-      (x) => {
+      (x: any) => {
         this.getTableData(x.startDate, x.classfication, x.endDate);
         this.dynaService.selectedTime.next({ addedOrRemoved: false, selected: 'all' });
         this.selectionTimeModel.clear();
@@ -593,17 +593,20 @@ export class WellinfoDynacardComponent implements OnInit {
 
   ///Seleed Time series
 
-  selectedTimeDetails: CardDetailsModel = new CardDetailsModel();;
+  // selectedTimeDetails: CardDetailsModel = new CardDetailsModel();;
+  // selectedTimeDetails: any = new CardDetailsModel();
+  selectedTimeDetails: CardDetailsModel | null =  null;//new CardDetailsModel();;
+
 
   mappingOfFields = {
-    pumpFillage_per: 'Pump Fillage(%) ',
-    SPM: 'SPM',
-    minPolishedRodLoad_lbs: 'Min.Polished Rod Load(lbs)',
-    peakPolishedRodLoad_lbs: 'Peak Polished Rod Load(lbs)',
-    surfaceStrokeLength_in: 'Surface Stroke Length (in)',
-    downholeStrokeLength_in: 'Downhole Stroke Length (in)',
-    totalFluid_in: 'Total Fluid (in)',
-  };
+    "pumpFillage_per": 'Pump Fillage(%) ',
+    "SPM": 'SPM',
+    "minPolishedRodLoad_lbs": 'Min.Polished Rod Load(lbs)',
+    "peakPolishedRodLoad_lbs": 'Peak Polished Rod Load(lbs)',
+    "surfaceStrokeLength_in": 'Surface Stroke Length (in)',
+    "downholeStrokeLength_in": 'Downhole Stroke Length (in)',
+    "totalFluid_in": 'Total Fluid (in)',
+  } as any;
 
   classficationListdata: { value: any, viewValue: any }[] = [
     { value: 1, viewValue: 'Pump Tagging' },

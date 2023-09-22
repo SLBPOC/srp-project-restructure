@@ -4,7 +4,7 @@ import { Component, ViewChild } from '@angular/core';
 // import {MatTableDataSource} from '@angular/material';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Observable, map,switchMap,BehaviorSubject, Subject,of } from 'rxjs';
-import { DynacardService } from '../../../services/dynacard.service';
+import { DynacardService } from '../../../../shared/services/dynacard.service';
 // import { off } from 'process';
 
 // export interface PeriodicElement {
@@ -28,9 +28,10 @@ import { DynacardService } from '../../../services/dynacard.service';
 })
 export class WellDetailsDynacardCardTableComponent {
   displayedColumns: string[] = ['#', 'card', 'time', 'minimunpolishedrodload', 'peakpolishedrod'];
-  listOfTime: Observable<string[]>;
+  // listOfTime!: Observable<string[]>;
+  listOfTime!: any;
   selectedClassification = new BehaviorSubject<number>(0);
-  searchText:string;
+  searchText!:string;
   searchTextObseravale = new Subject<string>();
   // displayedColumns: string[] = ['#', 'Name', 'Change', 'Classfication'];
 
@@ -51,7 +52,7 @@ export class WellDetailsDynacardCardTableComponent {
     this.searchTextObseravale.next(this.searchText);
   }
 
-  randomInteger(min, max) {
+  randomInteger(min: any, max: any) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 

@@ -79,7 +79,7 @@ export class WellPerformanceComponent implements AfterViewInit {
   chartCore: any;
   //Demonstrate chart instance
   logChartInstance(chart: Highcharts.Chart) {
-    console.log('Chart instance: ', chart);
+  //  console.log('Chart instance: ', chart);
     this.chartCore = chart;
   }
   loadFullScreen() {

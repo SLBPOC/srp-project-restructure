@@ -3,7 +3,7 @@
  * Copyright 2015-present, Santeri Hiltunen
  * Licensed under MIT (https://github.com/Hilzu/bootstrap-grid/blob/master/LICENSE)
  */
-@-ms-viewport {
+ @-ms-viewport {
   width: device-width;
 }
 .visible-xs,

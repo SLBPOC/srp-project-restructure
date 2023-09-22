@@ -150,8 +150,8 @@ import { EventListService } from './services/event-list.service';
     DashboardService,
     ChecklistDatabase,
     DynacardService,
-    CustomAlertService
-
+    CustomAlertService,
+    EventListService
   ],
     entryComponents: []
 })
