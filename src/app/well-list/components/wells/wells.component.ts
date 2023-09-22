@@ -127,6 +127,38 @@ export class WellsComponent implements OnInit {
     })
   }
 
+  resetGrid() {
+    const payload = {
+      "pageSize": 5,
+      "pageNumber": 1,
+      "searchText": "",
+      "sortColumn": "",
+      "sortDirection": "",
+      "searchStatus": ""
+  }
+
+    this.service.getWellDetailsWithFilters(payload).subscribe((response: any) => {
+      if (response.status != 404) { 
+        this.loading = false;
+        this.pageSizeOption = [10, 20, 30, response.pumpingDetails?.totalCount]
+        // this.getPageSizeOptions();
+        this.WellList = response.wellDtos;
+        this.WellList?.forEach(x => this.prepareChart(x));
+        this.dataSource = new MatTableDataSource<WellModel>(this.WellList);
+        setTimeout(() => {
+          this.paginator.pageIndex = this.currentPage;
+          this.paginator.length = response?.totalCount;
+        });
+
+        this.TotalCount = response.pumpingDetails?.totalCount;
+        this.OverPumping = response.pumpingDetails?.overPumping;
+        this.OptimalPumping = response.pumpingDetails?.optimalPumping;
+        this.UnderPumping = response.pumpingDetails?.underPumping;
+        this.dataSource.paginator = this.paginator;
+
+      }
+    })
+  }
 
 
   GetWellDetailsWithFilters() {
@@ -164,6 +196,7 @@ export class WellsComponent implements OnInit {
 
   refreshGrid(payload: any) {
     this.seachByStatus=""; // Added by Gayatri 9/8/2023
+    this.searchText = "";
     this.commStatus = payload.commStatus;
     this.controllerStatus = payload.controllerStatus;
     this.inferredProduction = payload.inferredProduction;
@@ -238,39 +271,6 @@ export class WellsComponent implements OnInit {
     this.pumpingType = [];
     this.GetWellDetailsWithFilters();
   }
-
-  // RefreshGrid() {
-  //       const payload = {
-  //         "pageSize": 5,
-  //         "pageNumber": 1,
-  //         "searchText": "",
-  //         "sortColumn": "",
-  //         "sortDirection": "",
-  //         "searchStatus": ""
-  //     }
-    
-  //       this.service.getWellDetailsWithFilters(payload).subscribe((response: any) => {
-  //         if (response.hasOwnProperty('data')) {
-  //           this.loading = false;
-  //           this.pageSizeOption = [10, 15, 20, response.totalCount]
-  //           // this.getPageSizeOptions();
-  //           this.WellList = response.data;
-  //           this.WellList.forEach(x => this.prepareChart(x));
-  //           this.dataSource = new MatTableDataSource<WellModel>(this.WellList);
-  //           setTimeout(() => {
-  //             this.paginator.pageIndex = this.currentPage;
-  //             this.paginator.length = response.totalCount;
-  //           });
-    
-  //           this.TotalCount = response.totalCount;
-  //           this.OverPumping = response.totalOverpumping;
-  //           this.OptimalPumping = response.totalOptimalPumping;
-  //           this.UnderPumping = response.totalUnderpumping;
-  //           this.dataSource.paginator = this.paginator;
-    
-  //         }
-  //       })
-  //     }
 
   onChangeDemo(event: any) {
     if (event.checked) {
