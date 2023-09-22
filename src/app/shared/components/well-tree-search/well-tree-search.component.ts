@@ -2,13 +2,8 @@ import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { TreeViewService } from '../../../shared/services/tree-view.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
-import { SavedState, Node } from '../../../shared/services/models';
-
-// import { Component, Output, EventEmitter, Inject } from '@angular/core';
-// import { TreeViewService } from '../../../services/tree-view.service';
-// import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-// import { MatSelectChange } from '@angular/material/select';
-// import { SavedState, Node } from '../../../services/models';
+import { SavedState, Node, NodeType } from '../../../shared/services/models';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-well-tree-search',
@@ -23,6 +18,11 @@ export class WellTreeSearchComponent {
   savedStateName: string = '';
   currentSelectedSavedSearch!: SavedState | null;
   selectedNodes!: Node[];
+  selectedNodeTypes: NodeType[] = [];
+  fieldCheckbox: boolean = true;
+  batteryCheckbox: boolean = false;
+  padCheckbox: boolean = false;
+  wellCheckbox: boolean = false;
 
   @Output()
   userChanged: EventEmitter<any> = new EventEmitter<any>()
@@ -39,7 +39,7 @@ export class WellTreeSearchComponent {
         this.searchText = <string>x.state?.SavedText || '';
         this.onSearchChange()
       }
-      else if(x.state == null) {
+      else if (x.state == null) {
         this.option = 'fields';
         this.searchText = '';
         this.onSearchChange()
@@ -48,13 +48,27 @@ export class WellTreeSearchComponent {
     this.treeViewService.selectedNodes.subscribe(x => {
       this.selectedNodes = x;
     });
+    this.selectedNodeTypes.push(NodeType.Field);
+  }
 
+  onCheckBoxChange(event: any, nodeType: NodeType) {
+    if (event.checked)
+      this.selectedNodeTypes.push(nodeType);
+    else
+      this.selectedNodeTypes.splice(this.selectedNodeTypes.findIndex(x => x == nodeType), 1);
+    this.onSearchChange();
   }
   onSearchChange() {
-    this.userChanged.emit({ option: this.option, searchText: this.searchText });
+    this.userChanged.emit({ option: this.selectedNodeTypes, searchText: this.searchText });
   }
   onClear() {
     this.treeViewService.setSelectedSavedTreeState(null);
+    this.fieldCheckbox = true;
+    this.batteryCheckbox = false;
+    this.padCheckbox = false;
+    this.wellCheckbox = false;
+    this.selectedNodeTypes = [];
+    this.selectedNodeTypes.push(NodeType.Field);
     this.userChanged.emit({ clear: true });
   }
   public save() {
@@ -114,4 +128,3 @@ export class SaveTreeStateDialog {
   }
 
 }
-

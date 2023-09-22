@@ -61,6 +61,8 @@ enum DateRanges {
   MONTH = 3,
 }
 
+
+
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
@@ -115,11 +117,11 @@ export class EventListComponent {
 
   categoriesChartData: any;
   minmaxChartData: any[] = []; //min max chart data array
-  pageSizeOption = [5, 10, 20, 30];
+  pageSizeOption = [10, 20, 30];
   ids!: number[];
   respdata: any;
   todayDate: Date = new Date();
-  dateString!: any;
+  dateString!: string;
   startDate!: string;
   endDate!: string;
 
@@ -134,12 +136,12 @@ export class EventListComponent {
   ngAfterViewInit() {
     fromEvent<any>(this.searchInput.nativeElement, 'keyup')
       .pipe(
-        map((event: any) => event.target.value),
+        map((event) => event.target.value),
         debounceTime(500),
         distinctUntilChanged(),
-        tap((x: any) => (this.searchText = x))
+        tap((x) => (this.searchText = x))
       )
-      .subscribe((x: any) => {
+      .subscribe((x) => {
         if (x != undefined && x.trim() != '') {
           this.GetEventListWithFilters();
         }
@@ -147,30 +149,32 @@ export class EventListComponent {
   }
 
   ngOnInit(): void {
-    // this.treeviewService.selectedNodes.subscribe((x: any) => {
-    //   console.log(x);
-    //   if (
-    //     x != undefined &&
-    //     x.length > 0 &&
-    //     x.some((m: any) => m.type == NodeType.Wells)
-    //   ) {
-    //     this.ids = x
-    //       .filter((m: any) => m.type == NodeType.Wells)
-    //       .map((m: any) => m.nodeId);
-    //   } else this.ids = [];
-    // });
     this.GetEventListWithFilters();
+
+    this.treeviewService.selectedNodes.subscribe((x) => {
+      console.log(x);
+      if (
+        x != undefined &&
+        x.length > 0 &&
+        x.some((m: any) => m.type == NodeType.Wells)
+      ) {
+        this.ids = x
+          .filter((m: any) => m.type == NodeType.Wells)
+          .map((m: any) => m.nodeId);
+      } else this.ids = [];
+      this.GetEventListWithFilters();
+    });
   }
 
   GetEventListWithFilters() {
     this.loading = true;
     var SearchModel = this.createModel();
     this.service.getEventList(SearchModel).subscribe(
-      (response: any) => {
+      (response) => {
         this.loading = false;
         this.bindDataSource(response);
       },
-      (error: any) => {
+      (error) => {
         this.loading = false;
         this.bindDataSource({ events: [], totalcount: 0 });
       }
@@ -190,11 +194,11 @@ export class EventListComponent {
       SearchModel.eventTypes = payload.eventType ? payload.eventType : [];
     }
     this.service.getEventList(SearchModel).subscribe(
-      (response: any) => {
+      (response) => {
         this.loading = false;
         this.bindDataSource(response);
       },
-      (error: any) => {
+      (error) => {
         this.loading = false;
         this.bindDataSource({ events: [], totalcount: 0 });
       }
@@ -202,7 +206,9 @@ export class EventListComponent {
   }
 
   bindDataSource(response: any) {
-    this.pageSizeOption = [10, 15, 20];
+    if (response.totalcount > 30) {
+      this.pageSizeOption = [10, 20, 30, response.totalcount];
+    }
     this.eventList = response.events;
     this.dataSource = new MatTableDataSource<EventList>(this.eventList);
     setTimeout(() => {
@@ -309,7 +315,7 @@ export class EventListComponent {
     this.searchText = '';
     this.ids = [];
     (this.startDate = ''), (this.endDate = ''), this.GetEventListWithFilters();
-    // this.GetEventListWithFilters();
+    this.GetEventListWithFilters();
   }
   applyDateRangeFilter() {
     let fromDate = this.selectedRangeValue?.start;
@@ -411,16 +417,16 @@ export class EventListComponent {
   EventDownLoadReport() {
     this.loading = true;
     var SearchModel = this.createModelReport();
-    this.service.getEventList(SearchModel).subscribe((respince: any) => {
+    this.service.getEventList(SearchModel).subscribe((respince) => {
       this.dataSource = new MatTableDataSource<EventList>(this.eventList);
       this.exportToXls(this.dataSource);
     });
   }
   exportToXls(list: any) {
-    this.dateString = this.datePipe.transform(
-      this.todayDate,
-      'dd_MM_YYYY_hh_mm'
-    );
+    // this.dateString = this.datePipe.transform(
+    //   this.todayDate,
+    //   'dd_MM_YYYY_hh_mm'
+    // );
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
       this.TABLE.nativeElement
     );

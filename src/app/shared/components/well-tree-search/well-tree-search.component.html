@@ -58,7 +58,7 @@
 <div class="well-header-section">
     <div class="card-title">Search Well</div>
     <button mat-flat-button class="savelist">Save</button>
-    <a class="clearlist">Clear All</a>
+    <button mat-flat-button class="clearlist" (click)="onClear()">Clear All</button>
 </div>
 <div class="select-list">
     <mat-slide-toggle class="padding-l10 padding-r10"></mat-slide-toggle>
@@ -77,14 +77,17 @@
             </button>
         </div> -->
         <div class="searchBar">
-            <input id="searchQueryInput" #searchQueryInput type="text" name="searchQueryInput"
-               [(ngModel)]="searchText" placeholder="Search By Well Name">
-            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+            <input id="searchQueryInput" #searchQueryInput type="text" name="searchQueryInput" [(ngModel)]="searchText"
+                placeholder="Search By Well Name" (keyup)="onSearchChange()">
+            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit"
+                *ngIf="searchText || currentSelectedSavedSearch" (click)="onClear()">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0.851953L11.1498 0L6 5.16094L0.850195 0L0 0.851953L5.14981 6.01289L0.0257813 11.148L0.875977 12L6 6.86484L11.124 12L11.9742 11.148L6.8502 6.01289L12 0.851953Z" fill="#EDDEDE"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 0.851953L11.1498 0L6 5.16094L0.850195 0L0 0.851953L5.14981 6.01289L0.0257813 11.148L0.875977 12L6 6.86484L11.124 12L11.9742 11.148L6.8502 6.01289L12 0.851953Z"
+                        fill="#EDDEDE" />
                 </svg>
-                </button>
-         </div>
+            </button>
+        </div>
     </div>
     <!-- <button mat-icon-button [matMenuTriggerFor]="SectionSaveList" aria-label="Example icon-button with a menu"
         class=" button-type-none" *ngIf="(searchText && currentSelectedSavedSearch ==null) || isSaveEnabled">
@@ -138,9 +141,9 @@
 </div> -->
 <div class="select-field">
     <section class="checkbox-section">
-        <p><mat-checkbox formControlName="EffectiveRunTime">Fields</mat-checkbox></p>
-        <p><mat-checkbox formControlName="CyclesToday">Battery</mat-checkbox></p>
-        <p><mat-checkbox formControlName="StructuralLoad">Pads</mat-checkbox></p>
-        <p><mat-checkbox formControlName="MinMaxLoad">Wells</mat-checkbox></p>
+        <p><mat-checkbox [(ngModel)]="fieldCheckbox" (change)="onCheckBoxChange($event,0)">Fields</mat-checkbox></p>
+        <p><mat-checkbox [(ngModel)]="batteryCheckbox" (change)="onCheckBoxChange($event,1)">Battery</mat-checkbox></p>
+        <p><mat-checkbox [(ngModel)]="padCheckbox" (change)="onCheckBoxChange($event,2)">Pads</mat-checkbox></p>
+        <p><mat-checkbox [(ngModel)]="wellCheckbox" (change)="onCheckBoxChange($event,3)">Wells</mat-checkbox></p>
     </section>
 </div>
