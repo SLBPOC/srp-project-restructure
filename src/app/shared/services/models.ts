@@ -8,12 +8,16 @@ export enum NodeType {
   }
   
   export interface Node {
-    Type: NodeType;
+    type: NodeType;
     Name: string;
     Children?: Node[];
     isOn?: boolean;
     NodeId: number;
     NodeParentId?: number;
+    nodeId: number;
+    children: Node[];
+    nodeParentId?: number;
+
   }
   
   export class FlatNode {
@@ -23,6 +27,7 @@ export enum NodeType {
     Id!: string;
     level!: number;
     expandable!: boolean;
+    type!: NodeType
   }
 
   export class SavedState{

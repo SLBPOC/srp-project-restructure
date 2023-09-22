@@ -120,7 +120,6 @@ export class WellFilterAndSortComponent implements OnInit {
     });
   }
   getEventDetails() {
-    debugger;
     var SearchModel = this.createModel();
     this.eventService.getEventList(SearchModel).subscribe((resp) => {
       this.wellNames = resp.wellNames;

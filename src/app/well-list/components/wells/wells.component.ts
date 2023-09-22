@@ -118,8 +118,8 @@ export class WellsComponent implements OnInit {
     this.GetWellDetailsWithFilters();
     this.treeviewService.selectedNodes.subscribe(x => {
       console.log(x);
-      if (x != undefined && x.length > 0 && x.some(m => m.Type == NodeType.Wells)) {
-        this.ids = x.filter(m => m.Type == NodeType.Wells).map(m => m.NodeId);
+      if (x != undefined && x.length > 0 && x.some(m => m.type == NodeType.Wells)) {
+        this.ids = x.filter(m => m.type == NodeType.Wells).map(m => m.NodeId);
       }
       else
         this.ids = [];
@@ -740,7 +740,6 @@ export class WellsComponent implements OnInit {
     this.searchObjC = obj;
   }
   createModelReport(this: any) {
-    debugger;
     this.model.pageSize = this.TotalCount;
     this.model.pageNumber = 1;
     this.model.searchText = this.searchText ? this.searchText : "";
@@ -759,7 +758,6 @@ export class WellsComponent implements OnInit {
     return this.model;
   }
   GetWellDetailsWithFiltersReport() {
-    debugger;
     this.loading = true;
     var SearchModel = this.createModelReport();
     this.service.getWellDetailsWithFilters(SearchModel).subscribe(respince =>{
@@ -768,7 +766,6 @@ export class WellsComponent implements OnInit {
       })
   }
   exportToXls(list:any){
-    debugger;
     this.dateString = this.datePipe.transform(this.todayDate, 'dd_MM_YYYY_hh_mm') ?? "";
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement); 
     const wb: XLSX.WorkBook = XLSX.utils.book_new(); 
