@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'well-list', loadChildren: () => import('./well-list/well-list.module').then(m => m.WellListModule) },
   { path: 'alert-list', loadChildren: () => import('./alert-list/alert-list.module').then(m => m.AlertListModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
-  { path: 'event-list', loadChildren: () => import('./event-list/event-list.module').then(m => m.EventListModule) }
+  { path: 'event-list', loadChildren: () => import('./event-list/event-list.module').then(m => m.EventListModule) },
+  { path: 'core', loadChildren: () => import('./core/core.module').then(m => m.CoreModule) }
 ]
 
 @NgModule({

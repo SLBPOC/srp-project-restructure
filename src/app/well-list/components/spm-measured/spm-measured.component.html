@@ -1,0 +1,25 @@
+<div
+  class="boxChart__container"
+  (mousemove)="addHighlight($event)"
+  (touchmove)="addHighlight($event)"
+  (touchstart)="addHighlight($event)"
+>
+    <highcharts-chart
+      id="container"
+      [Highcharts]="Highcharts"
+      [options]="chartOptions1"
+    >
+    </highcharts-chart>
+    <highcharts-chart
+      id="container"
+      [Highcharts]="Highcharts"
+      [options]="chartOptions2"
+    >
+    </highcharts-chart>
+    <!-- <highcharts-chart
+      id="container"
+      [Highcharts]="Highcharts"
+      [options]="chartOptions3"
+    >
+    </highcharts-chart> -->
+</div>

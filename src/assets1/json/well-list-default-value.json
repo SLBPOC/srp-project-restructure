@@ -1,0 +1,668 @@
+{
+  "wellNames": [
+      {
+          "wellId": "W001",
+          "wellName": "Apache 24 FED 11"
+      },
+      {
+          "wellId": "W002",
+          "wellName": "Jones 2-15-022BH"
+      },
+      {
+          "wellId": "W003",
+          "wellName": "Apache 24 FED 12"
+      },
+      {
+          "wellId": "W004",
+          "wellName": "Apache 24 FED 13"
+      },
+      {
+          "wellId": "W005",
+          "wellName": "Apache 24 FED 14"
+      },
+      {
+          "wellId": "W006",
+          "wellName": "Apache 24 FED 15"
+      },
+      {
+          "wellId": "W007",
+          "wellName": "Jones 2-16-022BH1"
+      },
+      {
+          "wellId": "W008",
+          "wellName": "Jones 2-16-022BH2"
+      },
+      {
+          "wellId": "W009",
+          "wellName": "Jones 2-16-022BH3"
+      },
+      {
+          "wellId": "W010",
+          "wellName": "Apache 24 FED 1110"
+      },
+      {
+          "wellId": "W011",
+          "wellName": "Jones 2-15-022BH11"
+      },
+      {
+          "wellId": "W012",
+          "wellName": "Apache 24 FED 1212"
+      },
+      {
+          "wellId": "W013",
+          "wellName": "Apache 24 FED 1313"
+      },
+      {
+          "wellId": "W014",
+          "wellName": "Apache 24 FED 1414"
+      },
+      {
+          "wellId": "W015",
+          "wellName": "Apache 24 FED 1515"
+      },
+      {
+          "wellId": "W016",
+          "wellName": "Jones 2-16-022BH116"
+      },
+      {
+          "wellId": "W017",
+          "wellName": "Jones 2-16-022BH217"
+      },
+      {
+          "wellId": "W018",
+          "wellName": "Jones 2-16-022BH18"
+      },
+      {
+          "wellId": "W019",
+          "wellName": "Apache 24 FED 1119"
+      },
+      {
+          "wellId": "W020",
+          "wellName": "Jones 2-15-022BH20"
+      },
+      {
+          "wellId": "W021",
+          "wellName": "Apache 24 FED 21"
+      },
+      {
+          "wellId": "W022",
+          "wellName": "Apache 24 FED 22"
+      },
+      {
+          "wellId": "W023",
+          "wellName": "Apache 24 FED 23"
+      },
+      {
+          "wellId": "W024",
+          "wellName": "Apache 24 FED 24"
+      },
+      {
+          "wellId": "W025",
+          "wellName": "Jones 2-16-022BH25"
+      },
+      {
+          "wellId": "W026",
+          "wellName": "Jones 2-16-022BH26"
+      },
+      {
+          "wellId": "W027",
+          "wellName": "Jones 2-16-022BH27"
+      },
+      {
+          "wellId": "W028",
+          "wellName": "Apache 24 FED 28"
+      },
+      {
+          "wellId": "W029",
+          "wellName": "Jones 2-15-022BH29"
+      },
+      {
+          "wellId": "W030",
+          "wellName": "Apache 24 FED 30"
+      },
+      {
+          "wellId": "W031",
+          "wellName": "Apache 24 FED 31"
+      },
+      {
+          "wellId": "W032",
+          "wellName": "Apache 24 FED 32"
+      },
+      {
+          "wellId": "W033",
+          "wellName": "Apache 24 FED 33"
+      },
+      {
+          "wellId": "W034",
+          "wellName": "Jones 2-16-022BH 34"
+      },
+      {
+          "wellId": "W035",
+          "wellName": "Jones 2-16-022BH 35"
+      },
+      {
+          "wellId": "W036",
+          "wellName": "Jones 2-16-022BH 36"
+      },
+      {
+          "wellId": "W037",
+          "wellName": "Apache 24 FED 37"
+      },
+      {
+          "wellId": "W038",
+          "wellName": "Jones 2-15-022BH 38"
+      },
+      {
+          "wellId": "W039",
+          "wellName": "Apache 24 FED 39"
+      },
+      {
+          "wellId": "W040",
+          "wellName": "Apache 24 FED 40"
+      },
+      {
+          "wellId": "W041",
+          "wellName": "Apache 24 FED 41"
+      },
+      {
+          "wellId": "W042",
+          "wellName": "Apache 24 FED 42"
+      },
+      {
+          "wellId": "W043",
+          "wellName": "Jones 2-16-022BH 43"
+      },
+      {
+          "wellId": "W044",
+          "wellName": "Jones 2-16-022BH 44"
+      },
+      {
+          "wellId": "W045",
+          "wellName": "Jones 2-16-022BH 45"
+      },
+      {
+          "wellId": "W046",
+          "wellName": "Apache 24 FED 46"
+      },
+      {
+          "wellId": "W047",
+          "wellName": "Jones 2-15-022BH 47"
+      },
+      {
+          "wellId": "W048",
+          "wellName": "Apache 24 FED 48"
+      },
+      {
+          "wellId": "W049",
+          "wellName": "Apache 24 FED 49"
+      },
+      {
+          "wellId": "W050",
+          "wellName": "Apache 24 FED 50"
+      },
+      {
+          "wellId": "W051",
+          "wellName": "Apache 24 FED 51"
+      },
+      {
+          "wellId": "W052",
+          "wellName": "Jones 2-16-022BH 52"
+      },
+      {
+          "wellId": "W053",
+          "wellName": "Jones 2-16-022BH 53"
+      },
+      {
+          "wellId": "W054",
+          "wellName": "Jones 2-16-022BH 54"
+      },
+      {
+          "wellId": "W055",
+          "wellName": "Apache 24 FED 55"
+      },
+      {
+          "wellId": "W056",
+          "wellName": "Apache 24 FED 56"
+      },
+      {
+          "wellId": "W057",
+          "wellName": "Apache 24 FED 57"
+      },
+      {
+          "wellId": "W058",
+          "wellName": "Jones 2-16-022BH 58"
+      },
+      {
+          "wellId": "W059",
+          "wellName": "Jones 2-16-022BH 59"
+      },
+      {
+          "wellId": "W060",
+          "wellName": "Jones 2-16-022BH60"
+      },
+      {
+          "wellId": "W061",
+          "wellName": "Apache 24 FED 61"
+      },
+      {
+          "wellId": "W062",
+          "wellName": "Jones 2-15-022BH62"
+      },
+      {
+          "wellId": "W063",
+          "wellName": "Apache 24 FED 63"
+      },
+      {
+          "wellId": "W064",
+          "wellName": "Apache 24 FED 64"
+      },
+      {
+          "wellId": "W065",
+          "wellName": "Apache 24 FED 65"
+      },
+      {
+          "wellId": "W066",
+          "wellName": "Apache 24 FED 66"
+      },
+      {
+          "wellId": "W067",
+          "wellName": "Jones 2-16-022BH 67"
+      },
+      {
+          "wellId": "W068",
+          "wellName": "Jones 2-16-022BH 68"
+      },
+      {
+          "wellId": "W069",
+          "wellName": "Jones 2-16-022BH 69"
+      },
+      {
+          "wellId": "W070",
+          "wellName": "Jones 2-16-022BH 70"
+      },
+      {
+          "wellId": "W071",
+          "wellName": "Apache 24 FED 71"
+      },
+      {
+          "wellId": "W072",
+          "wellName": "Jones 2-15-022BH 72"
+      },
+      {
+          "wellId": "W073",
+          "wellName": "Apache 24 FED 73"
+      },
+      {
+          "wellId": "W074",
+          "wellName": "Apache 24 FED 74"
+      },
+      {
+          "wellId": "W075",
+          "wellName": "Apache 24 FED 75"
+      },
+      {
+          "wellId": "W076",
+          "wellName": "Apache 24 FED 76"
+      },
+      {
+          "wellId": "W077",
+          "wellName": "Jones 2-16-022BH 77"
+      },
+      {
+          "wellId": "W078",
+          "wellName": "Jones 2-16-022BH 78"
+      },
+      {
+          "wellId": "W079",
+          "wellName": "Jones 2-16-022BH 79"
+      },
+      {
+          "wellId": "W080",
+          "wellName": "Apache 24 FED 80"
+      },
+      {
+          "wellId": "W081",
+          "wellName": "Jones 2-15-022BH 81"
+      },
+      {
+          "wellId": "W082",
+          "wellName": "Apache 24 FED 82"
+      },
+      {
+          "wellId": "W083",
+          "wellName": "Apache 24 FED 83"
+      },
+      {
+          "wellId": "W084",
+          "wellName": "Apache 24 FED 84"
+      },
+      {
+          "wellId": "W085",
+          "wellName": "Apache 24 FED 85"
+      },
+      {
+          "wellId": "W086",
+          "wellName": "Jones 2-16-022BH 86"
+      },
+      {
+          "wellId": "W087",
+          "wellName": "Jones 2-16-022BH 87"
+      },
+      {
+          "wellId": "W088",
+          "wellName": "Jones 2-16-022BH 88"
+      },
+      {
+          "wellId": "W089",
+          "wellName": "Apache 24 FED 89"
+      },
+      {
+          "wellId": "W090",
+          "wellName": "Jones 2-15-022BH 90"
+      },
+      {
+          "wellId": "W091",
+          "wellName": "Jones 2-15-022BH 91"
+      },
+      {
+          "wellId": "W092",
+          "wellName": "Jones 2-15-022BH 92"
+      },
+      {
+          "wellId": "W094",
+          "wellName": "Jones 2-15-022BH 94"
+      },
+      {
+          "wellId": "W095",
+          "wellName": "Jones 2-15-022BH 95"
+      },
+      {
+          "wellId": "W096",
+          "wellName": "Jones 2-15-022BH 96"
+      },
+      {
+          "wellId": "W097",
+          "wellName": "Jones 2-15-022BH 97"
+      },
+      {
+          "wellId": "W098",
+          "wellName": "Jones 2-15-022BH 98"
+      },
+      {
+          "wellId": "W099",
+          "wellName": "Jones 2-15-022BH 99"
+      },
+      {
+          "wellId": "W100",
+          "wellName": "Apache 24 FED 100"
+      },
+      {
+          "wellId": "W101",
+          "wellName": "Apache 24 FED 101"
+      },
+      {
+          "wellId": "W102",
+          "wellName": "Apache 24 FED 102"
+      },
+      {
+          "wellId": "W103",
+          "wellName": "Apache 24 FED 103"
+      },
+      {
+          "wellId": "W104",
+          "wellName": "Jones 2-16-022BH 104"
+      },
+      {
+          "wellId": "W105",
+          "wellName": "Jones 2-16-022BH 105"
+      },
+      {
+          "wellId": "W106",
+          "wellName": "Jones 2-16-022BH 106"
+      },
+      {
+          "wellId": "W107",
+          "wellName": "Apache 24 FED 107"
+      },
+      {
+          "wellId": "W108",
+          "wellName": "Jones 2-15-022BH 108"
+      },
+      {
+          "wellId": "W109",
+          "wellName": "Apache 24 FED 109"
+      },
+      {
+          "wellId": "W110",
+          "wellName": "Apache 24 FED 110"
+      },
+      {
+          "wellId": "W111",
+          "wellName": "Apache 24 FED 111"
+      },
+      {
+          "wellId": "W112",
+          "wellName": "Apache 24 FED 112"
+      },
+      {
+          "wellId": "W113",
+          "wellName": "Jones 2-16-022BH 113"
+      },
+      {
+          "wellId": "W114",
+          "wellName": "Jones 2-16-022BH 114"
+      },
+      {
+          "wellId": "W115",
+          "wellName": "Jones 2-16-022BH 115"
+      },
+      {
+          "wellId": "W116",
+          "wellName": "Apache 24 FED 116"
+      },
+      {
+          "wellId": "W117",
+          "wellName": "Jones 2-15-022BH 117"
+      },
+      {
+          "wellId": "W118",
+          "wellName": "Apache 24 FED 118"
+      },
+      {
+          "wellId": "W119",
+          "wellName": "Apache 24 FED 119"
+      },
+      {
+          "wellId": "W120",
+          "wellName": "Apache 24 FED 120"
+      },
+      {
+          "wellId": "W121",
+          "wellName": "Apache 24 FED 121"
+      },
+      {
+          "wellId": "W122",
+          "wellName": "Jones 2-16-022BH 122"
+      },
+      {
+          "wellId": "W123",
+          "wellName": "Jones 2-16-022BH 123"
+      },
+      {
+          "wellId": "W124",
+          "wellName": "Jones 2-16-022BH 124"
+      },
+      {
+          "wellId": "W125",
+          "wellName": "Apache 24 FED 125"
+      },
+      {
+          "wellId": "W126",
+          "wellName": "Jones 2-15-022BH 126"
+      },
+      {
+          "wellId": "W127",
+          "wellName": "Apache 24 FED 127"
+      },
+      {
+          "wellId": "W128",
+          "wellName": "Apache 24 FED 128"
+      },
+      {
+          "wellId": "W129",
+          "wellName": "Apache 24 FED 129"
+      },
+      {
+          "wellId": "W130",
+          "wellName": "Apache 24 FED 130"
+      },
+      {
+          "wellId": "W131",
+          "wellName": "Jones 2-16-022BH 131"
+      },
+      {
+          "wellId": "W132",
+          "wellName": "Jones 2-16-022BH 132"
+      },
+      {
+          "wellId": "W133",
+          "wellName": "Jones 2-16-022BH 133"
+      },
+      {
+          "wellId": "W134",
+          "wellName": "Apache 24 FED 134"
+      },
+      {
+          "wellId": "W135",
+          "wellName": "Jones 2-15-022BH 135"
+      },
+      {
+          "wellId": "W136",
+          "wellName": "Apache 24 FED 136"
+      },
+      {
+          "wellId": "W137",
+          "wellName": "Apache 24 FED 137"
+      },
+      {
+          "wellId": "W138",
+          "wellName": "Apache 24 FED 138"
+      },
+      {
+          "wellId": "W139",
+          "wellName": "Apache 24 FED 139"
+      },
+      {
+          "wellId": "W140",
+          "wellName": "Jones 2-16-022BH 140"
+      },
+      {
+          "wellId": "W141",
+          "wellName": "Jones 2-16-022BH 141"
+      },
+      {
+          "wellId": "W142",
+          "wellName": "Jones 2-16-022BH 142"
+      },
+      {
+          "wellId": "W143",
+          "wellName": "Apache 24 FED 143"
+      },
+      {
+          "wellId": "W144",
+          "wellName": "Jones 2-15-022BH 144"
+      },
+      {
+          "wellId": "W145",
+          "wellName": "Apache 24 FED 145"
+      },
+      {
+          "wellId": "W146",
+          "wellName": "Apache 24 FED 146"
+      },
+      {
+          "wellId": "W147",
+          "wellName": "Apache 24 FED 147"
+      },
+      {
+          "wellId": "W148",
+          "wellName": "Apache 24 FED 148"
+      },
+      {
+          "wellId": "W149",
+          "wellName": "Jones 2-16-022BH 149"
+      },
+      {
+          "wellId": "W150",
+          "wellName": "Jones 2-16-022BH 150"
+      },
+      {
+          "wellId": "W151",
+          "wellName": "Jones 2-16-022BH 151"
+      }
+  ],
+  "commStatus": [
+      {
+          "value": "Comms Established",
+          "checked": false
+      },
+      {
+          "value": "Comms Failed",
+          "checked": false
+      },
+      {
+          "value": "Comms Failed 2020-04-14",
+          "checked": false
+      },
+      {
+          "value": "Comms Failed 2020-04-16",
+          "checked": false
+      }
+  ],
+  "controllerStatus": [
+      {
+          "value": "Shutdown",
+          "checked": false
+      },
+      {
+          "value": "Hand (Manual)",
+          "checked": false
+      },
+      {
+          "value": "Auto",
+          "checked": false
+      }
+  ],
+  "pumpingTypes": [
+      {
+          "value": "Optimum Pumping",
+          "checked": false
+      },
+      {
+          "value": "Under Pumping",
+          "checked": false
+      },
+      {
+          "value": "Over Pumping",
+          "checked": false
+      }
+  ],
+  "spmSlider": {
+      "min": 0,
+      "max": 20,
+      "start": 0,
+      "end": 20
+  },
+  "pumpFillageSlider": {
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "end": 100
+  },
+  "inferredProductionSlider": {
+      "min": 0,
+      "max": 100,
+      "start": 0,
+      "end": 100
+  }
+}

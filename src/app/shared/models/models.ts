@@ -31,3 +31,7 @@ export enum NodeType {
     SavedText!:string;
     SavedOption!:string;
   }
+
+  export interface WellHierarchyResult {
+    
+  }

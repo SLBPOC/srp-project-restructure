@@ -1,0 +1,995 @@
+<div class="main-container dynacardinfo-wrapper">
+    <div class="container-title">
+        <div class="container-title-content">
+            <span>
+                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M7.89746 12.919L2.86035 7.76407H19.9995V6.23543H2.86035L7.90039 1.08203L6.84131 0L0 7.00075L6.84082 14L7.89746 12.919Z"
+                        fill="#EBECF2"></path>
+                </svg>
+            </span>
+            <h1>Wells</h1>
+        </div>
+        <div class="rFloat"> button group </div>
+        <button mat-flat-button="" class="action-btn-info" tabindex="0" ng-reflect-router-link="">Feed</button>
+    </div>
+
+
+    <div class="col-md-12 d-flex-div">
+
+        <!-- left filter section -->
+        <div class="col-md-2 mt-3 well-search p-0">
+            <div class="col-md-12 p-0 mt-3 ">
+                <div class="search-list">
+                    <div class="wrapper">
+                        <label class="label-title">Search Well</label>
+                        <div class="searchBar">
+                            <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Well Name">
+
+                            <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 0.851953L11.1498 0L6 5.16094L0.850195 0L0 0.851953L5.14981 6.01289L0.0257813 11.148L0.875977 12L6 6.86484L11.124 12L11.9742 11.148L6.8502 6.01289L12 0.851953Z"
+                                        fill="#EDDEDE" />
+
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="wellname-list-section">
+
+                        <h2>My well list</h2>
+
+                        <ul>
+
+                            <li class="well-list-active">
+
+                                <span class="success-priorityCircle"></span>Well one
+
+                                abc
+
+                            </li>
+
+                            <li><span class="high-priorityCircle"></span>Well tne xyz</li>
+
+                            <li><span class="med-priorityCircle"></span>Well three pqs</li>
+
+                            <li><span class="defaul-priorityCircle"></span>Well four pqs</li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- right main section -->
+        <div class="col-md-10">
+            <div class="right-section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well-tabs mt-3">
+                            <mat-tab-group>
+                                <mat-tab label="Dyna cards">
+                                    <!-- Well Info content starts-->
+                                    <div class="col-md-12">
+                                        <div class="status-cards">
+                                            <ul class="card-listing">
+                                                <li> Pumping Status: <span>Running</span></li>
+                                                <li>Comm Status: <span>Comm Established</span></li>
+                                                <li> Controller Status: <span>Shutdown</span></li>
+                                                <li> Controller Status: <span>Shutdown</span></li>
+                                                <li> Controller Status: <span>Shutdown</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="chart-wrapper">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-7 p-0">
+                                                        <div class="col-md-12 p-0">
+                                                            <div class="panel-section">
+                                                                <div class="col-md-8">
+                                                                    <highcharts-chart [Highcharts]="Highcharts"
+                                                                        [options]="bubbleChartOptions"
+                                                                        [(update)]="bubbleChartUpdate" [oneToOne]="true"
+                                                                        style="width:100%; min-height: 100%; display: block">
+                                                                    </highcharts-chart>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="chart-categories">
+                                                                        <ul>
+
+                                                                            <li class="well-list-active button-type-none"
+                                                                                *ngFor="let classfication of bubbleClassficationInfo">
+                                                                                <div
+                                                                                    (click)="onClassficationLegendClick(classfication.name)">
+                                                                                    <span>
+                                                                                        <img width="20" height="20"
+                                                                                            viewBox="0 0 20 20"
+                                                                                            [src]="markerSvg(classfication.name).marker" />
+                                                                                        <!-- <svg width="20" height="20"
+                                                                                                viewBox="0 0 20 20"
+                                                                                                fill="none"
+                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                src>
+                                                                                                <circle cx="10" cy="10"
+                                                                                                    r="10" fill="#2196F3" />
+                                                                                            </svg> -->
+                                                                                    </span>{{classfication.name}}
+                                                                                    <span
+                                                                                        class="card-count">{{classfication.count}}</span>
+                                                                                </div>
+
+
+                                                                            </li>
+                                                                            <!--                                                                                                                                                              
+                                                                                <li class="well-list-active">
+
+                                                                                <span><svg width="20" height="20"
+                                                                                        viewBox="0 0 20 20" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <circle cx="10" cy="10" r="10"
+                                                                                            fill="#2196F3" />
+                                                                                    </svg>
+                                                                                </span>Pump Tagging <span
+                                                                                    class="card-count">91</span>
+
+                                                                            </li>
+
+                                                                            <li><span><svg width="20" height="20"
+                                                                                        viewBox="0 0 20 20" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <rect width="20" height="20"
+                                                                                            rx="4" fill="#0A7D8F" />
+                                                                                    </svg>
+
+                                                                                </span>Normal <span
+                                                                                    class="card-count">118</span>
+
+                                                                            </li>
+
+                                                                            <li><span><svg width="20" height="20"
+                                                                                        viewBox="0 0 20 20" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M10 0L17.0711 2.92893L20 10L17.0711 17.0711L10 20L2.92893 17.0711L0 10L2.92893 2.92893L10 0Z"
+                                                                                            fill="#C248F0" />
+                                                                                    </svg>
+
+                                                                                </span>Distorted <span
+                                                                                    class="card-count">20</span>
+                                                                            </li>
+
+                                                                            <li><span><svg width="20" height="20"
+                                                                                        viewBox="0 0 20 20" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <rect x="10" y="0.100464"
+                                                                                            width="14" height="14"
+                                                                                            rx="4"
+                                                                                            transform="rotate(45 10 0.100464)"
+                                                                                            fill="#FF5722" />
+                                                                                    </svg>
+
+                                                                                </span>Flatlining <span
+                                                                                    class="card-count">10</span>
+                                                                            </li>
+
+
+                                                                            <li><span><svg width="20" height="20"
+                                                                                        viewBox="0 0 20 20" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M9.37034 0.457478C9.7458 0.184691 10.2542 0.184691 10.6297 0.457478V0.457478L18.335 6.05573C19.036 6.56502 19.3293 7.46775 19.0615 8.2918L16.3269 16.7082C16.0591 17.5322 15.2912 18.0902 14.4248 18.0902H5.57524C4.70879 18.0902 3.94087 17.5322 3.67313 16.7082L0.938469 8.2918C0.67072 7.46775 0.964037 6.56502 1.66501 6.05573L9.37034 0.457478Z"
+                                                                                            fill="#F06292" />
+                                                                                    </svg>
+
+                                                                                </span>Fluid Pound <span
+                                                                                    class="card-count">120</span>
+                                                                            </li>
+
+
+                                                                            <li><span><svg width="20" height="20"
+                                                                                        viewBox="0 0 20 20" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M10 15.947L4.12215 18.0902L4.34404 11.8377L0.489435 6.90983L6.50442 5.18875L10 0L13.4956 5.18875L19.5106 6.90983L15.656 11.8377L15.8779 18.0902L10 15.947Z"
+                                                                                            fill="#28A228" />
+                                                                                    </svg>
+
+                                                                                    </span>Gas interference <span
+                                                                                        class="card-count">19</span>
+                                                                                </li>
+
+  -->
+
+
+                                                                        </ul>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12" [ngClass]="{hidecolmn:oncheckboxClick}">
+                                                            <div class="row"
+                                                                *ngIf="dynaQuickViewOptions.series != null && dynaQuickViewOptions.series.length==2">
+                                                                <div class="panel-section">
+                                                                    <highcharts-chart [Highcharts]="Highcharts"
+                                                                        [options]="dynaQuickViewOptions"
+                                                                        [(update)]="updateDynaQuickViewHighChartFlag"
+                                                                        [oneToOne]="true"
+                                                                        style="width: 100%; min-height: 550px; display: block"></highcharts-chart>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5 left-sec-table">
+                                                        <div class="col-md-12 p-0">
+                                                            <div class="">
+                                                                <div class="panel-section">
+                                                                    <div class="tableContainer"
+                                                                        [ngClass]="{tableHeight:oncheckboxClick}">
+                                                                        <table mat-table
+                                                                            [dataSource]="classificationStackList | async">
+                                                                            <!--matSort-->
+                                                                            <!-- Position Column -->
+                                                                            <ng-container matColumnDef="index">
+                                                                                <th mat-header-cell *matHeaderCellDef
+                                                                                    class="align-center">No.</th>
+                                                                                <!--mat-sort-header="index"-->
+                                                                                <td mat-cell
+                                                                                    *matCellDef="let element;let i =index;"
+                                                                                    class="align-center">
+                                                                                    {{i+1}} </td>
+                                                                            </ng-container>
+                                                                            <ng-container matColumnDef="#">
+                                                                                <th mat-header-cell *matHeaderCellDef
+                                                                                    class="align-center"> </th>
+                                                                                <td mat-cell *matCellDef="let element"
+                                                                                    class="align-center">
+                                                                                    <mat-checkbox
+                                                                                        (change)="selectTimeForStaging(element)"
+                                                                                        [checked]="selectionTimeStagedModel.isSelected(element.frame)"></mat-checkbox>
+                                                                                </td>
+                                                                            </ng-container>
+                                                                            <!-- Name Column -->
+                                                                            <ng-container matColumnDef="card">
+                                                                                <th mat-header-cell *matHeaderCellDef>
+                                                                                    Name</th>
+                                                                                <!--mat-sort-header="card"-->
+                                                                                <td mat-cell *matCellDef="let element"
+                                                                                    class="button-type-none"
+                                                                                    (click)="dynaMeterQuickGetData(element)">
+                                                                                    <div class="svg1">
+                                                                                        <!-- <img *ngIf="element.cards=='Normal'"
+                                                                                                src="../assets/images/Rectangle.svg">
+                                                                                            <img *ngIf="element.cards=='Pump tagging'"
+                                                                                                src="../assets/images/Circle.svg">
+                                                                                            <img *ngIf="element.cards=='Discorted'"
+                                                                                                src="../assets/images/Octagon.svg">
+                                                                                            <img *ngIf="element.cards=='Gas interference'"
+                                                                                                src="../assets/images/Bar.svg">
+                                                                                            <img *ngIf="element.cards=='Fluid Pound'"
+                                                                                                src="../assets/images/Pentagon.svg">
+                                                                                            <img *ngIf="element.cards=='Flatlining'"
+                                                                                                src="../assets/images/Diamond.svg"> -->
+                                                                                        <img
+                                                                                            [src]="markerSvg(element.classfication).marker" />
+                                                                                    </div>
+                                                                                    {{element.classfication}}
+                                                                                </td>
+                                                                            </ng-container>
+
+                                                                            <!-- Weight Column -->
+                                                                            <ng-container matColumnDef="time">
+                                                                                <th mat-header-cell *matHeaderCellDef>
+                                                                                    Date & Time
+                                                                                </th><!--mat-sort-header="time"-->
+                                                                                <td mat-cell *matCellDef="let element">
+                                                                                    <div class="button-type-none"
+                                                                                        (click)="dynaMeterQuickGetData(element)">
+                                                                                        {{element.frame |
+                                                                                        date:'yyyy-MM-dd HH:mm:ss'
+                                                                                        }}</div>
+                                                                                </td>
+                                                                            </ng-container>
+
+                                                                            <!-- Symbol Column -->
+                                                                            <ng-container matColumnDef="SPM">
+                                                                                <th mat-header-cell *matHeaderCellDef>
+                                                                                    SPM</th>
+                                                                                <!--mat-sort-header="SPM"-->
+                                                                                <td mat-cell *matCellDef="let element">
+                                                                                    H </td>
+                                                                            </ng-container>
+
+
+                                                                            <ng-container matColumnDef="PF%">
+                                                                                <th mat-header-cell *matHeaderCellDef>PF
+                                                                                    %</th>
+                                                                                <!--mat-sort-header="PF%"-->
+                                                                                <td mat-cell *matCellDef="let element">
+                                                                                    23% </td>
+                                                                            </ng-container>
+
+                                                                            <tr mat-header-row
+                                                                                *matHeaderRowDef="displayedColumnsOld; sticky: true">
+                                                                            </tr>
+                                                                            <tr mat-row
+                                                                                *matRowDef="let row; columns: displayedColumnsOld;">
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clear"></div>
+
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="col-md-12  p-0" [ngClass]="{showOnCheckbox:oncheckboxClick}"
+                                                    class="hidediv">
+                                                    <div class="row">
+                                                        <div class="col-md-6 ">
+                                                            <div class="panel-section">
+                                                                <highcharts-chart [Highcharts]="Highcharts"
+                                                                    [options]="dynaOptions"
+                                                                    [(update)]="updateDynaHighChartFlag"
+                                                                    [oneToOne]="true"
+                                                                    style="width: 100%; min-height: 550px; display: block"></highcharts-chart>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 secondcard-grid">
+                                                            <div class="panel-section">
+                                                                <div class="tableContainer">
+                                                                    <table mat-table
+                                                                        [dataSource]="stagedTimeFrames | keyvalue">
+                                                                        <!--matSort-->
+                                                                        <ng-container matColumnDef="index">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                <!--mat-sort-header-->
+                                                                                No.
+                                                                            </th>
+                                                                            <td mat-cell
+                                                                                *matCellDef="let element;let i = index">
+                                                                                {{i+1}} </td>
+                                                                        </ng-container>
+                                                                        <ng-container matColumnDef="#">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                            </th>
+                                                                            <td mat-cell *matCellDef="let element">
+                                                                                <mat-checkbox
+                                                                                    (change)="selectTime(element.value)"
+                                                                                    [checked]="selectionTimeModel.isSelected(element.value.frame)"></mat-checkbox>
+                                                                            </td>
+                                                                        </ng-container>
+
+                                                                        <ng-container matColumnDef="pin">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                            </th>
+                                                                            <td mat-cell *matCellDef="let element"
+                                                                                class="button-type-none">
+                                                                                <div
+                                                                                    *ngIf="!pinnedFramesDetails.has(element.value.frame)">
+                                                                                    <svg width="20" height="21"
+                                                                                        viewBox="0 0 20 21" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        (click)="pinTheFramePlease(element.value)">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M12.9314 0L20 7.07107C18.904 8.16749 17.4255 8.64826 15.9941 8.51337L12.5286 12.75C12.7211 14.4356 12.2005 16.1872 10.9669 17.5157L10.8108 17.6777L7.096 13.962L1.06026 20.0012L0 18.9405L6.036 12.902L2.32851 9.19239C3.67445 7.84598 5.50091 7.27324 7.25567 7.47417L11.4897 4.00854C11.3608 2.64336 11.7914 1.23528 12.7814 0.156631L12.9314 0ZM13.1706 2.35962L13.1458 2.42711C13.0148 2.82068 12.9543 3.23681 12.969 3.65708L12.9826 3.86747L13.0577 4.66327L7.71476 9.03653L7.08515 8.96444C6.28703 8.87305 5.48924 8.99456 4.76733 9.31042L4.631 9.37341L10.6287 15.3732L10.6745 15.2793C10.9709 14.6194 11.104 13.8945 11.06 13.164L11.0388 12.9203L10.9669 12.2906L15.3395 6.94503L16.1348 7.01998C16.6171 7.06543 17.0973 7.01151 17.5482 6.86504L17.6408 6.83136L13.1706 2.35962Z"
+                                                                                            fill="lightgrey" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                                <div
+                                                                                    *ngIf="pinnedFramesDetails.has(element.value.frame)">
+                                                                                    <svg width="20" height="21"
+                                                                                        viewBox="0 0 20 21" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        (click)="unPinTheFramePlease(element.value)">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M12.9314 0L20 7.07107C18.904 8.16749 17.4255 8.64826 15.9941 8.51337L12.5286 12.75C12.7211 14.4356 12.2005 16.1872 10.9669 17.5157L10.8108 17.6777L7.096 13.962L1.06026 20.0012L0 18.9405L6.036 12.902L2.32851 9.19239C3.67445 7.84598 5.50091 7.27324 7.25567 7.47417L11.4897 4.00854C11.3608 2.64336 11.7914 1.23528 12.7814 0.156631L12.9314 0ZM13.1706 2.35962L13.1458 2.42711C13.0148 2.82068 12.9543 3.23681 12.969 3.65708L12.9826 3.86747L13.0577 4.66327L7.71476 9.03653L7.08515 8.96444C6.28703 8.87305 5.48924 8.99456 4.76733 9.31042L4.631 9.37341L10.6287 15.3732L10.6745 15.2793C10.9709 14.6194 11.104 13.8945 11.06 13.164L11.0388 12.9203L10.9669 12.2906L15.3395 6.94503L16.1348 7.01998C16.6171 7.06543 17.0973 7.01151 17.5482 6.86504L17.6408 6.83136L13.1706 2.35962Z"
+                                                                                            fill="black" />
+                                                                                    </svg>
+                                                                                </div>
+                                                                            </td>
+                                                                        </ng-container>
+
+                                                                        <!-- <ng-container matColumnDef="pinicondisable">
+                                                                                <th mat-header-cell *matHeaderCellDef>
+                                                                                </th>
+                                                                                <td mat-cell *matCellDef="let element">
+                                                                                    <svg width="20" height="21"
+                                                                                        viewBox="0 0 20 21" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M12.9314 0L20 7.07107C18.904 8.16749 17.4255 8.64826 15.9941 8.51337L12.5286 12.75C12.7211 14.4356 12.2005 16.1872 10.9669 17.5157L10.8108 17.6777L7.096 13.962L1.06026 20.0012L0 18.9405L6.036 12.902L2.32851 9.19239C3.67445 7.84598 5.50091 7.27324 7.25567 7.47417L11.4897 4.00854C11.3608 2.64336 11.7914 1.23528 12.7814 0.156631L12.9314 0ZM13.1706 2.35962L13.1458 2.42711C13.0148 2.82068 12.9543 3.23681 12.969 3.65708L12.9826 3.86747L13.0577 4.66327L7.71476 9.03653L7.08515 8.96444C6.28703 8.87305 5.48924 8.99456 4.76733 9.31042L4.631 9.37341L10.6287 15.3732L10.6745 15.2793C10.9709 14.6194 11.104 13.8945 11.06 13.164L11.0388 12.9203L10.9669 12.2906L15.3395 6.94503L16.1348 7.01998C16.6171 7.06543 17.0973 7.01151 17.5482 6.86504L17.6408 6.83136L13.1706 2.35962Z"
+                                                                                            fill="black" />
+                                                                                    </svg>
+                                                                                </td>
+                                                                            </ng-container> -->
+                                                                        <ng-container matColumnDef="time">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                Time. </th>
+                                                                            <td mat-cell *matCellDef="let element">
+                                                                                {{element.value.frame}} </td>
+                                                                        </ng-container>
+                                                                        <ng-container
+                                                                            matColumnDef="primary_classification">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                <!--mat-sort-header-->
+                                                                                Primary
+                                                                            </th>
+                                                                            <td mat-cell *matCellDef="let element">
+
+                                                                                Normal
+                                                                            </td>
+                                                                        </ng-container>
+                                                                        <ng-container
+                                                                            matColumnDef="secondary_classification">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                <!--mat-sort-header-->
+                                                                                Secondary
+                                                                            </th>
+                                                                            <td mat-cell *matCellDef="let element">
+                                                                                <mat-select
+                                                                                    [value]="element.value.classfication"
+                                                                                    (selectionChange)="reclassifiy(element.value,$event)">
+                                                                                    <mat-option
+                                                                                        *ngFor="let item of classification"
+                                                                                        [value]="item">
+                                                                                        <div class="svg1">
+                                                                                            <img
+                                                                                                [src]="markerSvg(item).marker" />
+                                                                                        </div>
+                                                                                        {{item}}
+                                                                                    </mat-option>
+                                                                                    <mat-select-trigger>
+                                                                                        <div class="svg1">
+                                                                                            <img
+                                                                                                [src]="markerSvg(element.value.classfication).marker" />
+                                                                                        </div>
+                                                                                        {{element.value.classfication}}
+                                                                                    </mat-select-trigger>
+                                                                                </mat-select>
+                                                                            </td>
+                                                                        </ng-container>
+                                                                        <ng-container matColumnDef="SPM">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                <!--mat-sort-header-->
+                                                                                SPM
+                                                                            </th>
+                                                                            <td mat-cell *matCellDef="let element">
+                                                                                H </td>
+                                                                        </ng-container>
+
+                                                                        <ng-container matColumnDef="PF%">
+                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                <!--mat-sort-header-->
+                                                                                PF %
+                                                                            </th>
+                                                                            <td mat-cell *matCellDef="let element">
+                                                                                23% </td>
+                                                                        </ng-container>
+
+                                                                        <tr mat-header-row
+                                                                            *matHeaderRowDef="stagedTableColumns">
+                                                                        </tr>
+                                                                        <tr mat-row
+                                                                            *matRowDef="let row; columns: stagedTableColumns;">
+                                                                        </tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                                <div class="col-md-12  card-details-section"
+                                                    *ngIf="!selectionTimeStagedModel.isEmpty()">
+                                                    <mat-card>
+                                                        <mat-card-content>
+                                                            <div class="dynacardinfo-card-deatils">
+                                                                <div class="card-details-title">Card Details</div>
+                                                                <div class="main-container main-alerts">
+                                                                    <div class="tableContainer padding-tb-15">
+                                                                        <div class="table-responsive table-section">
+                                                                            <table matSort mat-table
+                                                                                [dataSource]="selectedDynamicRowsForSelectedStagedTimeFrames">
+                                                                                <ng-container matColumnDef="stickyRow">
+                                                                                    <th mat-header-cell
+                                                                                        *matHeaderCellDef
+                                                                                        class="dynacard-cust-table-sec">
+                                                                                        <mat-form-field
+                                                                                            appearance="fill">
+                                                                                            <mat-select multiple
+                                                                                                [(value)]="selectedDynamicRowsForSelectedStagedTimeFrames">
+                                                                                                <mat-option
+                                                                                                    *ngFor="let item of dynamicRowsForSelectedStagedTimeFrames;let i=index"
+                                                                                                    [value]="i">{{mappingOfFields[item]}}</mat-option>
+                                                                                                <mat-select-trigger>
+                                                                                                    <!-- <div
+                                                                                                        *ngIf="selectedDynamicRowsForSelectedStagedTimeFrames.length > 0">
+                                                                                                        {{mappingOfFields[dynamicRowsForSelectedStagedTimeFrames[selectedDynamicRowsForSelectedStagedTimeFrames[0]]]}}
+                                                                                                        <span
+                                                                                                            *ngIf="selectedDynamicRowsForSelectedStagedTimeFrames.length > 1">
+                                                                                                            (+{{selectedDynamicRowsForSelectedStagedTimeFrames.length
+                                                                                                            - 1}}
+                                                                                                            others)
+                                                                                                        </span>
+                                                                                                    </div> -->
+                                                                                                </mat-select-trigger>
+                                                                                            </mat-select>
+                                                                                        </mat-form-field>
+                                                                                    </th>
+                                                                                    <td mat-cell
+                                                                                        *matCellDef="let element; let i = index"
+                                                                                        id="well_name"
+                                                                                        class="align-center"
+                                                                                        class="dynacard-cust-table-sec">
+                                                                                        <div class="d-flex">{{i +
+                                                                                            1}} <span
+                                                                                                class="margin-l-10">{{mappingOfFields[dynamicRowsForSelectedStagedTimeFrames[element]]}}</span>
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </ng-container>
+                                                                                <!-- <ng-container matColumnDef="stickyRow">
+                                                                                        <th mat-header-cell
+                                                                                            *matHeaderCellDef
+                                                                                            mat-sort-header>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <rect width="20"
+                                                                                                            height="20"
+                                                                                                            rx="4"
+                                                                                                            fill="#0A7D8F" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Normal
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">
+                                                                                            {{element.normal}}</td>
+                                                                                    </ng-container> -->
+
+                                                                                <ng-container
+                                                                                    *ngFor="let frame of selectedTimeDetails | keyvalue"
+                                                                                    [matColumnDef]="frame.key">
+                                                                                    <th mat-header-cell
+                                                                                        *matHeaderCellDef>
+                                                                                        <div
+                                                                                            class="thheadind-sec justify-content-center">
+                                                                                            <!-- <div>
+                                                                                                <img
+                                                                                                    [src]="markerSvg(getFrameObj(frame.key).classfication).marker" />
+                                                                                            </div> -->
+                                                                                            <!-- <div
+                                                                                                class="margin-l-10 space-nowrap">
+                                                                                                {{getFrameObj(frame.key).classfication}}
+                                                                                                <br>
+                                                                                                <span>{{getFrameObj(frame.key).frame}}</span>
+                                                                                            </div> -->
+                                                                                        </div>
+                                                                                    </th>
+                                                                                    <!-- <td mat-cell
+                                                                                        *matCellDef="let element"
+                                                                                        class="align-center">
+                                                                                        {{frame.value[dynamicRowsForSelectedStagedTimeFrames[element]]}}
+                                                                                    </td> -->
+                                                                                </ng-container>
+
+                                                                                <tr mat-header-row
+                                                                                    *matHeaderRowDef="cardInfoTableColumns;">
+                                                                                </tr>
+                                                                                <tr mat-row
+                                                                                    *matRowDef="let row; columns: cardInfoTableColumns">
+                                                                                </tr>
+                                                                                <!-- <ng-container
+                                                                                        matColumnDef="pumpTagging">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <circle cx="10"
+                                                                                                            cy="10"
+                                                                                                            r="10"
+                                                                                                            fill="#2196F3" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Pump Tagging
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.pumpTagging}}</td>
+                                                                                    </ng-container>
+
+                                                                                    <ng-container
+                                                                                        matColumnDef="distorted1">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            fill-rule="evenodd"
+                                                                                                            clip-rule="evenodd"
+                                                                                                            d="M10 0L17.0711 2.92893L20 10L17.0711 17.0711L10 20L2.92893 17.0711L0 10L2.92893 2.92893L10 0Z"
+                                                                                                            fill="#C248F0" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Distorted
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.distorted1}}</td>
+                                                                                    </ng-container>
+                                                                                    <ng-container
+                                                                                        matColumnDef="distorted2">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            fill-rule="evenodd"
+                                                                                                            clip-rule="evenodd"
+                                                                                                            d="M10 0L17.0711 2.92893L20 10L17.0711 17.0711L10 20L2.92893 17.0711L0 10L2.92893 2.92893L10 0Z"
+                                                                                                            fill="#C248F0" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Distorted
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.distorted2}}</td>
+                                                                                    </ng-container>
+                                                                                    <ng-container
+                                                                                        matColumnDef="distorted3">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            fill-rule="evenodd"
+                                                                                                            clip-rule="evenodd"
+                                                                                                            d="M10 0L17.0711 2.92893L20 10L17.0711 17.0711L10 20L2.92893 17.0711L0 10L2.92893 2.92893L10 0Z"
+                                                                                                            fill="#C248F0" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Distorted
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.distorted3}}</td>
+                                                                                    </ng-container>
+                                                                                    <ng-container
+                                                                                        matColumnDef="gasInterference1">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            fill-rule="evenodd"
+                                                                                                            clip-rule="evenodd"
+                                                                                                            d="M10 15.947L4.12215 18.0902L4.34404 11.8377L0.489435 6.90983L6.50442 5.18875L10 0L13.4956 5.18875L19.5106 6.90983L15.656 11.8377L15.8779 18.0902L10 15.947Z"
+                                                                                                            fill="#28A228" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Gas Interference
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.gasInterference1}}
+                                                                                        </td>
+                                                                                    </ng-container>
+                                                                                    <ng-container
+                                                                                        matColumnDef="gasInterference2">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            fill-rule="evenodd"
+                                                                                                            clip-rule="evenodd"
+                                                                                                            d="M10 15.947L4.12215 18.0902L4.34404 11.8377L0.489435 6.90983L6.50442 5.18875L10 0L13.4956 5.18875L19.5106 6.90983L15.656 11.8377L15.8779 18.0902L10 15.947Z"
+                                                                                                            fill="#28A228" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Gas Interference
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.gasInterference2}}
+                                                                                        </td>
+                                                                                    </ng-container>
+                                                                                    <ng-container
+                                                                                        matColumnDef="gasInterference3">
+                                                                                        <th mat-sort-header
+                                                                                            mat-header-cell
+                                                                                            *matHeaderCellDef>
+                                                                                            <div class="thheadind-sec">
+                                                                                                <div>
+                                                                                                    <svg width="20"
+                                                                                                        height="20"
+                                                                                                        viewBox="0 0 20 20"
+                                                                                                        fill="none"
+                                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                                        <path
+                                                                                                            fill-rule="evenodd"
+                                                                                                            clip-rule="evenodd"
+                                                                                                            d="M10 15.947L4.12215 18.0902L4.34404 11.8377L0.489435 6.90983L6.50442 5.18875L10 0L13.4956 5.18875L19.5106 6.90983L15.656 11.8377L15.8779 18.0902L10 15.947Z"
+                                                                                                            fill="#28A228" />
+                                                                                                    </svg>
+                                                                                                </div>
+                                                                                                <div
+                                                                                                    class="margin-l-10 space-nowrap">
+                                                                                                    Gas Interference
+                                                                                                    <br>
+                                                                                                    <span>2023-04-14,
+                                                                                                        13:14:59</span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </th>
+                                                                                        <td mat-cell
+                                                                                            *matCellDef="let element"
+                                                                                            class="align-center">{{
+                                                                                            element.gasInterference3}}
+                                                                                        </td>
+                                                                                    </ng-container> -->
+
+
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </mat-card-content>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+
+                                    <!-- pinned grid table starts -->
+
+                                    <div class="col-md-12 secondcard-grid" *ngIf="pinnedFramesDetails.size > 0">
+
+                                        <div class="panel-section">
+
+                                            <div class="tableContainer">
+                                                <table mat-table [dataSource]="pinnedFramesDetails | keyvalue" matSort>
+                                                    <ng-container matColumnDef="index">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            No. </th>
+                                                        <td mat-cell *matCellDef="let element;let i =index;">
+                                                            {{i+1}} </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="#">
+                                                        <th mat-header-cell *matHeaderCellDef>
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            <mat-checkbox></mat-checkbox>
+                                                        </td>
+                                                    </ng-container>
+
+                                                    <ng-container matColumnDef="time">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Time</th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            {{element.value.frame}} </td>
+                                                    </ng-container>
+
+
+                                                    <!-- <ng-container matColumnDef="pinicondisable">
+                                                                                                            <th mat-header-cell *matHeaderCellDef>
+                                                                                                            </th>
+                                                                                                            <td mat-cell *matCellDef="let element">
+                                                                                                                <svg width="20" height="21"
+                                                                                                                   viewBox="0 0 20 21" fill="none"
+                                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                                    <path fill-rule="evenodd"
+                                                                                                                        clip-rule="evenodd"
+                                                                                                                        d="M12.9314 0L20 7.07107C18.904 8.16749 17.4255 8.64826 15.9941 8.51337L12.5286 12.75C12.7211 14.4356 12.2005 16.1872 10.9669 17.5157L10.8108 17.6777L7.096 13.962L1.06026 20.0012L0 18.9405L6.036 12.902L2.32851 9.19239C3.67445 7.84598 5.50091 7.27324 7.25567 7.47417L11.4897 4.00854C11.3608 2.64336 11.7914 1.23528 12.7814 0.156631L12.9314 0ZM13.1706 2.35962L13.1458 2.42711C13.0148 2.82068 12.9543 3.23681 12.969 3.65708L12.9826 3.86747L13.0577 4.66327L7.71476 9.03653L7.08515 8.96444C6.28703 8.87305 5.48924 8.99456 4.76733 9.31042L4.631 9.37341L10.6287 15.3732L10.6745 15.2793C10.9709 14.6194 11.104 13.8945 11.06 13.164L11.0388 12.9203L10.9669 12.2906L15.3395 6.94503L16.1348 7.01998C16.6171 7.06543 17.0973 7.01151 17.5482 6.86504L17.6408 6.83136L13.1706 2.35962Z"
+                                                                                                                       fill="black" />
+                                                                                                                </svg>
+                                                                                                            </td>
+                                                                                                        </ng-container> -->
+                                                    <ng-container matColumnDef="cardName">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Card Name </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            {{element.cardName}} </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="primary">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Primary </th>
+                                                        <td mat-cell *matCellDef="let element">
+
+                                                            Normal
+                                                        </td>
+                                                    </ng-container>
+                                                    <ng-container matColumnDef="secondary">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Secondary </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            <div class="svg1">
+                                                                <img
+                                                                    [src]="markerSvg(element.value.classfication).marker" />
+                                                            </div>
+                                                            {{element.value.classfication}}
+                                                        </td>
+                                                    </ng-container>
+
+                                                    <ng-container matColumnDef="notes">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            Notes</th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            {{element.value.notes}} </td>
+                                                    </ng-container>
+
+
+                                                    <ng-container matColumnDef="SPM">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            SPM </th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            H </td>
+                                                    </ng-container>
+
+                                                    <ng-container matColumnDef="PF">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                                                            PF %</th>
+                                                        <td mat-cell *matCellDef="let element">
+                                                            23% </td>
+                                                    </ng-container>
+
+                                                    <ng-container matColumnDef="unpinicon">
+                                                        <th mat-header-cell *matHeaderCellDef>
+                                                        </th>
+                                                        <td mat-cell *matCellDef="let element" class="button-type-none">
+                                                            <svg width="20" height="21" viewBox="0 0 20 21" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg" (click)="unPinTheFramePlease(element.value)">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                    d="M12.9314 0L20 7.07107C18.904 8.16749 17.4255 8.64826 15.9941 8.51337L12.5286 12.75C12.7211 14.4356 12.2005 16.1872 10.9669 17.5157L10.8108 17.6777L7.096 13.962L1.06026 20.0012L0 18.9405L6.036 12.902L2.32851 9.19239C3.67445 7.84598 5.50091 7.27324 7.25567 7.47417L11.4897 4.00854C11.3608 2.64336 11.7914 1.23528 12.7814 0.156631L12.9314 0ZM13.1706 2.35962L13.1458 2.42711C13.0148 2.82068 12.9543 3.23681 12.969 3.65708L12.9826 3.86747L13.0577 4.66327L7.71476 9.03653L7.08515 8.96444C6.28703 8.87305 5.48924 8.99456 4.76733 9.31042L4.631 9.37341L10.6287 15.3732L10.6745 15.2793C10.9709 14.6194 11.104 13.8945 11.06 13.164L11.0388 12.9203L10.9669 12.2906L15.3395 6.94503L16.1348 7.01998C16.6171 7.06543 17.0973 7.01151 17.5482 6.86504L17.6408 6.83136L13.1706 2.35962Z"
+                                                                    fill="black" />
+                                                            </svg>
+                                                        </td>
+                                                    </ng-container>
+
+                                                    <tr mat-header-row *matHeaderRowDef="pinnedFrameTableColumns">
+                                                    </tr>
+                                                    <tr mat-row *matRowDef="let row; columns: pinnedFrameTableColumns;">
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-tab>
+
+                                <mat-tab label="Well Info">
+
+                                </mat-tab>
+
+                                <!-- Well Info content ends-->
+                                <mat-tab label="Algorithm & Mitigations"> Content 3 </mat-tab>
+                                <mat-tab label="Charting"> Content 3 </mat-tab>
+                                <mat-tab label="Event Log"> Content 3 </mat-tab>
+                                <mat-tab label="Telementary & Control"> Content 3 </mat-tab>
+                            </mat-tab-group>
+
+                            <div class="tabrightsec"><button class="action-btn-info">Action</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!--  right main section -->
+</div>

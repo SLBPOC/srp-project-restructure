@@ -18,7 +18,7 @@ export class WellInfoImageDescriptionComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('===> wellId', this.wellId)
+   // console.log('===> wellId', this.wellId)
 
   }
   getWellInfoById(wellId: any) {

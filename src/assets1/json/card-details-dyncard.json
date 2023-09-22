@@ -1,0 +1,62 @@
+[
+    {
+        "id": "2023-05-30T13:18:52.000Z",
+        "pumpFillage_per": 50,
+        "SPM": 50,
+        "minPolishedRodLoad_lbs": 17.829,
+        "peakPolishedRodLoad_lbs": 30.314,
+        "surfaceStrokeLength_in": 0.00,
+        "downholeStrokeLength_in": 2.299,
+        "totalFluid_in": 100.00
+    },
+    {
+        "id": "2023-07-25T21:24:47.000Z",
+        "pumpFillage_per": 30,
+        "SPM": 70,
+        "minPolishedRodLoad_lbs": 20.829,
+        "peakPolishedRodLoad_lbs": 10.314,
+        "surfaceStrokeLength_in": 1.00,
+        "downholeStrokeLength_in": 4.299,
+        "totalFluid_in": 50.00
+    },
+    {
+        "id": "2023-05-30T08:40:21.000Z",
+        "pumpFillage_per": 70,
+        "SPM": 20,
+        "minPolishedRodLoad_lbs": 30.39,
+        "peakPolishedRodLoad_lbs": 30.314,
+        "surfaceStrokeLength_in": 2.00,
+        "downholeStrokeLength_in": 3.299,
+        "totalFluid_in": 30.00
+    },
+    {
+        "id": "2023-05-30T13:35:25.000Z",
+        "pumpFillage_per": 80,
+        "SPM": 10,
+        "minPolishedRodLoad_lbs": 71.928,
+        "peakPolishedRodLoad_lbs": 30.000,
+        "surfaceStrokeLength_in": 1.50,
+        "downholeStrokeLength_in": 2.299,
+        "totalFluid_in": 10.00
+    },
+    {
+        "id": "2023-05-30T13:06:54.000Z",
+        "pumpFillage_per": 20,
+        "SPM": 30,
+        "minPolishedRodLoad_lbs": 31.564,
+        "peakPolishedRodLoad_lbs": 30.314,
+        "surfaceStrokeLength_in": 3.00,
+        "downholeStrokeLength_in": 2.299,
+        "totalFluid_in": 89.00
+    },
+    {
+        "id": "2023-07-26T12:43:48.000Z",
+        "pumpFillage_per": 60,
+        "SPM": 60,
+        "minPolishedRodLoad_lbs": 74.231,
+        "peakPolishedRodLoad_lbs": 30.314,
+        "surfaceStrokeLength_in": 4.00,
+        "downholeStrokeLength_in": 2.299,
+        "totalFluid_in": 100.00
+    }
+]

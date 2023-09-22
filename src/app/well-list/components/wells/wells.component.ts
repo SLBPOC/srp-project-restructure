@@ -16,6 +16,9 @@ import { Router } from '@angular/router';
 import { TreeViewService } from '../../../shared/services/tree-view.service';
 import { NodeType } from '../../../shared/services/models';
 import { Constants } from 'src/app/Common/Constants';
+import * as XLSX from 'xlsx';
+import { DatePipe } from '@angular/common';
+
 
 
 @Component({
@@ -26,8 +29,10 @@ import { Constants } from 'src/app/Common/Constants';
 export class WellsComponent implements OnInit {
   theme = 'light';
   dataSource: any = [];
+  //dataSourceReport:any=[];
   WellList!: WellModel[];
   selectedColumn: string[] = [];
+  selectedExtraColumn!:[];
   displayedColumns: string[] = ['WellStatus', 'WellName', 'DateAndTime', 'CommStatus', 'ControllerStatus', 'SPM.value', 'PumpFillage.value', 'InferredProduction.value', 'NoOfAlerts'];
   displayableExtraColumns: { label: string, accessor: string, header: string }[] = [];
   extraColumnsCtrl: any = new FormControl('');
@@ -45,13 +50,14 @@ export class WellsComponent implements OnInit {
   @ViewChild('extraColumns', { static: true }) private extraColumns!: MatSelect;
 
   @ViewChild('searchQueryInput') searchInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('TABLE', { static: false }) TABLE!: ElementRef;
 
   HighCharts: typeof HighCharts = HighCharts;
 
   searchText: string = "";
   sortDirection: string = "";
   sortColumn: string = "";
-  pageSize: number = 5;
+  pageSize: number = 10;
   pageNumber = 1;
   currentPage = 0;
   totalCount = 0;
@@ -67,7 +73,12 @@ export class WellsComponent implements OnInit {
   pumpingType!: any[];
   spm!: any[];
   wellNames!: any[];
-
+  effectiveRuntime!: any[];
+  cyclesToday!: any[];
+  structuralLoad!: any[];
+  minMaxLoad!: any[];
+  gearboxLoad!: any[];
+  rodStress!: any[];
 
   //legend variables
   TotalCount: number = 0;
@@ -79,9 +90,14 @@ export class WellsComponent implements OnInit {
   pageSizeOption = [10, 20, 30]
   ids!: number[];
   respdata: any
+  todayDate : Date = new Date();
+  dateString!:string
 
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private service: WellsService, private router: Router, public treeviewService: TreeViewService) { }
+  constructor(private _liveAnnouncer: LiveAnnouncer, private service: WellsService
+    , private router: Router
+    , public treeviewService: TreeViewService
+    , private datePipe: DatePipe) { }
 
 
   ngAfterViewInit() {
@@ -116,28 +132,33 @@ export class WellsComponent implements OnInit {
   GetWellDetailsWithFilters() {
     this.loading = true;
     var SearchModel = this.createModel();
-    this.service.getWellDetailsWithFilters(SearchModel).subscribe((response: any) => {
-      if (response.hasOwnProperty('data')) {
+    this.service.getWellDetailsWithFilters(SearchModel).subscribe(response => {
+        if (response.status != 404) { 
         this.loading = false;
-        this.pageSizeOption = [10, 15, 20, response.totalCount]
+        this.pageSizeOption = [10, 20, 30, response.pumpingDetails?.totalCount]
         // this.getPageSizeOptions();
-        this.WellList = response.data;
-        this.WellList.forEach(x => this.prepareChart(x));
+        this.WellList = response.wellDtos;
+        this.WellList?.forEach(x => this.prepareChart(x));
         this.dataSource = new MatTableDataSource<WellModel>(this.WellList);
         setTimeout(() => {
           this.paginator.pageIndex = this.currentPage;
-          this.paginator.length = response.totalCount;
+          this.paginator.length = response?.totalCount;
         });
 
-        this.TotalCount = response.totalCount;
-        this.OverPumping = response.totalOverpumping;
-        this.OptimalPumping = response.totalOptimalPumping;
-        this.UnderPumping = response.totalUnderpumping;
+        this.TotalCount = response.pumpingDetails?.totalCount;
+        this.OverPumping = response.pumpingDetails?.overPumping;
+        this.OptimalPumping = response.pumpingDetails?.optimalPumping;
+        this.UnderPumping = response.pumpingDetails?.underPumping;
         this.dataSource.paginator = this.paginator;
 
       }
 
-    });
+    },(err) => {
+      this.loading = false;
+      this.WellList = []
+      this.dataSource = new MatTableDataSource<WellModel>(this.WellList);
+    }
+    );
   }
 
 
@@ -149,6 +170,12 @@ export class WellsComponent implements OnInit {
     this.pumpFillage = payload.pumpFillage;
     this.pumpingType = payload.pumpingType;
     this.spm = payload.spm;
+    this.effectiveRuntime= payload.effectiveRuntime;
+    this.cyclesToday=payload.cyclesToday;
+    this.structuralLoad=payload.structuralLoad;
+    this.minMaxLoad=payload.minMaxLoad;
+    this.gearboxLoad=payload.gearboxLoad;
+    this.rodStress=payload.rodStress;
     this.wellNames = payload.wellNames;
     this.currentPage=0;
     this.GetWellDetailsWithFilters();
@@ -169,7 +196,13 @@ export class WellsComponent implements OnInit {
     this.model.inferredProduction = this.inferredProduction ? this.inferredProduction : { start: 0, end: 100 };
     this.model.pumpFillage = this.pumpFillage ? this.pumpFillage : { start: 0, end: 100 };
     this.model.pumpingType = this.pumpingType ? this.pumpingType : [];
-    this.model.spm = this.spm ? this.spm : { start: 0, end: 100 };
+    this.model.spm = this.spm ? this.spm : { start: 0, end: 100,min:0,max:100 };
+    this.model.effectiveRuntime = this.effectiveRuntime ? this.effectiveRuntime : { start: 0, end: 100,min:0,max:100 };
+    this.model.cyclesToday = this.cyclesToday ? this.cyclesToday : { start: 0, end: 100,min:0,max:100 };
+    this.model.structuralLoad = this.structuralLoad ? this.structuralLoad : { start: 0, end: 100,min:0,max:100 };
+    this.model.minMaxLoad = this.minMaxLoad ? this.minMaxLoad : { start: 0, end: 100,min:0,max:100 };
+    this.model.gearboxLoad = this.gearboxLoad ? this.gearboxLoad : { start: 0, end: 100,min:0,max:100 };
+    this.model.rodStress = this.rodStress ? this.rodStress : { start: 0, end: 100,min:0,max:100 };
     this.model.wellNames = this.wellNames ? this.wellNames : [];
 
     return this.model;
@@ -200,7 +233,9 @@ export class WellsComponent implements OnInit {
     this.sortDirection = "";
     this.seachByStatus="";
     this.currentPage=0;
-
+    this.commStatus = [];
+    this.controllerStatus =[];
+    this.pumpingType = [];
     this.GetWellDetailsWithFilters();
   }
 
@@ -696,7 +731,7 @@ export class WellsComponent implements OnInit {
 
   navigateToWellInfo(wellId: string) {
     //this.router.navigateByUrl(`/well-info-v2/${wellId}`)
-    this.router.navigate([]).then(result => { window.open(`/well-info-v2/${wellId}`, '_blank'); });  // in new tab
+    this.router.navigate([]).then(result => { window.open(`/well-info-v3/${wellId}`, '_blank'); });  // in new tab
   }
 
 
@@ -704,5 +739,40 @@ export class WellsComponent implements OnInit {
   userSearchChange(obj: any) {
     this.searchObjC = obj;
   }
+  createModelReport(this: any) {
+    debugger;
+    this.model.pageSize = this.TotalCount;
+    this.model.pageNumber = 1;
+    this.model.searchText = this.searchText ? this.searchText : "";
+    this.model.sortColumn = this.sortColumn ? this.sortColumn : "";
+    this.model.sortDirection = this.sortDirection ? this.sortDirection : "";
+    this.model.searchStatus = this.seachByStatus ? this.seachByStatus : "";
+    this.model.ids = this.ids;
 
+    this.model.commStatus = this.commStatus ? this.commStatus : [];
+    this.model.controllerStatus = this.controllerStatus ? this.controllerStatus : [];
+    this.model.inferredProduction = this.inferredProduction ? this.inferredProduction : { start: 0, end: 100 };
+    this.model.pumpFillage = this.pumpFillage ? this.pumpFillage : { start: 0, end: 100 };
+    this.model.pumpingType = this.pumpingType ? this.pumpingType : [];
+    this.model.spm = this.spm ? this.spm : { start: 0, end: 100 };
+    this.model.wellNames = this.wellNames ? this.wellNames : [];
+    return this.model;
+  }
+  GetWellDetailsWithFiltersReport() {
+    debugger;
+    this.loading = true;
+    var SearchModel = this.createModelReport();
+    this.service.getWellDetailsWithFilters(SearchModel).subscribe(respince =>{
+      this.dataSource = new MatTableDataSource<WellModel>(this.WellList);
+     this.exportToXls(this.dataSource);
+      })
+  }
+  exportToXls(list:any){
+    debugger;
+    this.dateString = this.datePipe.transform(this.todayDate, 'dd_MM_YYYY_hh_mm') ?? "";
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement); 
+    const wb: XLSX.WorkBook = XLSX.utils.book_new(); 
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1'); 
+    XLSX.writeFile(wb, 'WellList_'+this.dateString +'.xlsx');
+  }
 }

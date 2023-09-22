@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSelect } from '@angular/material/select';
-import { DynacardService } from '../../../services/dynacard.service';
-import { CardDetailsModel } from '../../../model/dyna-card.model';
+import { DynacardService } from '../../../../shared/services/dynacard.service';
+import { CardDetailsModel } from 'src/app/shared/models/dyna-card.model';
 interface welldata {
   value: number;
   viewValue: string;
@@ -23,7 +23,7 @@ interface welldata {
 })
 export class WellDetailsDynacardCardDetailsComponent {
 
-  selectedTimeDetails: CardDetailsModel = new CardDetailsModel();;
+  selectedTimeDetails: CardDetailsModel | null =  null;//new CardDetailsModel();;
 
   mappingOfFields = {
     pumpFillage_per: 'Pump Fillage(%) ',
@@ -33,7 +33,7 @@ export class WellDetailsDynacardCardDetailsComponent {
     surfaceStrokeLength_in: 'Surface Stroke Length (in)',
     downholeStrokeLength_in: 'Downhole Stroke Length (in)',
     totalFluid_in: 'Total Fluid (in)',
-  };
+  } as any;
 
   constructor(private dynaService: DynacardService) {
     this.dynaService.selectedTime.subscribe(x => {
@@ -43,7 +43,7 @@ export class WellDetailsDynacardCardDetailsComponent {
         });
       }
       else {
-        this.selectedTimeDetails = new CardDetailsModel();
+        this.selectedTimeDetails = null;//new CardDetailsModel();
       }
     });
     this.dynaService.selectedTimeInGraph.subscribe(x => {

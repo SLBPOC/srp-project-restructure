@@ -5,16 +5,16 @@ import * as moment from 'moment';
 
 
 export class range {
-  name: string;
-  min: number;
-  max: number;
+  name!: string;
+  min!: number;
+  max!: number;
 }
 
 
 @Component({
   selector: 'app-well-view-parameters',
   templateUrl: './well-view-parameters.component.html',
-  styleUrls: ['./well-view-parameters.component.css']
+  styleUrls: ['./well-view-parameters.component.scss']
 })
 export class WellViewParametersComponent {
   duration = {
@@ -119,7 +119,7 @@ export class WellViewParametersComponent {
       }]
   }
   pushRange() {
-    if (this.options.series.length < this.rangeList.length) {
+    if (this.options.series && this.options.series.length < this.rangeList.length) {
       this.options.series?.push(
         {
           type: this.isScatter ? 'scatter' : 'line',
@@ -146,7 +146,7 @@ export class WellViewParametersComponent {
   }
 
   removeRange() {
-    if (this.options.series.length > 1) {
+    if (this.options.series && this.options.series.length > 1) {
       (<Array<YAxisOptions>>this.options.yAxis)[this.options.series.length-1].visible = false;
       this.options.series.pop();
       this.updateFlag = true;
@@ -155,6 +155,7 @@ export class WellViewParametersComponent {
 
   durationChanged() {
     for (let index = 0; index < <number>this.options.series?.length; index++) {
+      if(this.options.series)
       (<Highcharts.SeriesLineOptions>this.options.series[index]).data = this.GetRandomNumbers(this.rangeList[index])
     }
     this.updateFlag = true;

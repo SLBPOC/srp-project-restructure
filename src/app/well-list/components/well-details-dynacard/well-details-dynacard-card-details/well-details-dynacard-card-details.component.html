@@ -72,7 +72,7 @@
          <div class="main-title">
             <span class="circle bgcolor-aqua"></span> Pump Tagging
          </div>
-         <span class="date-time">{{selectedTimeDetails.id}}</span>
+         <span class="date-time">{{selectedTimeDetails?.id}}</span>
       </div>
       <div class="select-classification">
          <mat-form-field>
@@ -93,7 +93,7 @@
    </div>
    <div class="divider"></div>
    <div class="card-details-block">
-      <div *ngFor="let summary of selectedTimeDetails | keyvalue ">
+      <div *ngFor="let summary of selectedTimeDetails | keyvalue " >
          <div class="mat-card" *ngIf="summary.key !== 'id'">
             <p class="pera-first">{{mappingOfFields[summary.key]}}</p>
             <p class="pera-second">{{summary.value}}</p>
