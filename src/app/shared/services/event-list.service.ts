@@ -9,8 +9,10 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root',
 })
 export class EventListService {
-  baseUrl: string = environment.srp_microservice_url;
-  _apiUrl: string = 'https://localhost:5000/';
+  // private apiUrl: string = environment.srp_microservice_url;
+  private _apiUrl: string = environment.srp_microservice_url;
+
+  // _apiUrl: string = 'https://localhost:52906/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -27,34 +29,31 @@ export class EventListService {
   getWellEvents(): Observable<any> {
     // return this.http.get<any>(this.apiUrl + `Well/GetWellInfoById/${wellId}`, this.httpOptions);
     return this.http.get<Observable<EventList[]>>(
-      `${this.baseUrl}Events/GetAllWellList`
+      `${this._apiUrl}Events/GetAllWellList`
     );
   }
 
   getEventList(SearchModel: any): Observable<any> {
-    return this.http.post<EventList[]>(
-      this.baseUrl + 'Event/Get',
-      SearchModel
-    );
+    return this.http.post<EventList[]>(this._apiUrl + 'Event/Get', SearchModel);
   }
 
   getDefaultEvents(payload?: null): Observable<any> {
     return this.http.post<EventList[]>(
-      this.baseUrl + 'Event/GetDefaultValues',
+      this._apiUrl + 'Event/GetDefaultValues',
       payload
     );
   }
 
   clearAlert(id: number, comments: string, payload?: any): Observable<any> {
     return this.http.post<EventList[]>(
-      this.baseUrl + `Alerts/ClearAlert?alertId=${id}&comment=${comments}`,
+      this._apiUrl + `api/Alerts/ClearAlert?alertId=${id}&comment=${comments}`,
       payload
     );
   }
 
   snoozeBy(id: number, time: number, payload?: any): Observable<any> {
     return this.http.post<EventList[]>(
-      this.baseUrl + `Alerts/SnoozeBy?alertId=${id}&snoozeBy=${time}`,
+      this._apiUrl + `api/Alerts/SnoozeBy?alertId=${id}&snoozeBy=${time}`,
       payload
     );
   }

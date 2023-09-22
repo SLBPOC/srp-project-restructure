@@ -1,5 +1,4 @@
- 
- /* .example-tree-progress-bar {
+/* .example-tree-progress-bar {
   margin-left: 30px;
 }
 
@@ -63,7 +62,6 @@ li ul {
   z-index: 100;
 } */
 
-
 // .dot {
 //   height: 15px;
 //   width: 15px;
@@ -99,27 +97,27 @@ li ul {
 //   position: absolute;
 // }
 
-$--mdc-checkbox-state-layer-size :29px;
+$--mdc-checkbox-state-layer-size: 29px;
 .mat-tree {
   background: transparent;
   font-family: var(--font-slb-sans-medium);
   min-height: 495px;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 
 .mat-mdc-checkbox {
   display: inline-block;
-  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   height: 24px;
   vertical-align: top;
 
-
   ::ng-deep .mdc-form-field {
     margin-right: 4px;
     vertical-align: bottom;
-    color: #EBECF2;
+    color: #ebecf2;
     height: 24px;
     font-size: 16px !important;
   }
@@ -142,7 +140,7 @@ $--mdc-checkbox-state-layer-size :29px;
     height: 29px !important;
     top: 6px !important;
     left: 6px !important;
-}
+  }
   ::ng-deep .mdc-checkbox__ripple {
     top: 6px;
     left: 6px;
@@ -153,17 +151,26 @@ $--mdc-checkbox-state-layer-size :29px;
     pointer-events: none;
     width: 29px;
     height: 29px;
-}
+  }
 
-  ::ng-deep .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
-    border-color: #ADB1C7;
+  ::ng-deep
+    .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not(
+      [data-indeterminate="true"]
+    )
+    ~ .mdc-checkbox__background {
+    border-color: #adb1c7;
     background-color: #080912;
   }
 }
 
-::ng-deep .mdc-checkbox:hover .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
-  border-color: #ADB1C7;
-    background-color: #080912;
+::ng-deep
+  .mdc-checkbox:hover
+  .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not(
+    [data-indeterminate="true"]
+  )
+  ~ .mdc-checkbox__background {
+  border-color: #adb1c7;
+  background-color: #080912;
 }
 
 ::ng-deep .mdc-checkbox__background {
@@ -171,25 +178,36 @@ $--mdc-checkbox-state-layer-size :29px;
   border-width: 1.6px !important;
 }
 
-::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
-::ng-deep .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
-  border-color: #FABB42 !important;
-    background-color: #3A83FF !important;
+::ng-deep
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled:checked
+  ~ .mdc-checkbox__background,
+::ng-deep
+  .mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background {
+  border-color: #fabb42 !important;
+  background-color: #3a83ff !important;
 }
-::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__checkmark {
+::ng-deep
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled
+  ~ .mdc-checkbox__background
+  .mdc-checkbox__checkmark {
   width: 12px !important;
-    margin: 0 auto;
-    margin: 0 auto !important;
-    top: auto ;
-    right: auto ; 
-    bottom: auto ;
-    left: auto ;
+  margin: 0 auto;
+  margin: 0 auto !important;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
 }
-::ng-deep .mdc-checkbox .mdc-checkbox__native-control:enabled~.mdc-checkbox__background .mdc-checkbox__mixedmark {
+::ng-deep
+  .mdc-checkbox
+  .mdc-checkbox__native-control:enabled
+  ~ .mdc-checkbox__background
+  .mdc-checkbox__mixedmark {
   width: 12px !important;
 }
-
-
 
 mat-tree-node {
   height: 27px !important;
@@ -197,6 +215,10 @@ mat-tree-node {
   min-width: 270px;
 }
 
+.node-bg {
+  background-color: #ebecf2;
+  margin-bottom: 10px;
+}
 .mat-tree-node,
 .mat-nested-tree-node {
   font-weight: 500;
@@ -230,23 +252,23 @@ mat-tree-node {
 }
 ::ng-deep .mdc-form-field {
   // .mdc-label {
-    .status {
-      height: 16px;
-      width: 16px;
-      display: inline-block;
-      border-radius: 10px;
-      vertical-align: sub;
-      margin-right: 5px;
-    }
-    .status_red {
-      background-color: red;
-    }
-    .status_yellow {
-      background-color: #FABB42;
-    }
-    .status_green {
-      background-color: #168244;
-    }
+  .status {
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    border-radius: 10px;
+    vertical-align: sub;
+    margin-right: 5px;
+  }
+  .status_red {
+    background-color: red;
+  }
+  .status_yellow {
+    background-color: #fabb42;
+  }
+  .status_green {
+    background-color: #168244;
+  }
   // }
 }
 
@@ -254,10 +276,7 @@ mat-tree-node {
   display: none;
 }
 
-.mdc-form-field>label 
-{
-  font-size: 18px !important;
+.mdc-form-field > label {
+  font-size: 16px !important;
   font-weight: 700;
 }
-
-

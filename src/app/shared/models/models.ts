@@ -33,5 +33,5 @@ export enum NodeType {
   }
 
   export interface WellHierarchyResult {
-    
+    hierarchy: Node[]
   }

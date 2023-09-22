@@ -20,7 +20,7 @@
         <div *ngIf="isCheckbox(node)">
           <mat-checkbox
             class="checklist-leaf-node status-lbl"
-            [checked]="checklistSelection.isSelected(node.NodeId)"
+            [checked]="checklistSelection.isSelected(node.nodeId)"
             (change)="todoLeafItemSelectionToggle(node)"
           >
             <span
