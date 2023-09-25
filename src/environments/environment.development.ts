@@ -1,5 +1,5 @@
 export const environment = {
-  srp_microservice_url: "https://localhost:5000/api/",
+  srp_microservice_url: "http://localhost:5000/api/",
   customAlertNotification:['Text','Email'],
   customAlertPriority:['High','Medium','Low'],
   customAlertCategory:['Fluid Pound Events','Gas Interference Events','Flatlining Events','Tagging Events','Distorted Card Events','Current SPM','Current PF','Load','Shutdowns','Runtime Yesterday'],
