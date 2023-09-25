@@ -5,7 +5,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthorizationService } from './services/authorization.service';
+import { AuthorizationService } from '../services/authorization.service';
 
 @Injectable({
   providedIn: 'root',
@@ -23,10 +23,10 @@ export class AuthGuard {
     | UrlTree {
     if (this.authorizationService.hasAccessToken) {
       const validTokens = this.authorizationService.validAccessTokens();
-      console.log('==> valid access tokens:- ', this.authorizationService.validAccessTokens());
+      // console.log('==> valid access tokens:- ', this.authorizationService.validAccessTokens());
       return this.authorizationService.validAccessTokens().length > 0;
     } else {
-      console.log('access token not found, authorizing')
+      // console.log('access token not found, authorizing')
       this.authorizationService.authorize();
       return false;
     }

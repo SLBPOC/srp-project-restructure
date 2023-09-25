@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError, of } from 'rxjs';
+import { AuthorizationService } from '../services/authorization.service';
 // import { LoginService } from '@agora/agora-ui-library';
-import { AuthorizationService } from './services/authorization.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -15,14 +15,14 @@ export class TokenInterceptor implements HttpInterceptor {
     // this.accessToken = this.loginService.getAccessToken();
     this.accessToken = this.authorizationService.accessToken?.access_token;
     // const isSauthTokenRequest = request.url.includes('/token') || request.url.includes('/getconfigurations');
-    console.log('==> current access token', this.authorizationService.accessToken?.access_token);
+    // console.log('==> current access token', this.authorizationService.accessToken?.access_token);
     // if (this.accessToken && !isSauthTokenRequest) {
       if (this.accessToken) {
 
       request = request.clone({
         setHeaders: { 'Authorization': `Bearer ${this.accessToken}` },
       });
-      console.log('==> intercept, token added, request object',request)
+      // console.log('==> intercept, token added, request object',request)
     }
     return next.handle(request)
     .pipe(

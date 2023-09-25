@@ -1,4 +1,4 @@
-import { Node } from "../services/models";
+import { Node } from "../models/models";
 
 export interface WellModel {
     fieldName: string;

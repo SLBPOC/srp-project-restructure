@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
-import { AuthGuard } from './authentication/auth.guard';
-import { CallbackComponent } from './authentication/components/callback/callback.component';
+import { CallbackComponent } from './core/components/callback/callback.component';
+import { AuthGuard } from './core/guards/auth.guard';
+// import { AuthGuard } from './authentication/auth.guard';
+// import { CallbackComponent } from './authentication/components/callback/callback.component';
 
 // const routes: Routes = [
 //   {

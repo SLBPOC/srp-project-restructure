@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthorizationService } from '../../services/authorization.service';
 import { AuthorizationResponse } from '../../models/authorization-response';
+import { AuthorizationService } from '../../services/authorization.service';
 
 @Component({
   selector: 'app-callback',

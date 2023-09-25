@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Node, NodeType } from './models';
+import { Node, NodeType } from '../models/models';
 import { WellsService } from './wells.service';
 
 
@@ -44,8 +44,8 @@ export class HierarchyService {
     finalArray = finalArray || [];
     nodes.forEach((x: Node) => {
       finalArray.push(x);
-      if (x.Children != null && x.Children.length > 0)
-        this.flattened(x.Children, finalArray);
+      if (x.children != null && x.children.length > 0)
+        this.flattened(x.children, finalArray);
     });
     return finalArray;
   }

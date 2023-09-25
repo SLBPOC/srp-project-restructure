@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { TreeViewService } from '../../../shared/services/tree-view.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
-import { SavedState, Node, NodeType } from '../../../shared/services/models';
+import { SavedState, Node, NodeType } from '../../../shared/models/models';
 // import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({

@@ -4,7 +4,7 @@ import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter, OnIni
 import { MatTree, MatTreeFlatDataSource, MatTreeFlattener, MatTreeNestedDataSource } from '@angular/material/tree';
 import { tap, zip } from 'rxjs';
 import { TreeViewService } from '../../../shared/services/tree-view.service';
-import { Node, NodeType, FlatNode } from '../../../shared/services/models'
+import { Node, NodeType, FlatNode } from '../../../shared/models/models'
 import { WellsService } from '../../../shared/services/wells.service';
 import { HierarchyService } from '../../services/HierarchyService';
 // import { WellModel, WellModelResult } from '../../../shared/model/wellModel';

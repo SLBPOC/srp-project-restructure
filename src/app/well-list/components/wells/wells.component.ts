@@ -14,7 +14,7 @@ import { fromEvent, map, debounceTime, distinctUntilChanged, tap } from 'rxjs'
 import * as HighCharts from 'highcharts';
 import { Router } from '@angular/router';
 import { TreeViewService } from '../../../shared/services/tree-view.service';
-import { NodeType } from '../../../shared/services/models';
+import { NodeType } from '../../../shared/models/models';
 import { Constants } from 'src/app/Common/Constants';
 import * as XLSX from 'xlsx';
 import { DatePipe } from '@angular/common';
@@ -117,9 +117,9 @@ export class WellsComponent implements OnInit {
   ngOnInit(): void {
     this.GetWellDetailsWithFilters();
     this.treeviewService.selectedNodes.subscribe(x => {
-      console.log(x);
+      // console.log(x);
       if (x != undefined && x.length > 0 && x.some(m => m.type == NodeType.Wells)) {
-        this.ids = x.filter(m => m.type == NodeType.Wells).map(m => m.NodeId);
+        this.ids = x.filter(m => m.type == NodeType.Wells).map(m => m.nodeId);
       }
       else
         this.ids = [];
@@ -297,7 +297,7 @@ export class WellsComponent implements OnInit {
   }
 
   pageChanged(event: PageEvent) {
-    console.log({ event });
+    // console.log({ event });
     this.pageSize = event.pageSize;
     this.currentPage = event.pageIndex;
     this.pageNumber = event.pageIndex + 1;

@@ -31,7 +31,7 @@ import { DatePipe } from '@angular/common';
 import { ViewEncapsulation } from '@angular/compiler';
 import { WellsService } from '../shared/services/wells.service';
 import { WellModel } from '../shared/models/wellModel';
-import { NodeType } from '../shared/services/models';
+import { NodeType } from '../shared/models/models';
 import { debounceTime, distinctUntilChanged, fromEvent, map, tap } from 'rxjs';
 import { TreeViewService } from '../shared/services/tree-view.service';
 import { LiveAnnouncer } from '@angular/cdk/a11y';

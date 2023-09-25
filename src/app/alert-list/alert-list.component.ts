@@ -505,7 +505,6 @@ export class AlertListComponent implements OnInit {
     this.searchObjC = obj;
   }
   createModelReport(this: any) {
-    debugger;
     this.model.pageSize = this.TotalCount;
     this.model.pageNumber = 1;
     this.model.searchText = this.searchText ? this.searchText : "";
@@ -516,7 +515,6 @@ export class AlertListComponent implements OnInit {
     return this.model;
   }
   AlertsDownloadExcel() {
-    debugger;
     this.loading = true;
     var payload = this.createModelReport();
     this.service.getAlertListFilters(payload).subscribe((response: any) => {
@@ -525,7 +523,6 @@ export class AlertListComponent implements OnInit {
       })
   }
   exportToXls(list:any){
-    debugger;
     this.dateString = this.datePipe.transform(this.todayDate, 'dd_MM_YYYY_hh_mm');
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(this.TABLE.nativeElement); 
     const wb: XLSX.WorkBook = XLSX.utils.book_new(); 

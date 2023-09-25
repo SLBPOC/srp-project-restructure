@@ -1,4 +1,4 @@
-import { WellModel } from './wellModel';
+import { WellModel } from "../models/wellModel";
 
 export enum NodeType {
     Field,
@@ -7,22 +7,27 @@ export enum NodeType {
     Wells
   }
   
-  export interface Node extends WellModel {
-    Type: NodeType;
+  export interface Node {
+    type: NodeType;
     Name: string;
-    Children?: Node[];
+    // Children?: Node[];
     isOn?: boolean;
-    NodeId: number;
-    NodeParentId?: number;
+    // NodeId: number;
+    // NodeParentId?: number;
+    nodeId: number;
+    children: Node[];
+    nodeParentId?: number;
+
   }
   
   export class FlatNode {
-    Type!: NodeType;
+    // Type!: NodeType;
     Name!: string;
     isOn?: boolean;
     Id!: string;
     level!: number;
     expandable!: boolean;
+    type!: NodeType
   }
 
   export class SavedState{
@@ -32,6 +37,6 @@ export enum NodeType {
     SavedOption!:string;
   }
 
-  export interface WellHierarchyResult {
+ export interface WellHierarchyResult {
     hierarchy: Node[]
   }
