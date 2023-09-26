@@ -20,7 +20,6 @@ const routes: Routes = [
         path: 'well-info/:id',
         component: WellInfoComponent,
       }
-
     ]
   }
 ];
@@ -29,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WellListRoutingModule { }
+export class WellsRoutingModule { }

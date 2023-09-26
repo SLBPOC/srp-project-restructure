@@ -136,7 +136,7 @@
         <span class="full-width menutxt" *ngIf="isExpanded || isShowing"> Dashboard</span>
       </mat-list-item>
       <mat-list-item (click)="showSubmenu = !showSubmenu" routerLinkActive="active-list-item"
-        class="parent navcontenttxt" routerLink='/well-list'>
+        class="parent navcontenttxt" routerLink='/wells'>
         <span class="full-width menutxt" *ngIf="isExpanded || isShowing">Well List</span>
 
         <!-- <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}"
@@ -155,10 +155,10 @@
         <a mat-list-item routerLink="algorithms-and-mitigations">Algorithms and Mitigations</a>
       </div>
 
-      <mat-list-item class="navcontenttxt" routerLinkActive="active-list-item" routerLink="/alert-list">
+      <mat-list-item class="navcontenttxt" routerLinkActive="active-list-item" routerLink="/alerts">
         <span class="full-width menutxt" *ngIf="isExpanded || isShowing">Alerts</span>
       </mat-list-item>
-      <mat-list-item class="navcontenttxt" routerLinkActive="active-list-item" routerLink="/event-list">
+      <mat-list-item class="navcontenttxt" routerLinkActive="active-list-item" routerLink="/events">
         <span class="full-width menutxt" *ngIf="isExpanded || isShowing">Events</span>
       </mat-list-item>
       <!-- <mat-list-item class="navcontenttxt" routerLinkActive="active" routerLink="/dyna-card">

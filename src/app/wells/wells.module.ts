@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { WellListRoutingModule } from './well-list-routing.module';
+import { WellsRoutingModule } from './wells-routing.module';
 import { WellListComponent } from './well-list.component';
 // import { WellTreeView } from './components/well-tree-view/well-tree-view.component';
 // import { WellTreeSearchComponent } from './components/well-tree-search/well-tree-search.component';
@@ -96,7 +96,7 @@ import { UiDynacardInfoComponent } from './components/well-details-dynacard/ui-d
   ],
   imports: [
     CommonModule,
-    WellListRoutingModule,
+    WellsRoutingModule,
     SharedModule,
     CoreModule,
     HighchartsChartModule

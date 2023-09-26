@@ -693,7 +693,7 @@ export class WellsComponent implements OnInit {
 
   navigateToWellInfo(wellId: string) {
     // this.router.navigateByUrl(`well-list/well-info-v3/${wellId}`)
-    this.router.navigate([]).then(result => { window.open(`well-list/well-info-v3/${wellId}`, '_blank'); });  // in new tab
+    this.router.navigate([]).then(result => { window.open(`wells/well-info-v3/${wellId}`, '_blank'); });  // in new tab
   }
 
   searchObjC: any;

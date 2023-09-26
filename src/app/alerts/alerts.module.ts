@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AlertListRoutingModule } from './alert-list-routing.module';
+import { AlertsRoutingModule } from './alerts-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AlertListComponent } from './alert-list.component';
 import { AlertCategoriesChartComponent } from './components/alert-categories-chart/alert-categories-chart.component';
 import { AlertCategoriesTableComponent } from './components/alert-categories-table/alert-categories-table.component';
-import { WellListModule } from '../well-list/well-list.module';
+import { WellListModule } from '../wells/wells.module';
 import { CustomAlertComponent } from './components/custom-alert/custom-alert.component';
 
 @NgModule({
@@ -18,8 +18,8 @@ import { CustomAlertComponent } from './components/custom-alert/custom-alert.com
   imports: [
     CommonModule,
     SharedModule,
-    AlertListRoutingModule,
+    AlertsRoutingModule,
     WellListModule
   ]
 })
-export class AlertListModule { }
+export class AlertsModule { }
