@@ -12,7 +12,7 @@ import { StateService } from './state.service';
 @Injectable()
 export class AuthorizationService {
   private clientId: string = 'd20825d2c17efc0b42908d0078b78eab';
-  private subscriptionKey: string = '<SKY_API_SUBSCRIPTION_KEY>';
+  // private subscriptionKey: string = '<SKY_API_SUBSCRIPTION_KEY>';
   private redirectUri: string = 'http://localhost:4200/Callback';
   private authorizationUrl: string = 'https://p4d.csi.cloud.slb-ds.com/v2/auth?';
   private tokenUrl: string = 'https://p4d.csi.cloud.slb-ds.com/v2/token';

@@ -1,26 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { WellsService } from '../../services/wells.service';
-import { EventListService } from '../../services/event-list.service';
-
-interface ISpmSlider {
-  min: 0;
-  max: 20;
-  start: 0;
-  end: 20;
-}
-interface IPumpFillageSlider {
-  min: 0;
-  max: 100;
-  start: 0;
-  end: 100;
-}
-interface IInferredProductionSlider {
-  min: 0;
-  max: 100;
-  start: 0;
-  end: 100;
-}
+import { EventListService } from 'src/app/shared/services/event-list.service';
+import { WellsService } from 'src/app/shared/services/wells.service';
 
 @Component({
   selector: 'app-event-filter-and-sort',
@@ -28,21 +9,19 @@ interface IInferredProductionSlider {
   styleUrls: ['./event-filter-and-sort.component.scss'],
 })
 export class EventFilterAndSortComponent {
-  @Output('filterRefresh') filterRefresh: EventEmitter<any> =
-    new EventEmitter();
-  panelOpenState: boolean;
-  panelOpenState2: boolean;
-  panelOpenState3: boolean;
-  panelOpenState4: boolean;
-  panelOpenState5: boolean;
-  panelOpenState6: boolean;
-  panelOpenState7: boolean;
-  wellList: any[];
+  @Output('filterRefresh') filterRefresh: EventEmitter<any> = new EventEmitter();
+  panelOpenState!: boolean;
+  panelOpenState2!: boolean;
+  panelOpenState3!: boolean;
+  panelOpenState4!: boolean;
+  panelOpenState5!: boolean;
+  panelOpenState6!: boolean;
+  panelOpenState7!: boolean;
+  wellList!: any[];
   wellFormControl = new FormControl();
   providers = new FormControl();
   selectedWellNames = new FormControl();
   selectedCategories = new FormControl();
-
   allProviders!: any;
   commsStatusOptions!: any;
   controllerStatusOptions!: any;
@@ -56,7 +35,6 @@ export class EventFilterAndSortComponent {
   eventType = [];
   evnts = [];
   testEvent: boolean = false;
-
   filtersApplied = {
     wellNames: false,
     commsStatus: false,
@@ -69,14 +47,12 @@ export class EventFilterAndSortComponent {
     eventType: false,
   };
   @Input() isEvent!: any;
-
   filteredProviders: any[] = this.allProviders;
   alertLevels: any;
 
   constructor(
-    private service: WellsService,
     private eventService: EventListService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getEventDetails();
@@ -90,7 +66,6 @@ export class EventFilterAndSortComponent {
 
   getDefaultValues() {
     this.eventService.getDefaultEvents().subscribe((response: any) => {
-      //console.log('===> dropdown data', response);
       this.evnts = response.events;
       this.wellNames = response.wellNames;
       this.eventType = response.eventTypes;
@@ -100,7 +75,6 @@ export class EventFilterAndSortComponent {
   getEventDetails() {
     this.eventService.getWellEvents().subscribe((resp) => {
       this.evnts = resp.events;
-
       this.wellNames = resp.wellNames;
       this.eventType = resp.eventTypes;
     });
@@ -108,7 +82,7 @@ export class EventFilterAndSortComponent {
 
   onInputChange(event: any) {
     const searchInput = event.target.value.toLowerCase();
-    this.filteredProviders = this.allProviders.filter(({ value }) => {
+    this.filteredProviders = this.allProviders.filter(({ value }: any) => {
       const prov = value.toLowerCase();
       return prov.includes(searchInput);
     });
@@ -116,12 +90,12 @@ export class EventFilterAndSortComponent {
 
   onInputChangeEvent(event: any) {
     const searchInput = event.target.value.toLowerCase();
-    this.filteredProviders = this.allProviders.filter(({ value }) => {
+    this.filteredProviders = this.allProviders.filter(({ value }: any) => {
       const prov = value.toLowerCase();
       return prov.includes(searchInput);
     });
   }
-  ////For Events
+
   onOpenChange(searchInput: any) {
     searchInput.value = '';
     this.filteredProviders = this.allProviders;
@@ -131,19 +105,15 @@ export class EventFilterAndSortComponent {
     debugger;
     this.eventSelectedWells = selectedWellNamesArray;
     this.filtersApplied.wellNames = selectedWellNamesArray.length > 0;
-    // this.updateAppliedFilter();
-    console.log(this.eventSelectedWells);
   }
   onWellSelectionEventType(selectedeventType: any) {
     this.eventTypesWell = selectedeventType;
     this.filtersApplied.eventType = selectedeventType.length > 0;
-    console.log(this.eventTypesWell);
   }
 
   clearAppliedFilter() {
     this.clearWellNames();
     this.eventSelectedWells = [];
-    // this.eventTypesWell = [];
     this.providers = new FormControl();
     this.wellFormControl = new FormControl();
 
@@ -205,4 +175,5 @@ export class EventFilterAndSortComponent {
     let percentageValue = Math.round(value * 100) / 100;
     return `${percentageValue}`;
   }
+
 }

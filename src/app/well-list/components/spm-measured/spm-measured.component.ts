@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
-HC_exporting(Highcharts); 
-
-
-
+HC_exporting(Highcharts);
 
 @Component({
   selector: 'app-spm-measured',
@@ -12,7 +9,7 @@ HC_exporting(Highcharts);
   styleUrls: ['./spm-measured.component.scss']
 })
 export class SpmMeasuredComponent {
-  chart:any;
+  chart: any;
   updateFromInput = false;
   Highcharts = Highcharts;
   chartCallback: any;
@@ -54,98 +51,10 @@ export class SpmMeasuredComponent {
 
   ngOnInit() {
     this.activity.datasets.forEach((dataset, i) => {
-      // Add X values
       const data = dataset.data.map((val, j) => [this.activity.xData[j], val]);
-
-      // this['chartOptions' + (i + 1)] = {
-      //   chart: {
-      //     marginLeft: 40, // Keep all charts left aligned
-      //     spacingTop: 20,
-      //     spacingBottom: 20,
-      //     height: 220,
-      //   },
-      //   title: {
-      //     text: dataset.name,
-      //     align: 'left',
-      //     margin: 0,
-      //     x: 30,
-      //   },
-      //   credits: {
-      //     enabled: false,
-      //   },
-      //   legend: {
-      //     enabled: false,
-      //   },
-      //   xAxis: {
-      //     crosshair: true,
-      //     events: {
-      //       setExtremes:(e:any)=> {
-      //         const thisChart = this.chart;
-
-      //         if (e.trigger !== 'syncExtremes') {
-      //           // Prevent feedback loop
-      //           Highcharts.charts?.forEach((chart) => {
-      //             if (chart !== thisChart) {
-      //               if (chart?.xAxis[0].setExtremes) {
-      //                 // It is null while updating
-      //                 chart.xAxis[0].setExtremes(
-      //                   e.min,
-      //                   e.max,
-      //                   undefined,
-      //                   false,
-      //                   {
-      //                     trigger: 'syncExtremes',
-      //                   }
-      //                 );
-      //               }
-      //             }
-      //           });
-      //         }
-      //       },
-      //     },
-      //     labels: {
-      //       format: '{value} km',
-      //     },
-      //   },
-      //   yAxis: {
-      //     title: {
-      //       text: null,
-      //     },
-      //   },
-      //   tooltip: {
-      //     positioner: (e:any)=> {
-      //       return {
-      //         // right aligned
-      //         x: this.chart.chartWidth - this.label.width,
-      //         y: 10, // align to title
-      //       };
-      //     },
-      //     borderWidth: 0,
-      //     backgroundColor: 'none',
-      //     pointFormat: '{point.y}',
-      //     headerFormat: '',
-      //     shadow: false,
-      //     style: {
-      //       fontSize: '18px',
-      //     },
-      //     valueDecimals: dataset.valueDecimals,
-      //   },
-      //   series: [
-      //     {
-      //       data: data,
-      //       name: dataset.name,
-      //       type: dataset.type,
-      //       color: Highcharts.getOptions().colors[i],
-      //       fillOpacity: 0.3,
-      //       tooltip: {
-      //         valueSuffix: ' ' + dataset.unit,
-      //       },
-      //     },
-      //   ],
-      // };
       this[`chartOptions1`] = {
         chart: {
-          marginLeft: 40, // Keep all charts left aligned
+          marginLeft: 40,
           spacingTop: 20,
           spacingBottom: 20,
           height: 220,
@@ -165,15 +74,13 @@ export class SpmMeasuredComponent {
         xAxis: {
           crosshair: true,
           events: {
-            setExtremes:(e:any)=> {
+            setExtremes: (e: any) => {
               const thisChart = this.chart;
 
               if (e.trigger !== 'syncExtremes') {
-                // Prevent feedback loop
                 Highcharts.charts?.forEach((chart) => {
                   if (chart !== thisChart) {
                     if (chart?.xAxis[0].setExtremes) {
-                      // It is null while updating
                       chart.xAxis[0].setExtremes(
                         e.min,
                         e.max,
@@ -199,9 +106,8 @@ export class SpmMeasuredComponent {
           },
         },
         tooltip: {
-          positioner: (e:any)=> {
+          positioner: (e: any) => {
             return {
-              // right aligned
               x: this.chart.chartWidth - this.label.width,
               y: 10, // align to title
             };
@@ -251,15 +157,13 @@ export class SpmMeasuredComponent {
         xAxis: {
           crosshair: true,
           events: {
-            setExtremes:(e:any)=> {
+            setExtremes: (e: any) => {
               const thisChart = this.chart;
 
               if (e.trigger !== 'syncExtremes') {
-                // Prevent feedback loop
                 Highcharts.charts?.forEach((chart) => {
                   if (chart !== thisChart) {
                     if (chart?.xAxis[0].setExtremes) {
-                      // It is null while updating
                       chart.xAxis[0].setExtremes(
                         e.min,
                         e.max,
@@ -285,9 +189,8 @@ export class SpmMeasuredComponent {
           },
         },
         tooltip: {
-          positioner: (e:any)=> {
+          positioner: (e: any) => {
             return {
-              // right aligned
               x: this.chart.chartWidth - this.label.width,
               y: 10, // align to title
             };
@@ -318,16 +221,13 @@ export class SpmMeasuredComponent {
     });
   }
 
-
   addHighlight(e: MouseEvent | PointerEvent | TouchEvent) {
     let chart, point, i, event;
     const charts = Highcharts.charts;
     charts.forEach((chart: any, index) => {
       if (chart) {
         chart = charts[index];
-        // Find coordinates within the chart
         event = chart.pointer.normalize(e);
-        // Get the hovered point
         point = (chart.series[0] as any).searchPoint(event, true);
         if (point) {
           point.highlight(e);
@@ -335,9 +235,6 @@ export class SpmMeasuredComponent {
       }
     });
   }
-    
-  
-
 
 }
 

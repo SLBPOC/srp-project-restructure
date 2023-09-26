@@ -12,13 +12,6 @@
                 <li class="priority low">Under Pumping</li>
              </ul>
           </div>
-          <!-- <div class="searchbar">
-             <mat-form-field>
-                 <mat-icon matPrefix>search</mat-icon>
-                 <input matInput type="search" placeholder="Search" class="search-input">
-             </mat-form-field>
-             
-             </div> -->
           <div class="searchBar">
              <input id="searchQueryInput" type="text" name="searchQueryInput" placeholder="Search" value="">
              <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">
@@ -76,8 +69,6 @@
           </div>
       </div>
     </mat-menu>
-     <!-- calender filter end -->
-     <!-- select filter start-->
 
      <mat-menu #SelectionFilter="matMenu" class="filter-container">
       <div class="align-center">
@@ -127,14 +118,11 @@
           </div>
       </div>
   </mat-menu>
-<!-- select filter end -->
 
     <table mat-table [dataSource]="dataSource">
-       <!-- Priority Status Column -->
        <ng-container matColumnDef="status">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-             <!-- <span class="high-priorityline">{{element?.status}}</span>  -->
              <span [ngClass]="element.status === 'high' ? 'high-priorityline' : element.status === 'med' ? 'med-priorityline': 'low-priorityline'"></span>
           </td>
        </ng-container>

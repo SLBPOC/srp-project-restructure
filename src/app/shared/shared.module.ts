@@ -42,7 +42,6 @@ import { DynacardService } from './services/dynacard.service';
 import { WellTreeView } from './components/well-tree-view/well-tree-view.component';
 import { WellTreeSearchComponent } from './components/well-tree-search/well-tree-search.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { WellTreeListComponent } from './components/well-tree-list/well-tree-list.component';
 import { CustomAlertService } from './services/customAlert.service';

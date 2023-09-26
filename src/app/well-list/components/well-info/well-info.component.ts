@@ -44,7 +44,6 @@ export class WellInfoComponent implements OnInit{
   }
 
   getWellInfoById() {
-    //console.log('getWellInfoById', this.currentWellId)
     this.service.getWellInfoById(this.currentWellId).subscribe((data: any) => {
       this.dataResult = data;
 

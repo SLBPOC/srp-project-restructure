@@ -19,8 +19,8 @@ import { AuthGuard } from './core/guards/auth.guard';
 // ]
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-  {path: 'Callback', component: CallbackComponent},
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'Callback', component: CallbackComponent },
   { path: 'alert-list', loadChildren: () => import('./alert-list/alert-list.module').then(m => m.AlertListModule) },
   { path: 'well-list', loadChildren: () => import('./well-list/well-list.module').then(m => m.WellListModule) },
   { path: 'alert-list', loadChildren: () => import('./alert-list/alert-list.module').then(m => m.AlertListModule) },

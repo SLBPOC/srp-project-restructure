@@ -5,15 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './dynacard-chips.component.html',
   styleUrls: ['./dynacard-chips.component.scss']
 })
-export class DynacardChipsComponent {  
-  dynacardSummaryData: {label: string, value: string}[] = [
-    {label: 'Puming Status ', value: 'Running'},
-    {label: 'Comm Status', value: 'Comm Established'},
-    {label: 'Data Quality', value: 'ShutDown'},
-    // {label: 'Puming Status ', value: 'Running'},
-    // {label: 'Comm Status', value: 'Comm Established'},
-    // {label: 'Data Quality', value: 'ShutDown'},
-
-   
-  ]; 
+export class DynacardChipsComponent {
+  dynacardSummaryData: { label: string, value: string }[] = [
+    { label: 'Puming Status ', value: 'Running' },
+    { label: 'Comm Status', value: 'Comm Established' },
+    { label: 'Data Quality', value: 'ShutDown' },
+  ];
 }

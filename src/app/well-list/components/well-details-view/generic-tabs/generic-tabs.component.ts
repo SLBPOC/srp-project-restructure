@@ -1,9 +1,5 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatTabsModule } from '@angular/material/tabs';
 interface Food {
   value: string;
   viewValue: string;

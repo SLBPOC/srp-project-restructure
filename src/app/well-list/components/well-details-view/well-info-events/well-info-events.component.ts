@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, Input, Output, Renderer2, ElementRef, ViewChild } from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import { Component, EventEmitter, Input, Output,ViewChild } from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import { DateRange } from '@angular/material/datepicker';
 import { FormBuilder } from '@angular/forms';
 
@@ -35,14 +35,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { status:'med', well_name: 'Apache2', pump_status : 'Hydrogen', time_data: 1.0079, structural_load: '10%',avg_hrs:1,infered_prod:1,pump_fillage:1, mode_operation:1, stat:1},
   { status:'high', well_name: 'Apache2', pump_status : 'Hydrogen', time_data: 1.0079, structural_load: '50%',avg_hrs:1,infered_prod:1,pump_fillage:1, mode_operation:1, stat:1},
   { status:'low', well_name: 'Apache2', pump_status : 'Hydrogen', time_data: 1.0079, structural_load: '90%',avg_hrs:1,infered_prod:1,pump_fillage:1, mode_operation:1, stat:1}
-  // {status:'', well_name: 2, 'Pump Status': 'Helium', weight: 4.0026, symbol: 'He'},
-  // {status:'', well_name: 3, 'Pump Status': 'Lithium', weight: 6.941, symbol: 'Li'},
-  // {status:'', well_name: 4, 'Pump Status': 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  // {status:'', well_name: 5, 'Pump Status': 'Boron', weight: 10.811, symbol: 'B'},
-  // {status:'', well_name: 6, 'Pump Status': 'Carbon', weight: 12.0107, symbol: 'C'},
-  // {status:'', well_name: 7, 'Pump Status': 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  // {status:'', well_name: 8, 'Pump Status': 'Oxygen', weight: 15.9994, symbol: 'O'},
-  
 ];
 
 @Component({
@@ -60,7 +52,6 @@ export class WellInfoEventsComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-
 
   @Input() selectedRangeValue: DateRange<Date> | undefined;
     @Output() selectedRangeValueChange = new EventEmitter<DateRange<Date>>();
@@ -87,7 +78,6 @@ export class WellInfoEventsComponent {
       {value: 'tacos-2', viewValue: 'Tacos'},
     ];
 
-    ///////////////////////////////////////////////
     toppings = this._formBuilder.group({
       EffectiveRunTime: false,
       CyclesToday: false,

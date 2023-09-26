@@ -12,7 +12,7 @@ import { DashboardService } from 'src/app/shared/services/dashboard.service';
 })
 export class YesterdayCycleCountComponent implements OnInit, OnDestroy {
   bsModalRef?: BsModalRef;
-  constructor(private modalService: BsModalService, private service: DashboardService) {}
+  constructor(private modalService: BsModalService, private service: DashboardService) { }
   chartData!: any;
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions!: Highcharts.Options;
@@ -30,16 +30,17 @@ export class YesterdayCycleCountComponent implements OnInit, OnDestroy {
   }
 
   openModalComponent(groupId: any, groupName: any) {
-    this.bsModalRef = this.modalService.show(ModalContentComponent, 
-      {initialState: {
-        title: 'Chart', 
-        modalData: {
-          groupId: groupId,
-          groupName: groupName
-        }
-      }, 
-      class: 'modal-lg'
-    });
+    this.bsModalRef = this.modalService.show(ModalContentComponent,
+      {
+        initialState: {
+          title: 'Chart',
+          modalData: {
+            groupId: groupId,
+            groupName: groupName
+          }
+        },
+        class: 'modal-lg'
+      });
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
@@ -49,7 +50,7 @@ export class YesterdayCycleCountComponent implements OnInit, OnDestroy {
       chart: {
         plotShadow: true,
         renderTo: 'container',
-        backgroundColor:undefined
+        backgroundColor: undefined
       },
       title: {
         text: ``,
@@ -69,11 +70,10 @@ export class YesterdayCycleCountComponent implements OnInit, OnDestroy {
           allowPointSelect: true,
           cursor: 'pointer',
           dataLabels: {
-            // enabled: true, // enable true for lines around pie chart to show details
             enabled: false,
           },
           showInLegend: true,
-  
+
         },
         series: {
           events: {
@@ -97,6 +97,6 @@ export class YesterdayCycleCountComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.chartSubscription.unsubscribe();
+    this.chartSubscription.unsubscribe();
   }
 }

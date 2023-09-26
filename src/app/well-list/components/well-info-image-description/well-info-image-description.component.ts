@@ -10,15 +10,14 @@ export class WellInfoImageDescriptionComponent implements OnInit, OnChanges {
   dataResult: any;
   @Input() wellId: any;
 
-  constructor(private service: AlgorithmsAndMitigationsService) {}
+  constructor(private service: AlgorithmsAndMitigationsService) { }
 
   ngOnInit(): void {
-      
+
     this.getWellInfoById(this.wellId);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-   // console.log('===> wellId', this.wellId)
 
   }
   getWellInfoById(wellId: any) {

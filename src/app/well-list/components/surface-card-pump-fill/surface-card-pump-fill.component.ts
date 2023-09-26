@@ -48,10 +48,10 @@ export class SurfaceCardPumpFillComponent {
         name: 'date',
         data: [
           [733, 853, 939, 980, 1080],
-         
+
         ],
         type: 'boxplot',
-        color:'green',
+        color: 'green',
         tooltip: {
           headerFormat: '<em>Experiment No {point.key}</em><br/>',
         },
@@ -60,21 +60,11 @@ export class SurfaceCardPumpFillComponent {
         name: 'date',
         color: Highcharts.getOptions().colors?.at(0),
         type: 'scatter',
-        // data: [
-        //   // x, y positions where 0 is the first category
-        //   [0, 644],
-        //   [4, 718],
-        //   [4, 951],
-        //   [4, 969],
-        // ],
         marker: {
-            fillColor: 'orange',
-            lineWidth: 1,
-            lineColor: Highcharts.getOptions().colors?.at(0)
+          fillColor: 'orange',
+          lineWidth: 1,
+          lineColor: Highcharts.getOptions().colors?.at(0)
         },
-        // tooltip: {
-        //     pointFormat: 'Observation: {point.y}'
-        // }
       },
     ],
   };

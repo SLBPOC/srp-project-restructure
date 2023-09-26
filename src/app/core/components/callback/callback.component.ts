@@ -8,8 +8,7 @@ import { AuthorizationService } from '../../services/authorization.service';
   templateUrl: './callback.component.html',
   styleUrls: ['./callback.component.scss']
 })
-export class CallbackComponent implements OnInit{
-
+export class CallbackComponent implements OnInit {
   public error: string | undefined;
   public errorMessage: string | undefined;
   public isWaiting: boolean = true;
@@ -21,23 +20,21 @@ export class CallbackComponent implements OnInit{
     private activatedRoute: ActivatedRoute,
     private authorizationService: AuthorizationService,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((params: any) => {
       // read the code 
-      console.log('==> generated code/ token', params);
-      if(params['code']) {
-        console.log('==> code found', params['code'])
-        console.log('==> generating token');
+      if (params['code']) {
         this.getGeneratedCode(params);
       } else {
-        console.log('no code detected')
         this.error = 'Code missing. Please authorize. redirecting ...'
-        setTimeout(() => {
-          this.error = '';
-          this.router.navigate(['/well-list']);
-        }, 3000);
+        // setTimeout(() => {
+        //   this.error = '';
+        //   this.router.navigate(['/well-list']);
+        // }, 3000);
+
+        // this.authorizationService.authorize();
       }
     });
   }
@@ -60,7 +57,6 @@ export class CallbackComponent implements OnInit{
       .exchangeAuthorizationCode(authorizationResponse)
       .pipe()
       .subscribe((token) => {
-        console.log('==> token', token);
         this.router.navigate(['/dashboard']);
       });
   }

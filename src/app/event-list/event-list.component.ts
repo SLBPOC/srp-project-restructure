@@ -1,47 +1,27 @@
 import {
-  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   Output,
-  Renderer2,
   ElementRef,
   ViewChild,
 } from '@angular/core';
 import {
   MatPaginator,
-  MatPaginatorModule,
   PageEvent,
 } from '@angular/material/paginator';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import {
   DateRange,
-  MatCalendar,
-  MatCalendarCellClassFunction,
-  MatDatepicker,
 } from '@angular/material/datepicker';
-import { FormBuilder } from '@angular/forms';
 import { EventList } from '../shared/models/event-list';
 import { EventListService } from '../shared/services/event-list.service';
-import { MatSort, MatSortModule } from '@angular/material/sort';
-import { ThemePalette } from '@angular/material/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { DatePipe } from '@angular/common';
-// import { SLBSearchParams, SortOptions } from 'src/app/models/slb-params';
-import { ViewEncapsulation } from '@angular/compiler';
-import { WellsService } from '../shared/services/wells.service';
-import { WellModel } from '../shared/models/wellModel';
+import { MatSort } from '@angular/material/sort';
 import { NodeType } from '../shared/models/models';
 import { debounceTime, distinctUntilChanged, fromEvent, map, tap } from 'rxjs';
 import { TreeViewService } from '../shared/services/tree-view.service';
-import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
 class EventFormModel {
   searchQueryInput!: string;
   dateRange: DateRangeProps;
@@ -61,23 +41,14 @@ enum DateRanges {
   MONTH = 3,
 }
 
-
-
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss']
 })
 export class EventListComponent {
-  foods: Food[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
-  ];
-
   @Input() selectedRangeValue: DateRange<Date> | undefined;
   @Output() selectedRangeValueChange = new EventEmitter<DateRange<Date>>();
-
   theme = 'light';
   dataSource: any = [];
   eventList!: EventList[];
@@ -85,11 +56,9 @@ export class EventListComponent {
   clearAlertsComments!: string;
   selectedColumn: string[] = [];
   displayedColumns: string[] = [
-    // 'EventId',
     'WellName',
     'EventType',
     'CreationDateTime',
-    // 'Category',
     'UpdatedBy',
     'EventDescription',
   ];
@@ -126,12 +95,9 @@ export class EventListComponent {
   endDate!: string;
 
   constructor(
-    private _liveAnnouncer: LiveAnnouncer,
     private service: EventListService,
-    private router: Router,
     public treeviewService: TreeViewService,
-    private datePipe: DatePipe
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     fromEvent<any>(this.searchInput.nativeElement, 'keyup')
@@ -152,7 +118,6 @@ export class EventListComponent {
     this.GetEventListWithFilters();
 
     this.treeviewService.selectedNodes.subscribe((x) => {
-      console.log(x);
       if (
         x != undefined &&
         x.length > 0 &&
@@ -184,9 +149,6 @@ export class EventListComponent {
   GetEventListWithSortFilters(payload: any) {
     this.loading = true;
     var SearchModel = this.createModel();
-    // selectedWells: this.eventSelectedWells,
-    // selectedCategory: this.providers.value,
-    console.log(payload, 'payloaddddddddddddddddd');
     if (payload) {
       SearchModel.wellNames = payload.selectedWells
         ? payload.selectedWells
@@ -216,18 +178,14 @@ export class EventListComponent {
       this.paginator.length = response.totalcount;
     });
     this.TotalCount = response.totalcount;
-    // this.Clear = response.alertsLevelDto.totalCleared;
     this.dataSource.paginator = this.paginator;
   }
 
   filterAndSortAlerts(payload: any) {
-    console.log(payload, 'payloaddddddddddddd');
-
     this.GetEventListWithSortFilters(payload);
   }
 
   resetDateFilters() {
-    // this.dataSource.filter = '';
     this.pageNumber = this.pageNumber;
     this.seachByStatus = '';
     this.searchText = '';
@@ -279,7 +237,6 @@ export class EventListComponent {
     }
   }
 
-  //Create Model for search
   createModel(this: any) {
     let dateObj = {
       fromDate: this.startDate ? this.startDate : '',
@@ -371,7 +328,6 @@ export class EventListComponent {
   }
 
   pageChanged(event: PageEvent) {
-    console.log({ event });
     this.pageSize = event.pageSize;
     this.currentPage = event.pageIndex;
     this.pageNumber = event.pageIndex + 1;
@@ -397,6 +353,7 @@ export class EventListComponent {
   userSearchChange(obj: any) {
     this.searchObjC = obj;
   }
+
   createModelReport(this: any) {
     this.model.pageSize = this.TotalCount;
     this.model.pageNumber = 1;
@@ -423,10 +380,6 @@ export class EventListComponent {
     });
   }
   exportToXls(list: any) {
-    // this.dateString = this.datePipe.transform(
-    //   this.todayDate,
-    //   'dd_MM_YYYY_hh_mm'
-    // );
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(
       this.TABLE.nativeElement
     );
@@ -434,4 +387,5 @@ export class EventListComponent {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, 'EventList_' + this.dateString + '.xlsx');
   }
+
 }

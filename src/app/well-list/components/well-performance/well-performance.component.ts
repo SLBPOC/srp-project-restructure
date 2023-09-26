@@ -1,8 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
-// require('highcharts/modules/exporting')(Highcharts);
-
 @Component({
   selector: 'app-well-performance',
   templateUrl: './well-performance.component.html',
@@ -10,11 +8,8 @@ import * as Highcharts from 'highcharts';
 })
 export class WellPerformanceComponent implements AfterViewInit {
   public ngAfterViewInit(): void {}
-
   Highcharts: typeof Highcharts = Highcharts; // Highcharts, it's Highcharts
-
   updateFromInput: boolean = false;
-
   chartOptions: Highcharts.Options = {
     chart: {
       plotBackgroundColor: '',
@@ -77,9 +72,7 @@ export class WellPerformanceComponent implements AfterViewInit {
     ],
   };
   chartCore: any;
-  //Demonstrate chart instance
   logChartInstance(chart: Highcharts.Chart) {
-  //  console.log('Chart instance: ', chart);
     this.chartCore = chart;
   }
   loadFullScreen() {

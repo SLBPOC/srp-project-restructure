@@ -1,34 +1,30 @@
 import { Component } from '@angular/core';
-
 import { SurfaceCardPumpService } from '../../../shared/services/surface-card-pump.service';
 import * as Highcharts from "highcharts/highstock";
+
 @Component({
   selector: 'app-pump-fillage-no-of-cycle',
   templateUrl: './pump-fillage-no-of-cycle.component.html',
   styleUrls: ['./pump-fillage-no-of-cycle.component.scss']
 })
 export class PumpFillageNoOfCycleComponent {
- 
+  public surfaceCardpump: any=[];
+
   constructor(private service:SurfaceCardPumpService ) {}
+
   ngOnInit(): void {
     this.getChartData();
-   
  }
  
- public surfaceCardpump: any=[];
-   
  getChartData(): void{
   this.chartSubscription = this.service.getpumfillageChartData().subscribe((data: any) => {
-    console.log('algolinechart', data)
     this.series = data;
     data.forEach((element: any) => {
       if(element.name==="Yesterday Cycle Count"){
-        console.warn("@@@@@@@@@@@@@@@@@@@@@@", element.data + "elements name", element.name)
         this.surfaceCardpump.push(element)
       }
     });
     this.drawChart();
-
   })
  }
    
@@ -47,46 +43,6 @@ export class PumpFillageNoOfCycleComponent {
         enabled: false
     },
     scrollbar: { enabled: false },
-      // xAxis: [{
-      //   categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-      //     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-      //   crosshair: true
-      // }],
-
-      // yAxis: [{
-      //   labels: {
-      //     format: '{value}',
-      //     style: {
-      //       color: Highcharts.getOptions().colors[1]
-      //     }
-          
-      //   },
-        
-
-      //   title: {
-      //     text: 'SPM Measured',
-      //     style: {
-      //       color: Highcharts.getOptions().colors[1]
-      //     }
-      //   }
-      // }, {
-      //   title: {
-      //     text: 'Surface Card pump fill',
-      //     style: {
-      //       color: Highcharts.getOptions().colors[0]
-      //     }
-      //   },
-      //   labels: {
-      //     format: '{value}',
-      //     style: {
-      //       color: Highcharts.getOptions().colors[0]
-      //     }
-      //   },
-      //   opposite: true
-      // }],
-      // tooltip: {
-      //   shared: true
-      // },
       yAxis: [{
         title: {
           text: 'Surface Card pump fill'
@@ -98,27 +54,6 @@ export class PumpFillageNoOfCycleComponent {
       }, {
         opposite: false
       }],
-      // plotOptions: {
-      //   series: {
-      //     marker: {
-      //       enabled: false
-      //     },
-      //     dataGrouping: {
-      //       groupPixelWidth: 7
-      //     },
-      //   }
-      // },
-
-
-      // legend: {
-      //   align: 'left',
-      //   x: 80,
-      //   verticalAlign: 'top',
-      //   y: 60,
-      //   floating: true,
-      //   backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || // theme
-      //     'rgba(255,255,255,0.25)'
-      // },
       series: [{
         name: 'Surface Card pump fill',
         type: 'line',
@@ -132,12 +67,5 @@ export class PumpFillageNoOfCycleComponent {
       }]
     } as any);
    }
-
-
-
-
-
-
-
 }
 

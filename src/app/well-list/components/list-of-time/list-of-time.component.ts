@@ -1,31 +1,20 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit,OnDestroy } from '@angular/core';
-import { DynacardService } from '../../services/dynacard.service';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DynacardService } from 'src/app/shared/services/dynacard.service';
 
 @Component({
   selector: 'app-list-of-time',
   templateUrl: './list-of-time.component.html',
   styleUrls: ['./list-of-time.component.scss']
 })
-export class ListOfTimeComponent implements OnInit,OnDestroy {
+export class ListOfTimeComponent {
 
-  listOfTime:Observable<string[]>;
+  listOfTime!:Observable<any>;
   displayedColumns: string[] = ['#', 'Name', 'Change', 'Classfication'];
-
-  constructor(private dynaService:DynacardService)
-  {
-
-  }
-  ngOnDestroy(): void {
-    
-  }
-
-  ngOnInit(): void {
-    // this.listOfTime = this.dynaService.getListOfTime();
-  }
-
   selectionTimeModel = new SelectionModel<string>(true);
+
+  constructor(private dynaService:DynacardService){}
 
   selectTime(item:string){
     this.selectionTimeModel.toggle(item);
@@ -34,4 +23,5 @@ export class ListOfTimeComponent implements OnInit,OnDestroy {
       selected:item
     })
   }
+
 }

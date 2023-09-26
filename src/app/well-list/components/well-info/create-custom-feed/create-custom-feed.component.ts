@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 interface Food {
@@ -13,11 +13,7 @@ interface Food {
 })
 export class CreateCustomFeedComponent {
 
-  // @Input() isEnable : Boolean;
-
-  constructor(public dialogRef: MatDialogRef<CreateCustomFeedComponent>){
-
-  }
+  constructor(public dialogRef: MatDialogRef<CreateCustomFeedComponent>){}
   
   foods: Food[] = [
     {value: 'steak-0', viewValue: 'Steak'},

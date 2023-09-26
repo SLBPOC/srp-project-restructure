@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WellListComponent } from './well-list.component';
 import { SidenavComponent } from '../shared/components/sidenav/sidenav.component';
 import { WellsComponent } from './components/wells/wells.component';
-import { WellInfoEntryComponent } from './components/well-details-view/well-info-entry/well-info-entry.component';
 import { WellInfoComponent } from './components/well-info/well-info.component';
 import { UiDynacardInfoComponent } from './components/well-details-dynacard/ui-dynacard-info/ui-dynacard-info.component';
 import { WellDetailsDynacardComponent } from './components/well-details-dynacard/well-details-dynacard.component';
@@ -14,27 +12,10 @@ const routes: Routes = [
     path: '', component: SidenavComponent,
     children: [
       { path: '', component: WellsComponent },
-      // {
-      //   path:'well-info-v2/:id',
-      //   component:WellInfoEntryComponent
-      // },
-      // {
-      //   path:'well-info',
-      //   component:WellInfoComponent
-      // },
-      // {
-      //   path:'well-info/:id',
-      //   component:WellInfoComponent
-      // },
-
-      { path: 'wells', component: WellsComponent },
       { path: 'well-info-v3/:id', component: UiDynacardInfoComponent },
-
       { path: 'Parameter', component: ParChartComponent },
       { path: 'well-details-dynacard', component: WellDetailsDynacardComponent },
       { path: 'wells/dyna/:id', component: WellDetailsDynacardComponent },
-      // { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-
       {
         path: 'well-info/:id',
         component: WellInfoComponent,

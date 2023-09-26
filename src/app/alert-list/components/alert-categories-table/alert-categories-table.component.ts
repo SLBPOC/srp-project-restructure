@@ -16,7 +16,7 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
   chartOptions!: Highcharts.Options;
 
   loading = true;
-  pageSize: number = 5; 
+  pageSize: number = 5;
   pageNumber = 1;
   currentPage = 0;
   totalCount = 0;
@@ -25,25 +25,25 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
   @Input() barChartData: any;
   snoozeData!: any[];
 
-  constructor(private alertService: AlertListService) {}
+  constructor(private alertService: AlertListService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.loading = true;
     this.loadChartData();
     this.loadTable();
   }
 
-  ngOnChanges(){
+  ngOnChanges() {
     this.loadChartData();
     this.loadTable();
   }
 
-  loadTable(){ 
-        this.loading = false;
-        this.dataSource = new MatTableDataSource<any>(this.barChartData);
+  loadTable() {
+    this.loading = false;
+    this.dataSource = new MatTableDataSource<any>(this.barChartData);
   }
 
-  loadChartData(){
+  loadChartData() {
     let chartSeriesArr = []
     let high = {}
     let medium = {}
@@ -64,21 +64,19 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
         y: this.barChartData[i].low,
         color: '#28A228'
       }
-      chartSeriesArr.push(high,medium,low);
-      // this.chartOptions.series[i].data
+      chartSeriesArr.push(high, medium, low);
     }
-    // this.chartOptions.series[0].data
     this.chartOptions = {
       chart: {
         type: 'pie',
         renderTo: 'container',
         margin: 0,
-        spacing: [0,0,0,0],
+        spacing: [0, 0, 0, 0],
         backgroundColor: undefined
       },
       exporting: { enabled: false },
-      legend : {enabled: false},
-      
+      legend: { enabled: false },
+
       yAxis: {
         labels: {
           enabled: false
@@ -98,32 +96,31 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
       title: {
         text: ''
       },
-     plotOptions: {
-          bar: {
-              dataLabels: {
-                  enabled: true,
-                  inside: true,
-                  align: 'left',
-                  x: -40
-              },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            enabled: true,
+            inside: true,
+            align: 'left',
+            x: -40
           },
-          series: {
-           
+        },
+        series: {
+
         }
-  
+
       },
-      
-      series: [ 
+
+      series: [
         {
           type: 'bar',
-          // data: chartSeriesArr
           data: [
             {
               name: '',
               y: 10,
               color: '#D11F1F'
             },
-            
+
             {
               name: '',
               y: 25,
@@ -140,7 +137,7 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
     };
   }
 
-  onSortChanged(event:any){
+  onSortChanged(event: any) {
 
   }
 
@@ -156,83 +153,83 @@ export interface PeriodicElement {
   wellname: string;
   noofalerts: number;
   snoozedalerts: number;
-  
+
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-   
+
     wellname: 'well-001',
     noofalerts: 100,
     snoozedalerts: 35,
-    
+
   },
   {
-   
+
     wellname: 'well-002',
     noofalerts: 90,
     snoozedalerts: 20,
-    
+
   },
   {
-   
+
     wellname: 'well-003',
     noofalerts: 80,
     snoozedalerts: 20,
-    
-    
+
+
   },
   {
-   
+
     wellname: 'well-004',
     noofalerts: 70,
     snoozedalerts: 30,
-   
+
   },
   {
-   
+
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40,
-    
+
   },
   {
-   
+
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40,
-    
+
   },
   {
-   
+
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40,
-   
+
   },
   {
-   
+
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40,
-    
+
   },
   {
-   
+
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40,
-  
+
   },
-  
+
   {
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40,
   },
-    
+
   {
-   
+
     wellname: 'well-005',
     noofalerts: 60,
     snoozedalerts: 40

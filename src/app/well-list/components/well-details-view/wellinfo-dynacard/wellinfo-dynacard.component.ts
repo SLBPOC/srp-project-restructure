@@ -1,8 +1,6 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { EventEmitter, Input, Output, Renderer2, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DateRange } from '@angular/material/datepicker';
-import { MatTableDataSource } from '@angular/material/table';
 import * as Highcharts from 'highcharts';
 import { AlgorithmsAndMitigationsService } from '../../../../shared/services/algorithms-and-mitigations.service';
 import { DynacardService } from '../../../../shared/services/dynacard.service';
@@ -10,28 +8,6 @@ import { BehaviorSubject, Observable, Subject, Subscription, map, of, switchMap,
 import { SelectionModel } from '@angular/cdk/collections';
 import { CardDetailsModel, ClassficationInfo, DateRangeBubbleChart, DynacardModel2, FramesDynameter } from '../../../../shared/models/dyna-card.model';
 
-
-// interface Food {
-//     value: string;
-//     viewValue: string;
-//   }
-//   export interface PeriodicElement {
-//     select: string;
-//     card: string;
-//     time: string;
-//     Minimum_Polished_Rod_Load: string;
-//     Peak_Polished_Rod: string;
-//   }
-// const ELEMENT_DATA: PeriodicElement[] = [
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-//   { select: '', card: 'Pump Tagging', time: '2020-04-14 13:14:59', Minimum_Polished_Rod_Load: '17,829 lbs', Peak_Polished_Rod:'30,314 lbs' },
-// ];
 @Component({
   selector: 'app-wellinfo-dynacard',
   templateUrl: './wellinfo-dynacard.component.html',
@@ -41,14 +17,6 @@ import { CardDetailsModel, ClassficationInfo, DateRangeBubbleChart, DynacardMode
 })
 
 export class WellinfoDynacardComponent implements OnInit {
-  // displayedColumns: string[] = ['select', 'card', 'time', 'Minimum_Polished_Rod_Load','Peak_Polished_Rod'];
-  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  // foods: Food[] = [
-  //   {value: 'steak-0', viewValue: 'Steak'},
-  //   {value: 'pizza-1', viewValue: 'Pizza'},
-  //   {value: 'tacos-2', viewValue: 'Tacos'},
-  // ];
-
   dynacardSummaryData: { label: string, value: string }[] = [
     { label: 'Puming Status ', value: 'Running' },
     { label: 'Comm Status', value: 'Comm Established' },
@@ -71,16 +39,6 @@ export class WellinfoDynacardComponent implements OnInit {
     "Very High Fluid Level",
     "Other"
   ]
-
-  ///////////////////////////////////////////////
-  // toppings = this._formBuilder.group({
-  //   EffectiveRunTime: false,
-  //   CyclesToday: false,
-  //   StructuralLoad: false,
-  //   MinMaxLoad: false,
-  //   GearboxLoad: false,
-  //   RodStress: false
-  // });
   constructor(private _formBuilder: FormBuilder, private service: AlgorithmsAndMitigationsService, private dynaService: DynacardService) {
     this.dynaService.selectedClassification.subscribe(
       (x: any) => {
@@ -89,7 +47,6 @@ export class WellinfoDynacardComponent implements OnInit {
         this.selectionTimeModel.clear();
         this.searchText = '';
         this.searchTextObseravale.next('');
-        // //console.log(this.selectedClassification)
       }
     );
 
@@ -105,7 +62,6 @@ export class WellinfoDynacardComponent implements OnInit {
       }
     });
     this.dynaService.selectedTime.pipe(takeUntil(this.$takUntil), switchMap(obj => {
-      //console.log(obj);
       if (obj.addedOrRemoved) {
         return this.dynaService.getDynaCardDetailsForATime(obj.selected)
           .pipe(
@@ -116,7 +72,6 @@ export class WellinfoDynacardComponent implements OnInit {
         return of(({ dynaDetails: undefined, name: obj.selected }));
       }
     })).subscribe((x: any) => {
-      //console.log(x);
       if (x.name == 'all')
         this.removeAllSeries();
       else
@@ -131,11 +86,7 @@ export class WellinfoDynacardComponent implements OnInit {
     });
     this.getChartInfo();
   }
-  // ngAfterViewInit(): void {
 
-  // }
-
-  // BAR CHART
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     title: {
@@ -177,20 +128,12 @@ export class WellinfoDynacardComponent implements OnInit {
 
     tooltip: {
       enabled: false,
-      // headerFormat: '<b>{point.x}</b><br/>', pointFormat:
-
-      //   '{series.name}:</b> Total: {point.stackTotal}',
     },
 
     plotOptions: {
-      // column: {
-      //   stacking: 'normal',
-      //   allowPointSelect: true,
-      // },
     },
 
     series: [
-
       {
         name: "",
         data: [30, 60],
@@ -205,20 +148,8 @@ export class WellinfoDynacardComponent implements OnInit {
           }
         }
       },
-      // {
-      //   name: "",
-      //   data: [78, 68],
-      //   type: 'column',
-      //   color: '#3097A7',
-      //   pointWidth: 40
-      // },
-
     ],
   };
-  // BAR CHART
-
-  /// top bubble chart and legends
-
   bubbleSeries = [];
   bubbleChartInfo!: ClassficationInfo[];
   bubbleChartSubscription!: Subscription;
@@ -229,7 +160,6 @@ export class WellinfoDynacardComponent implements OnInit {
   // constructor() { }
   ngOnInit(): void {
     this.bubbleChartTimeSelection('3m');
-    
   }
 
   getTableData(startDate: string, classfication: string, endDate: string) {
@@ -245,7 +175,6 @@ export class WellinfoDynacardComponent implements OnInit {
         var updateObj = data.classfication.find(y=> y.name.trim().toLocaleLowerCase() == x.type.trim().toLocaleLowerCase());
         if(updateObj != undefined)
             x.value = updateObj.count;
-            // this.bubbleChartInfo[this.bubbleChartInfo.length -1 ].value  += .count;
       });
     })
   }
@@ -302,7 +231,6 @@ export class WellinfoDynacardComponent implements OnInit {
         marker = { symbol: "diamond", fillColor: "#2196F3" };
         break;
       default:
-        // Handle unknown classification names
         break;
     }
     return marker;
@@ -326,7 +254,6 @@ export class WellinfoDynacardComponent implements OnInit {
     this.dynaService.selectedClassification.next(
       { classfication: p.point.series.name, startDate: p.point.options.name, endDate: p.point.options.name }
     );
-    // //console.log(p.point.options.z)
   }
 
   onShowEvent = (p: any) => {
@@ -337,17 +264,12 @@ export class WellinfoDynacardComponent implements OnInit {
   bubbleChartOptions: Highcharts.Options = {
     chart: {
       type: 'bubble',
-      // plotBorderWidth: 1,
       spacing: [0, 0, 0, 0],
       zooming: {
         type: 'x'
       },
       backgroundColor: undefined
     },
-    // colorAxis: [{}, {
-    //   minColor: '#434348',
-    //   maxColor: '#e6ebf5'
-    // }],
     title: {
       text: ''
     },
@@ -375,12 +297,6 @@ export class WellinfoDynacardComponent implements OnInit {
         marker: {
           fillOpacity: 1,
         },
-        // zMin: 0,
-        // zMax: 1000,
-        // layoutAlgorithm: {
-        //   splitSeries: false,
-        //   gravitationalConstant: 0.02
-        // },
         dataLabels: {
           enabled: true,
           format: `<b style="color:black">{point.z}</b>`,
@@ -411,12 +327,6 @@ export class WellinfoDynacardComponent implements OnInit {
     },
     series: this.bubbleSeries
   };
-
-  // drawChart() {
-  //   // // this.bubbleChartOptions.series.push(this.bubbleSeries);
-  //   //console.log(this.bubbleSeries);
-
-  // }
 
   selectedRangeValue!: DateRange<Date>;
 
@@ -452,17 +362,11 @@ export class WellinfoDynacardComponent implements OnInit {
     );
   }
 
-  //top bubble chart and legends
-
-
-  /// right time series table
   displayedColumns: string[] = ['#', 'card', 'time', 'minimunpolishedrodload', 'peakpolishedrod'];
   listOfTime!: Observable<any>;
-  // selectedClassification = new BehaviorSubject<number>(-1);
   selectionTimeModel = new SelectionModel<string>(true);
   searchText!: string;
   searchTextObseravale = new BehaviorSubject<string>("");
-
   tableLoading = false;
 
   searchTime() {
@@ -482,10 +386,6 @@ export class WellinfoDynacardComponent implements OnInit {
     })
   }
 
-  /// right time series table
-
-  ///dynacard graph
-
   $takUntil = new Subject<boolean>();
 
   ngOnDestroy(): void {
@@ -493,16 +393,10 @@ export class WellinfoDynacardComponent implements OnInit {
     this.$takUntil.complete();
   }
   onDynaPointClick = (p: any) => {
-    // //console.log(p.point.series.name);
     this.dynaService.selectedTimeInGraph.next(p.point.series.name);
-    // //console.log(p.point.options.z)
   }
 
 
-
-  // csvFile: any;
-  // private csvText: string = "";
-  // allData: DynaCardModel[] | null = null;
   Index: number = 0;
 
   updateDynaHighChartFlag: boolean = false;
@@ -543,10 +437,6 @@ export class WellinfoDynacardComponent implements OnInit {
     },
     series: []
   };
-
-  // updateChart(event: any) {
-  //   this.updateCsvData(event);
-  // }
 
   removeAllSeries() {
     this.dynaOptions.series?.splice(0, this.dynaOptions.series.length);
@@ -589,15 +479,7 @@ export class WellinfoDynacardComponent implements OnInit {
     this.updateDynaHighChartFlag = true;
   }
 
-  ///dynacard graph
-
-  ///Seleed Time series
-
-  // selectedTimeDetails: CardDetailsModel = new CardDetailsModel();;
-  // selectedTimeDetails: any = new CardDetailsModel();
   selectedTimeDetails: CardDetailsModel | null =  null;//new CardDetailsModel();;
-
-
   mappingOfFields = {
     "pumpFillage_per": 'Pump Fillage(%) ',
     "SPM": 'SPM',
@@ -619,5 +501,4 @@ export class WellinfoDynacardComponent implements OnInit {
     { value: 8, viewValue: 'Very High Fluid Level' },
     { value: 9, viewValue: 'Other' },
   ];
-  ///selected Time Series
 }

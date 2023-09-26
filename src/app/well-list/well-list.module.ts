@@ -30,7 +30,6 @@ import { GenericTabsComponent } from './components/well-details-view/generic-tab
 import { WellPerformanceComponent } from './components/well-performance/well-performance.component';
 import { WellViewParametersComponent } from './components/well-view-parameters/well-view-parameters.component';
 import { WellFilterAndSortComponent } from './components/well-filter-and-sort/well-filter-and-sort.component';
-import { UiDynacardInfoComponent } from './components/well-details-dynacard/ui-dynacard-info/ui-dynacard-info.component';
 import { ParChartComponent } from './components/well-details-dynacard/par-chart/par-chart.component';
 import { WellDetailsDynacardBarchartComponent } from './components/well-details-dynacard/well-details-dynacard-barchart/well-details-dynacard-barchart.component';
 import { BubbleChartComponent } from './components/well-details-dynacard/bubble-chart/bubble-chart.component';
@@ -39,6 +38,9 @@ import { SpmMeasuredComponent } from './components/spm-measured/spm-measured.com
 import { SurfaceCardPumpComponent } from './components/surface-card-pump/surface-card-pump.component';
 import { SurfaceCardPumpFillComponent } from './components/surface-card-pump-fill/surface-card-pump-fill.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { EventFilterAndSortComponent } from './components/event-filter-and-sort/event-filter-and-sort.component';
+import { ListOfTimeComponent } from './components/list-of-time/list-of-time.component';
+import { UiDynacardInfoComponent } from './components/well-details-dynacard/ui-dynacard-info/ui-dynacard-info.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,10 @@ import { HighchartsChartModule } from 'highcharts-angular';
     PumpFillageNoOfCycleComponent,
     SpmMeasuredComponent,
     SurfaceCardPumpComponent,
-    SurfaceCardPumpFillComponent
+    SurfaceCardPumpFillComponent,
+    EventFilterAndSortComponent,
+    ListOfTimeComponent,
+    UiDynacardInfoComponent
   ],
   imports: [
     CommonModule,

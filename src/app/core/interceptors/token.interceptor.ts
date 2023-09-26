@@ -18,7 +18,6 @@ export class TokenInterceptor implements HttpInterceptor {
     // console.log('==> current access token', this.authorizationService.accessToken?.access_token);
     // if (this.accessToken && !isSauthTokenRequest) {
       if (this.accessToken) {
-
       request = request.clone({
         setHeaders: { 'Authorization': `Bearer ${this.accessToken}` },
       });
@@ -26,17 +25,6 @@ export class TokenInterceptor implements HttpInterceptor {
     }
     return next.handle(request)
     .pipe(
-
-      // catchError(err => {
-      //   if (err instanceof HttpErrorResponse) {
-      //     if (err.status === 401) {
-      //       this.loginService.authorize();
-      //     }
-      //   }
-      //   return throwError(() => err);
-      // })
-
-      // catchError modified below
       catchError(err => {
         if (err instanceof HttpErrorResponse) {
           // if(err.status === 401) {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import * as Highcharts from 'highcharts';
-// require('highcharts/modules/exporting')(Highcharts);
 
 @Component({
   selector: 'app-classification-summary',
@@ -10,13 +9,13 @@ import * as Highcharts from 'highcharts';
 export class ClassificationSummaryComponent {
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
-    title:{
-      text:''
-  },
+    title: {
+      text: ''
+    },
     chart: {
       plotShadow: true,
       renderTo: 'container',
-      backgroundColor:undefined
+      backgroundColor: undefined
     },
 
     xAxis: {
@@ -25,7 +24,7 @@ export class ClassificationSummaryComponent {
         text: 'Load Line',
       },
     },
-  
+
     yAxis: {
       allowDecimals: false,
 
@@ -53,8 +52,8 @@ export class ClassificationSummaryComponent {
     },
 
     series: [
-       
-      { 
+
+      {
         name: "Flat Lining",
         data: [40, 55, 30, 65, 55, 30],
         type: 'column',

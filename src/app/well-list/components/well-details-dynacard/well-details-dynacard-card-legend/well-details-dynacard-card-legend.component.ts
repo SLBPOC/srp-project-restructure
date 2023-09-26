@@ -1,14 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
-// import theme from 'highcharts/themes/brand-dark';
-// theme(Highcharts);
-// import More from 'highcharts/highcharts-more';
 import { Subscription } from 'rxjs';
 import { AlgorithmsAndMitigationsService } from '../../../../shared/services/algorithms-and-mitigations.service';
 import { DynacardService } from '../../../../shared/services/dynacard.service';
-
-// import Highcharts from 'highcharts'
-// More(Highcharts)
 
 @Component({
   selector: 'app-well-details-dynacard-card-legend',
@@ -18,14 +12,11 @@ import { DynacardService } from '../../../../shared/services/dynacard.service';
 export class WellDetailsDynacardCardLegendComponent implements OnInit {
 
   series: any = [];
-  // chartData!: any;
   chartInfo!: any;
-  // Highcharts: typeof Highcharts = Highcharts;
-  // chartOptions!: Highcharts.Options;
   chartSubscription!: Subscription;
   chartInfoSubscription!: Subscription;
 
-  constructor(private service: AlgorithmsAndMitigationsService,private dynaService:DynacardService) { }
+  constructor(private service: AlgorithmsAndMitigationsService, private dynaService: DynacardService) { }
   ngOnInit(): void {
     this.getChartData();
     this.getChartInfo();
@@ -46,12 +37,10 @@ export class WellDetailsDynacardCardLegendComponent implements OnInit {
     })
   }
 
-  onPointClick : Highcharts.PointClickCallbackFunction = (p)=> {
-    // this.dynaService.selectedClassification.next(p.point.options.z);
-    // console.log(p.point.options.z)
+  onPointClick: Highcharts.PointClickCallbackFunction = (p) => {
   }
 
-  onShowEvent = (p: any) =>{
+  onShowEvent = (p: any) => {
     console.log(p);
   }
 
@@ -59,29 +48,23 @@ export class WellDetailsDynacardCardLegendComponent implements OnInit {
     var options: Highcharts.Options = {
       chart: {
         type: 'bubble',
-        // plotBorderWidth: 1,
-        spacing:[0,0,0,0],
+        spacing: [0, 0, 0, 0],
         zooming: {
           type: 'x'
         },
         backgroundColor: undefined
       },
-      // colorAxis: [{}, {
-      //   minColor: '#434348',
-      //   maxColor: '#e6ebf5'
-      // }],
       title: {
         text: ''
       },
       xAxis: {
         gridLineWidth: 0,
-        type:'category'
+        type: 'category'
       },
       yAxis: {
         startOnTick: false,
         endOnTick: false,
         visible: false,
-        // gridLineWidth: 1
       },
       legend: {
         enabled: false,
@@ -94,15 +77,9 @@ export class WellDetailsDynacardCardLegendComponent implements OnInit {
         bubble: {
           minSize: '10%',
           maxSize: '12%',
-          marker:{
-            fillOpacity:1
+          marker: {
+            fillOpacity: 1
           },
-          // zMin: 0,
-          // zMax: 1000,
-          // layoutAlgorithm: {
-          //   splitSeries: false,
-          //   gravitationalConstant: 0.02
-          // },
           dataLabels: {
             enabled: true,
             format: `<b>{point.z}</b>`,
@@ -112,22 +89,22 @@ export class WellDetailsDynacardCardLegendComponent implements OnInit {
               fontWeight: 'normal'
             }
           },
-          point:{
-            events:{
+          point: {
+            events: {
               click: this.onPointClick
             }
           },
-          events:{
-            afterAnimate : this.onShowEvent,
-            show:this.onShowEvent
+          events: {
+            afterAnimate: this.onShowEvent,
+            show: this.onShowEvent
           },
-          cursor:'pointer',
+          cursor: 'pointer',
           states: {
             hover: {
               enabled: false
             }
-            ,inactive:{
-              enabled:false
+            , inactive: {
+              enabled: false
             }
           }
         }

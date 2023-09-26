@@ -65,42 +65,42 @@ export class WellFilterAndSortComponent implements OnInit {
   wellNames: any;
   category: any = [
     {
-        "value": "SPM"
+      "value": "SPM"
     },
     {
-        "value": "Distorted Card Events"
+      "value": "Distorted Card Events"
     },
     {
-        "value": "Tagging Events"
+      "value": "Tagging Events"
     },
     {
-        "value": "Flatlining Events"
+      "value": "Flatlining Events"
     },
     {
-        "value": "Gas Interference Events"
+      "value": "Gas Interference Events"
     },
     {
-        "value": "Fluid Pound Events"
+      "value": "Fluid Pound Events"
     },
     {
-        "value": "time"
+      "value": "time"
     },
     {
-        "value": "Yesterday Run time"
+      "value": "Yesterday Run time"
     },
     {
-        "value": "Load"
+      "value": "Load"
     },
     {
-        "value": "Pump Fillage"
+      "value": "Pump Fillage"
     },
     {
-        "value": "Shutdowns"
+      "value": "Shutdowns"
     }
-]
+  ]
   eventTypes = [];
   isAlerts = true;
-  
+
   constructor(private service: WellsService, private alertService: AlertListService,
     private eventService: EventListService) { }
 
@@ -277,47 +277,47 @@ export class WellFilterAndSortComponent implements OnInit {
         return acc;
       }, [])
 
-      let payload = {};
-      if(this.customizeComponentName === 'alerts') {
-        payload = {
-          pageSize: 5,
-          pageNumber: 1,
-          searchText: '',
-          sortColumn: '',
-          sortDirection: '',
-          searchStatus: '',
-          dateRange: {
-            fromDate: '',
-            toDate: '',
-          },
-          wellNames: this.selectedWells,
-          category: this.selectedCategory,
-          ids: [],
-        };
-      } else {
-        payload = {
-          "pageSize": 5,
-          "pageNumber": 1,
-          "searchText": "",
-          "sortColumn": "",
-          "sortDirection": "",
-          "searchStatus": "",
-          "wellNames": this.providers.value,
-          "commStatus": commStatus,
-          "controllerStatus": controllerStatus,
-          "pumpingType": pumpingType,
-          "spm": {
-            start: this.spmSlider.start,
-            end: this.spmSlider.end
-          }, "pumpFillage": {
-            start: this.pumpFillageSlider.start,
-            end: this.pumpFillageSlider.end
-          }, "inferredProduction": {
-            start: this.inferredProductionSlider.start,
-            end: this.inferredProductionSlider.end
-          },
-        }
+    let payload = {};
+    if (this.customizeComponentName === 'alerts') {
+      payload = {
+        pageSize: 5,
+        pageNumber: 1,
+        searchText: '',
+        sortColumn: '',
+        sortDirection: '',
+        searchStatus: '',
+        dateRange: {
+          fromDate: '',
+          toDate: '',
+        },
+        wellNames: this.selectedWells,
+        category: this.selectedCategory,
+        ids: [],
+      };
+    } else {
+      payload = {
+        "pageSize": 5,
+        "pageNumber": 1,
+        "searchText": "",
+        "sortColumn": "",
+        "sortDirection": "",
+        "searchStatus": "",
+        "wellNames": this.providers.value,
+        "commStatus": commStatus,
+        "controllerStatus": controllerStatus,
+        "pumpingType": pumpingType,
+        "spm": {
+          start: this.spmSlider.start,
+          end: this.spmSlider.end
+        }, "pumpFillage": {
+          start: this.pumpFillageSlider.start,
+          end: this.pumpFillageSlider.end
+        }, "inferredProduction": {
+          start: this.inferredProductionSlider.start,
+          end: this.inferredProductionSlider.end
+        },
       }
+    }
     this.filterRefresh.emit(payload);
   }
 

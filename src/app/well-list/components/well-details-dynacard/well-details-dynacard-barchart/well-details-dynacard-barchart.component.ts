@@ -20,14 +20,9 @@ export class WellDetailsDynacardBarchartComponent {
 
     xAxis: {
       categories: ['Runtime(%) 23-06-20', 'Inferred Production(bpd) 23-06-21'],
-      // labels:{
-      //   enabled:false
-      // }
     },
 
     yAxis: {
-      // allowDecimals: false,
-      // min: 100,
       labels:{
         enabled:false
       },
@@ -43,16 +38,9 @@ export class WellDetailsDynacardBarchartComponent {
 
     tooltip: {
       enabled:false,
-      // headerFormat: '<b>{point.x}</b><br/>', pointFormat:
-
-      //   '{series.name}:</b> Total: {point.stackTotal}',
     },
 
     plotOptions: {
-      // column: {
-      //   stacking: 'normal',
-      //   allowPointSelect: true,
-      // },
     },
 
     series: [
@@ -67,14 +55,6 @@ export class WellDetailsDynacardBarchartComponent {
           enabled:true,
         }
       },
-      // {
-      //   name: "",
-      //   data: [78, 68],
-      //   type: 'column',
-      //   color: '#3097A7',
-      //   pointWidth: 40
-      // },
-
     ],
   };
 

@@ -1,11 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort } from '@angular/material/sort';
-//import { WellName } from '../model/wellname';
 import { WellModel } from '../../../shared/models/wellModel'
 import { WellsService } from '../../../shared/services/wells.service';
 import { FormControl } from '@angular/forms';
@@ -19,8 +16,6 @@ import { Constants } from 'src/app/Common/Constants';
 import * as XLSX from 'xlsx';
 import { DatePipe } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-wells',
   templateUrl: './wells.component.html',
@@ -29,7 +24,6 @@ import { DatePipe } from '@angular/common';
 export class WellsComponent implements OnInit {
   theme = 'light';
   dataSource: any = [];
-  //dataSourceReport:any=[];
   WellList!: WellModel[];
   selectedColumn: string[] = [];
   selectedExtraColumn!:[];
@@ -48,12 +42,9 @@ export class WellsComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('extraColumns', { static: true }) private extraColumns!: MatSelect;
-
   @ViewChild('searchQueryInput') searchInput!: ElementRef<HTMLInputElement>;
   @ViewChild('TABLE', { static: false }) TABLE!: ElementRef;
-
   HighCharts: typeof HighCharts = HighCharts;
-
   searchText: string = "";
   sortDirection: string = "";
   sortColumn: string = "";
@@ -64,8 +55,6 @@ export class WellsComponent implements OnInit {
   model: any = {};
   seachByStatus: string = "";
   loading = true;
-
-  //filter variables;
   commStatus!: any[];
   controllerStatus!: any[];
   inferredProduction!: any[];
@@ -79,20 +68,16 @@ export class WellsComponent implements OnInit {
   minMaxLoad!: any[];
   gearboxLoad!: any[];
   rodStress!: any[];
-
-  //legend variables
   TotalCount: number = 0;
   OverPumping: number = 0;
   OptimalPumping: number = 0;
   UnderPumping: number = 0;
-
   minmaxChartData: any[] = [];  //min max chart data array
   pageSizeOption = [10, 20, 30]
   ids!: number[];
   respdata: any
   todayDate : Date = new Date();
   dateString!:string
-
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private service: WellsService
     , private router: Router
@@ -117,7 +102,6 @@ export class WellsComponent implements OnInit {
   ngOnInit(): void {
     this.GetWellDetailsWithFilters();
     this.treeviewService.selectedNodes.subscribe(x => {
-      // console.log(x);
       if (x != undefined && x.length > 0 && x.some(m => m.type == NodeType.Wells)) {
         this.ids = x.filter(m => m.type == NodeType.Wells).map(m => m.nodeId);
       }
@@ -149,13 +133,11 @@ export class WellsComponent implements OnInit {
           this.paginator.pageIndex = this.currentPage;
           this.paginator.length = response?.totalCount;
         });
-
         this.TotalCount = response.pumpingDetails?.totalCount;
         this.OverPumping = response.pumpingDetails?.overPumping;
         this.OptimalPumping = response.pumpingDetails?.optimalPumping;
         this.UnderPumping = response.pumpingDetails?.underPumping;
         this.dataSource.paginator = this.paginator;
-
       }
     })
   }
@@ -182,7 +164,6 @@ export class WellsComponent implements OnInit {
         this.OptimalPumping = response.pumpingDetails?.optimalPumping;
         this.UnderPumping = response.pumpingDetails?.underPumping;
         this.dataSource.paginator = this.paginator;
-
       }
 
     },(err) => {
@@ -259,7 +240,6 @@ export class WellsComponent implements OnInit {
   RefreshGrid()
   {
     this.seachByStatus=""; // Added by Gayatri 9/8/2023
-    //this.pageSize = 5;
     this.pageNumber=1;
     this.seachByStatus = "";
     this.sortColumn = "";
@@ -285,8 +265,6 @@ export class WellsComponent implements OnInit {
       this.displayableExtraColumns = this.extraColumnsList.filter((extraColumn: { label: string, accessor: string, header: string }) => this.selectedColumn.includes(extraColumn.header));
     }
   }
-
-
 
   public handlePage(e: any) {
     this.pageNumber = e.pageIndex;
@@ -325,21 +303,6 @@ export class WellsComponent implements OnInit {
     return this.minmaxChartData;
   }
 
-  // GetRandomNumbers(isNegative: boolean = true) {
-  //   var integers = [];
-  //   for (let index = 0; index < 7; index++) {
-  //     integers.push([index + 1, (Math.random() * (isNegative ? 21 : 10)) - (isNegative ? 10 : 0)])
-  //   }
-  //   return integers;
-  // }
-
-  // GetMinMaxRandomNumbers(isNegative: boolean = true) {   
-  //   this.minmaxChartData=[];
-  //   this.minmaxChartData.push({name:"min",data:this.GetRandomNumbers(false)});
-  //   this.minmaxChartData.push({name:"max",data:this.GetRandomNumbers(false)});
-  //   return this.minmaxChartData; 
-  // }
-
   prepareChart(x: WellModel): void {
 
     this.bindInferredChart(x);
@@ -352,7 +315,6 @@ export class WellsComponent implements OnInit {
     this.bindGearBoxLoadChart(x);
     this.bindRodStressChart(x);
   }
-
 
   bindSPMChart(x: WellModel) {
     x.spmChartObj = {
@@ -730,10 +692,9 @@ export class WellsComponent implements OnInit {
   }
 
   navigateToWellInfo(wellId: string) {
-    //this.router.navigateByUrl(`/well-info-v2/${wellId}`)
-    this.router.navigate([]).then(result => { window.open(`/well-info-v3/${wellId}`, '_blank'); });  // in new tab
+    // this.router.navigateByUrl(`well-list/well-info-v3/${wellId}`)
+    this.router.navigate([]).then(result => { window.open(`well-list/well-info-v3/${wellId}`, '_blank'); });  // in new tab
   }
-
 
   searchObjC: any;
   userSearchChange(obj: any) {
@@ -772,4 +733,5 @@ export class WellsComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1'); 
     XLSX.writeFile(wb, 'WellList_'+this.dateString +'.xlsx');
   }
+
 }

@@ -1,6 +1,4 @@
 import {
-  ElementRef,
-  AfterViewInit,
   Directive,
   Host,
   Optional,
@@ -64,7 +62,6 @@ export class StylePaginatorDirective {
     private ren: Renderer2
     
   ) {
-    //to rerender buttons on items per page change and first, last, next and prior buttons
     this.matPag.page.subscribe((e: PageObject) => {
       if (
         this._curPageObj.pageSize != e.pageSize &&
@@ -89,48 +86,16 @@ export class StylePaginatorDirective {
     );
     const prevButtonCount = this._buttons.length;
 
-    // remove buttons before creating new ones
     if (this._buttons.length > 0) {
       this._buttons.forEach(button => {
         this.ren.removeChild(actionContainer, button);
       });
-      //Empty state array
       this._buttons.length = 0;
     }
 
-    //initialize next page and last page buttons
     if (this._buttons.length == 0) {
       let nodeArray = this.vr.element.nativeElement.childNodes[0].childNodes[0]
         .childNodes[2].childNodes;
-
-      // setTimeout(() => {
-      //   for (let i = 0; i < nodeArray.length; i++) {
-      //     if (nodeArray[i].nodeName === "BUTTON") {
-      //       if (nodeArray[i].innerHTML.length > 100 && nodeArray[i].disabled) {
-      //         this.ren.setStyle(
-      //           nodeArray[i],
-      //           "background-color",
-      //           "rgba(190, 130, 130, 1)"
-      //         );
-      //         this.ren.setStyle(nodeArray[i], "color", "white");
-      //         this.ren.setStyle(nodeArray[i], "margin", ".5%");
-      //       } else if (
-      //         nodeArray[i].innerHTML.length > 100 &&
-      //         !nodeArray[i].disabled
-      //       ) {
-      //         this.ren.setStyle(
-      //           nodeArray[i],
-      //           "background-color",
-      //           "rgba(255, 0, 0, 1)"
-      //         );
-      //         this.ren.setStyle(nodeArray[i], "color", "white");
-      //         this.ren.setStyle(nodeArray[i], "margin", ".5%");
-      //       } else if (nodeArray[i].disabled) {
-      //         this.ren.setStyle(nodeArray[i], "background-color", "lightgray");
-      //       }
-      //     }
-      //   }
-      // });
     }
 
     for (let i = 0; i < this.numOfPages; i++) {
@@ -141,14 +106,6 @@ export class StylePaginatorDirective {
           nextPageNode
         );
       }
-
-      // if (i == this._rangeEnd) {
-      //   this.ren.insertBefore(
-      //     actionContainer,
-      //     this.createButton(this._pageGapTxt, this._rangeEnd),
-      //     nextPageNode
-      //   );
-      // }
     }
   }
 
@@ -192,11 +149,10 @@ export class StylePaginatorDirective {
     }
 
     this.ren.appendChild(linkBtn, text);
-    //Add button to private array for state
     this._buttons.push(linkBtn as never);
     return linkBtn;
   }
-  //calculates the button range based on class input parameters and based on current page index value. Used to render new buttons after event.
+
   private initPageRange(): void {
     const middleIndex = (this._rangeStart + this._rangeEnd) / 2;
 
@@ -206,7 +162,6 @@ export class StylePaginatorDirective {
     this.buildPageNumbers();
   }
 
-  //Helper function To calculate start of button range
   private calcRangeStart(middleIndex: number): number {
     switch (true) {
       case this._curPageObj.pageIndex == 0 && this._rangeStart != 0:
@@ -250,7 +205,7 @@ export class StylePaginatorDirective {
         return this._rangeEnd;
     }
   }
-  //Helper function to switch page on non first, last, next and previous buttons only.
+
   private switchPage(i: number): void {
     console.log("switch", i);
     const previousPageIndex = this.matPag.pageIndex;
@@ -258,10 +213,11 @@ export class StylePaginatorDirective {
     this.matPag["_emitPageEvent"](previousPageIndex);
     this.initPageRange();
   }
-  //Initialize default state after view init
+
   public ngAfterViewInit() {
     this._rangeStart = 0;
     this._rangeEnd = this._showTotalPages - 1;
     this.initPageRange();
   }
+  
 }

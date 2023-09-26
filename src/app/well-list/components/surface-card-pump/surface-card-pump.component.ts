@@ -1,8 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import theme from 'highcharts/themes/brand-dark';
 theme(Highcharts);
-import { Subscription } from 'rxjs';
 import { SurfaceCardPumpService } from '../../../shared/services/surface-card-pump.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { SurfaceCardPumpService } from '../../../shared/services/surface-card-pu
   templateUrl: './surface-card-pump.component.html',
   styleUrls: ['./surface-card-pump.component.scss']
 })
-
 
 export class SurfaceCardPumpComponent {
   constructor(private service:SurfaceCardPumpService ) {}
@@ -21,16 +19,8 @@ export class SurfaceCardPumpComponent {
    
  getChartData(): void{
   this.chartSubscription = this.service.surfaceChartData().subscribe((data: any) => {
-    // console.log('algolinechart', data)
     this.series = data;
-    // data.forEach(element => {
-    //   if(element.name==="Surface Card Pump Fill"){
-    //     console.warn("@@@@@@@@@@@@@@@@@@@@@@", element.data + "elements name", element.name)
-    //     this.surfaceCardpump.push(element.data)
-    //   }
-    // });
     this.drawChart();
-
   })
  }
 
@@ -51,14 +41,12 @@ export class SurfaceCardPumpComponent {
         enabled: true,
         layout: 'horizontal',
               verticalAlign: 'top',
-            
       },
       
       yAxis: [{
         lineWidth: 1,
         title: {
             text: 'Surface Card Pump Fill',
-            // colour:'green',
         },
         plotLines: [{
           value: 200,
@@ -95,6 +83,7 @@ export class SurfaceCardPumpComponent {
       series: this.series
     } as any);
    }
+   
    ngOnDestroy(): void {
     this.chartSubscription.unsubscribe();
 }

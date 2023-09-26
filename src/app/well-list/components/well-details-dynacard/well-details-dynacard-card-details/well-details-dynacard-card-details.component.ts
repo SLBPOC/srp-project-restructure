@@ -1,20 +1,11 @@
 import { Component } from '@angular/core';
-import { MatSelect } from '@angular/material/select';
 import { DynacardService } from '../../../../shared/services/dynacard.service';
 import { CardDetailsModel } from 'src/app/shared/models/dyna-card.model';
+
 interface welldata {
   value: number;
   viewValue: string;
 }
-// export interface PeriodicElement {
-//   select: string;
-//   card: string;
-//   time: string;
-//   Minimum_Polished_Rod_Load: string;
-//   Peak_Polished_Rod: string;
-// }
-
-
 
 @Component({
   selector: 'app-well-details-dynacard-card-details',
@@ -22,9 +13,7 @@ interface welldata {
   styleUrls: ['./well-details-dynacard-card-details.component.scss']
 })
 export class WellDetailsDynacardCardDetailsComponent {
-
-  selectedTimeDetails: CardDetailsModel | null =  null;//new CardDetailsModel();;
-
+  selectedTimeDetails: CardDetailsModel | null = null;
   mappingOfFields = {
     pumpFillage_per: 'Pump Fillage(%) ',
     SPM: 'SPM',
@@ -43,7 +32,7 @@ export class WellDetailsDynacardCardDetailsComponent {
         });
       }
       else {
-        this.selectedTimeDetails = null;//new CardDetailsModel();
+        this.selectedTimeDetails = null;
       }
     });
     this.dynaService.selectedTimeInGraph.subscribe(x => {
@@ -65,30 +54,5 @@ export class WellDetailsDynacardCardDetailsComponent {
     { value: 8, viewValue: 'Very High Fluid Level' },
     { value: 9, viewValue: 'Other' },
   ];
-
-  // dynacardSummaryData: {label: string, value: string}[] = [
-  // {label: 'Pump Fillage(%) ', value: '50%'},
-  // {label: 'SPM', value: '50.0'},
-  // {label: 'Min.Polished Rod Load(lbs)', value: '17.829 lbs'},
-  // {label: 'Peak Polished Rod Load(lbs)', value: '30.314 lbs'},
-  // {label: 'Surface Stroke Length (in)', value: '0.00 sec'},
-  // {label: 'Downhole Stroke Length (in)', value: '2.299'},
-  // {label: 'Total Fluid (in)', value: '100.00'},
-
-  // ]; 
-  // jsonData = [
-  //   { label: 'Pump Tagging', value: '50%' },
-  //   { label: 'Last Storke Card', value: 'Last Storke Card' },
-  //   { label: 'Flatlining', value: 'Flatlining' },
-  //   { label: 'Fluid Pound', value: 'Fluid Pound' },
-  //   { label: 'Gas Interference', value: 'Gas Interference' },
-  // ];
-  // selectedValue: string = '';
-
-
-  // onSelect(event: any) {
-  //   this.selectedValue = event.target.value;
-  // }
-
 
 }

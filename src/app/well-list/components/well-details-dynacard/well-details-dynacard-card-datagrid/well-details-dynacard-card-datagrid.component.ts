@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./well-details-dynacard-card-datagrid.component.scss']
 })
 export class WellDetailsDynacardCardDatagridComponent {
-
 }

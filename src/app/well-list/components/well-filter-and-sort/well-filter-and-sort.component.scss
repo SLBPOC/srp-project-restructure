@@ -55,13 +55,10 @@
     margin-left: 10px;
     border-radius: 6px;
     margin-bottom: 10px;
-    border:1px solid #ececec !important;
+    border: 1px solid #ececec !important;
 
   }
 
-  //   .mat-expansion-panel-header {
-  //     height: 72px !important;
-  // }
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
@@ -76,27 +73,7 @@
 
 .container-fluid {
   background-color: rgba(19, 22, 41, 0.9);
-  // margin-top: 20px;
 
-
-
-  // .row {
-  //   display: flex;
-  //   flex-direction: row;
-  //   padding: 15px;
-  // }
-  // .col-3 {
-  //   width: 33.33%;
-  // }
-  // .col-6 {
-  //   width: 50%;
-  // }
-  // .col-9 {
-  //   width: 66.66%
-  // }
-  // .col-12 {
-  //   width: 100%;
-  // }
   .label {
     padding: 10px !important;
     font-size: 14px;
@@ -118,7 +95,6 @@
     padding: inherit;
   }
 
-
   .close {
     margin: 5px;
   }
@@ -128,47 +104,28 @@
   }
 
   ::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1;
-    /* Firefox */
   }
-
-
 }
-
-
 
 ::ng-deep {
 
   label[for="checkbox-00-input"] {
 
-    color: #D11F1F!important;
-
-  }
-
-  label[for="checkbox-01-input"] {
-
-    color: #28A228 !important;
-
-  }
-
-  label[for="checkbox-10-input"] {
-
     color: #D11F1F !important;
-
   }
-
+  label[for="checkbox-01-input"] {
+    color: #28A228 !important;
+  }
+  label[for="checkbox-10-input"] {
+    color: #D11F1F !important;
+  }
   label[for="checkbox-11-input"] {
-
     color: #1946A2 !important;
-
   }
-
   label[for="checkbox-12-input"] {
-
     color: black !important;
-
   }
 
 }

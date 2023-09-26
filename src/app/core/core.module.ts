@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { CoreRoutingModule } from './core-routing.module';
 import { ErrorComponent } from './components/error/error.component';
 import { ErrorService } from './services/error.service';
@@ -9,7 +8,6 @@ import { AuthorizationService } from './services/authorization.service';
 import { PkceService } from './services/pkce.service';
 import { RandomService } from './services/random.service';
 import { StateService } from './services/state.service';
-
 
 @NgModule({
   declarations: [

@@ -3,13 +3,11 @@ import * as Highcharts from 'highcharts';
 import { YAxisOptions } from 'highcharts';
 import * as moment from 'moment';
 
-
 export class range {
   name!: string;
   min!: number;
   max!: number;
 }
-
 
 @Component({
   selector: 'app-well-view-parameters',
@@ -49,15 +47,15 @@ export class WellViewParametersComponent {
 
   updateFlag: boolean = false;
   isScatter: boolean = false;
-  isMultipleYAxis:boolean=false;
-  changeMultipleYAxis(){
+  isMultipleYAxis: boolean = false;
+  changeMultipleYAxis() {
 
   }
   options: Highcharts.Options = {
     chart: {
       width: 1500,
       height: 550,
-      backgroundColor:undefined
+      backgroundColor: undefined
     },
     title: {
       text: 'Well View Parameters'
@@ -70,25 +68,25 @@ export class WellViewParametersComponent {
         title: {
           text: 'Datas'
         },
-        enabled:true,
+        enabled: true,
       },
       {
         title: {
           text: 'yesterdayPercentageRun'
         },
-        visible:false,
+        visible: false,
       },
       {
         title: {
           text: 'DynacardClass'
         },
-        visible:false,
+        visible: false,
       },
       {
         title: {
           text: 'Pump Intake Pressure'
         },
-        visible:false,
+        visible: false,
       }
     ],
     plotOptions: {
@@ -115,7 +113,7 @@ export class WellViewParametersComponent {
         type: 'line',
         data: this.GetRandomNumbers(this.rangeList[0]),
         name: this.rangeList[0].name,
-        yAxis:0
+        yAxis: 0
       }]
   }
   pushRange() {
@@ -128,14 +126,13 @@ export class WellViewParametersComponent {
           yAxis: this.isMultipleYAxis ? this.options.series.length : 0
         }
       );
-      if(this.isMultipleYAxis)
-      {
+      if (this.isMultipleYAxis) {
         for (let index = 1; index < this.options.series.length; index++) {
           (<Array<YAxisOptions>>this.options.yAxis)[index].visible = true;
         }
       }
       else {
-        (<Array<YAxisOptions>>this.options.yAxis).forEach(x=>x.visible = false);
+        (<Array<YAxisOptions>>this.options.yAxis).forEach(x => x.visible = false);
         (<Array<YAxisOptions>>this.options.yAxis)[0].visible = true;
       }
       this.updateFlag = true;
@@ -147,7 +144,7 @@ export class WellViewParametersComponent {
 
   removeRange() {
     if (this.options.series && this.options.series.length > 1) {
-      (<Array<YAxisOptions>>this.options.yAxis)[this.options.series.length-1].visible = false;
+      (<Array<YAxisOptions>>this.options.yAxis)[this.options.series.length - 1].visible = false;
       this.options.series.pop();
       this.updateFlag = true;
     }
@@ -155,8 +152,8 @@ export class WellViewParametersComponent {
 
   durationChanged() {
     for (let index = 0; index < <number>this.options.series?.length; index++) {
-      if(this.options.series)
-      (<Highcharts.SeriesLineOptions>this.options.series[index]).data = this.GetRandomNumbers(this.rangeList[index])
+      if (this.options.series)
+        (<Highcharts.SeriesLineOptions>this.options.series[index]).data = this.GetRandomNumbers(this.rangeList[index])
     }
     this.updateFlag = true;
   }
