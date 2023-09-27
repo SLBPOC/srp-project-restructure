@@ -17,7 +17,6 @@ import { WellinfoDynacardComponent } from './components/well-details-view/wellin
 import { WellInfoComponent } from './components/well-info/well-info.component';
 import { WellInfoImageDescriptionComponent } from './components/well-info-image-description/well-info-image-description.component';
 import { AlgomitFiltertabsComponent } from './components/well-details-view/algomit-filtertabs/algomit-filtertabs.component';
-import { CoreModule } from '../core/core.module';
 import { DynacardChipsComponent } from './components/well-details-dynacard/dynacard-chips/dynacard-chips.component';
 import { WellDetailsDynacardCardDetailsComponent } from './components/well-details-dynacard/well-details-dynacard-card-details/well-details-dynacard-card-details.component';
 import { WellDetailsDynacardCardLegendComponent } from './components/well-details-dynacard/well-details-dynacard-card-legend/well-details-dynacard-card-legend.component';
@@ -98,7 +97,6 @@ import { UiDynacardInfoComponent } from './components/well-details-dynacard/ui-d
     CommonModule,
     WellsRoutingModule,
     SharedModule,
-    CoreModule,
     HighchartsChartModule
   ],
   exports: [
@@ -106,4 +104,4 @@ import { UiDynacardInfoComponent } from './components/well-details-dynacard/ui-d
     // WellTreeSearchComponent, WellTreeView
   ]
 })
-export class WellListModule { }
+export class WellsModule { }

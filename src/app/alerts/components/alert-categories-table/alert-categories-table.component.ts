@@ -3,6 +3,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import * as Highcharts from 'highcharts';
 import { AlertListService } from 'src/app/shared/services/alert-list.service';
 
+interface IEmbeddedChartData {
+  name: string;
+  y: number;
+  color: string;
+}
+
 @Component({
   selector: 'app-alert-categories-table',
   templateUrl: './alert-categories-table.component.html',
@@ -14,16 +20,33 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
   dataSource: any = [];
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions!: Highcharts.Options;
-
   loading = true;
   pageSize: number = 5;
   pageNumber = 1;
   currentPage = 0;
   totalCount = 0;
   pageSizeOption = [10, 20, 30]
-
   @Input() barChartData: any;
   snoozeData!: any[];
+  embeddedChartData: any[] = [];
+  // embeddedChartData: IEmbeddedChartData[] = [
+  //   {
+  //     name: '',
+  //     y: 10,
+  //     color: '#D11F1F'
+  //   },
+
+  //   {
+  //     name: '',
+  //     y: 25,
+  //     color: '#FABB42'
+  //   },
+  //   {
+  //     name: '',
+  //     y: 50,
+  //     color: '#28A228'
+  //   },
+  // ]
 
   constructor(private alertService: AlertListService) { }
 
@@ -43,11 +66,31 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
     this.dataSource = new MatTableDataSource<any>(this.barChartData);
   }
 
-  loadChartData() {
+  setEmbeddedChartData () {
     let chartSeriesArr = []
     let high = {}
     let medium = {}
     let low = {}
+
+    // this.embeddedChartData = [
+    //   {
+    //     name: '',
+    //     y: this.dataSource.data.high,
+    //     color: '#D11F1F'
+    //   },
+  
+    //   {
+    //     name: '',
+    //     y: this.dataSource.data.medium,
+    //     color: '#FABB42'
+    //   },
+    //   {
+    //     name: '',
+    //     y: this.dataSource.data.low,
+    //     color: '#28A228'
+    //   },
+    // ]
+
     for (let i = 0; i < this.barChartData?.length; i++) {
       high = {
         name: '',
@@ -66,6 +109,13 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
       }
       chartSeriesArr.push(high, medium, low);
     }
+    this.embeddedChartData = [...chartSeriesArr];
+    // console.log('barChartData', this.barChartData)
+    // console.log('embeddedChartData', this.embeddedChartData)
+  }
+  loadChartData() {
+    this.setEmbeddedChartData();
+
     this.chartOptions = {
       chart: {
         type: 'pie',
@@ -111,27 +161,11 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
 
       },
 
-      series: [
+      series: [ 
         {
           type: 'bar',
-          data: [
-            {
-              name: '',
-              y: 10,
-              color: '#D11F1F'
-            },
-
-            {
-              name: '',
-              y: 25,
-              color: '#FABB42'
-            },
-            {
-              name: '',
-              y: 50,
-              color: '#28A228'
-            },
-          ]
+          // data: chartSeriesArr
+          data: this.embeddedChartData
         }
       ]
     };

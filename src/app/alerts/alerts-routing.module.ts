@@ -4,12 +4,7 @@ import { AlertListComponent } from './alert-list.component';
 import { SidenavComponent } from '../shared/components/sidenav/sidenav.component';
 
 const routes: Routes = [
-  {
-    path: '', component: SidenavComponent,
-    children: [
-      { path: '', component: AlertListComponent }
-    ]
-  }
+  { path: '', component: AlertListComponent }
 ];
 
 @NgModule({

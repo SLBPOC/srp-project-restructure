@@ -16,4 +16,4 @@ import { EventFilterAndSortComponent } from './components/event-filter-and-sort/
     SharedModule
   ]
 })
-export class EventListModule { }
+export class EventsModule { }

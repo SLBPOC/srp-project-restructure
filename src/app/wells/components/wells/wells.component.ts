@@ -12,9 +12,9 @@ import * as HighCharts from 'highcharts';
 import { Router } from '@angular/router';
 import { TreeViewService } from '../../../shared/services/tree-view.service';
 import { NodeType } from '../../../shared/models/models';
-import { Constants } from 'src/app/Common/Constants';
 import * as XLSX from 'xlsx';
 import { DatePipe } from '@angular/common';
+import { Constants } from 'src/app/shared/constants/Constants';
 
 @Component({
   selector: 'app-wells',
