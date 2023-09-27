@@ -21,7 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
       // after the callback
       const params = this.activatedRoute.snapshot.queryParamMap;
         if(!params.get('code')) {
-          alert('Token/Code missing, redirecting ...')
+          // alert('Token/Code missing, redirecting ...')
           this.authorizationService.authorize();
         }
     }
