@@ -11,6 +11,7 @@ import { AuthorizationService } from './services/authorization.service';
   providedIn: 'root',
 })
 export class AuthGuard {
+  private validAccessToken: any = this.authorizationService.hasAccessToken && this.authorizationService.validAccessTokens().length > 0;
   constructor(private authorizationService: AuthorizationService) { }
 
   public canActivate(
@@ -22,24 +23,13 @@ export class AuthGuard {
     | boolean
     | UrlTree {
 
-    if ((this.authorizationService.hasAccessToken && !this.authorizationService.validAccessTokens().length) ||
-        !this.authorizationService.hasAccessToken
-    ) {
-      alert('Invalid access token... redirecting')
-      this.authorizationService.authorize();
-    }
-    if (this.authorizationService.hasAccessToken) {
-      const validAccessTokenLength = this.authorizationService.validAccessTokens().length;
-      // console.log('==> valid access tokens:- ', this.authorizationService.validAccessTokens());
-      return validAccessTokenLength > 0;
+    if(this.validAccessToken) {
+      return true;
     } else {
-      alert('Token missing.. redirecting')
+      alert('Auth Token missing, redirecting ...')
       this.authorizationService.authorize();
       return false;
     }
   }
-
-
-  // api request token authorization
 
 }
