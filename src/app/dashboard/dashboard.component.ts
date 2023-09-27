@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class DashboardComponent {
   searchObjC:any;
+
+  constructor() {
+    console.log('==> dashboard component loaded');
+  }
   userSearchChange(obj:any){
     this.searchObjC = obj;
   }

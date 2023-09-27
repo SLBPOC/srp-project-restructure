@@ -143,12 +143,12 @@
           *ngIf="isExpanded || isShowing">arrow_drop_down</mat-icon> -->
       </mat-list-item>
 
-      <mat-list-item class="navcontenttxt" routerLink="well-info" routerLinkActive="active-list-item">
+      <!-- <mat-list-item class="navcontenttxt" routerLink="well-info" routerLinkActive="active-list-item">
         <span class="full-width menutxt" *ngIf="isExpanded || isShowing">
           <a [routerLink]="'/well-info/W001'" style="text-decoration: none;">Well Info</a>
         </span>
 
-      </mat-list-item>
+      </mat-list-item> -->
 
       <div class="submenu" routerLinkActive="active-list-item" [ngClass]="{'expanded' : showSubmenuWellList}"
         *ngIf="isShowing || isExpanded">

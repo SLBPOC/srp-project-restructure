@@ -5,7 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AlertListComponent } from './alert-list.component';
 import { AlertCategoriesChartComponent } from './components/alert-categories-chart/alert-categories-chart.component';
 import { AlertCategoriesTableComponent } from './components/alert-categories-table/alert-categories-table.component';
-import { WellListModule } from '../wells/wells.module';
+import { WellsModule } from '../wells/wells.module';
 import { CustomAlertComponent } from './components/custom-alert/custom-alert.component';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { CustomAlertComponent } from './components/custom-alert/custom-alert.com
     CommonModule,
     SharedModule,
     AlertsRoutingModule,
-    WellListModule
+    WellsModule
   ]
 })
 export class AlertsModule { }

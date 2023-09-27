@@ -8,16 +8,14 @@ import { ExchangeResponse } from '../models/exchange-response';
 import { Pkce } from '../models/pkce';
 import { PkceService } from './pkce.service';
 import { StateService } from './state.service';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable()
 export class AuthorizationService {
-  private clientId: string = 'd20825d2c17efc0b42908d0078b78eab';
-  // private subscriptionKey: string = '<SKY_API_SUBSCRIPTION_KEY>';
-  private redirectUri: string = 'http://localhost:4200/Callback';
-  private authorizationUrl: string = 'https://p4d.csi.cloud.slb-ds.com/v2/auth?';
-  private tokenUrl: string = 'https://p4d.csi.cloud.slb-ds.com/v2/token';
-  // private redirectUri: string = 'https://evd.srp.cloud.slb-ds.com/Callback';
-
+  private clientId: string = environment.clientId;
+  private redirectUri: string = environment.redirectUri;
+  private authorizationUrl: string = environment.authorizationUrl;
+  private tokenUrl: string = environment.tokenUrl;
 
   constructor(
     private httpClient: HttpClient,
@@ -77,6 +75,8 @@ export class AuthorizationService {
   public set accessTokens(value: AccessTokens | null) {
     if (!value) {
       localStorage.removeItem('access_tokens');
+      localStorage.removeItem('access_token');
+
     } else {
       localStorage.setItem('access_tokens', JSON.stringify(value));
     }
@@ -87,7 +87,7 @@ export class AuthorizationService {
     const validTokens = this.accessTokens.tokens.filter(
       (token) => token.expires > new Date().toUTCString()
     );
-    console.log('==> Current validAccessTokens', validTokens);
+    // console.log('==> Current validAccessTokens', validTokens);
     return validTokens;
     // modified logic below
     // return this.accessTokens.tokens.filter(
@@ -156,6 +156,7 @@ export class AuthorizationService {
   // }
   public set accessToken(value: AccessToken | null) {
     if (!value?.access_token) {
+      localStorage.removeItem('access_tokens');
       localStorage.removeItem('access_token');
     } else {
       localStorage.setItem('access_token', JSON.stringify(value));
