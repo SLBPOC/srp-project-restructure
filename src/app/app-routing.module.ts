@@ -6,7 +6,7 @@ import { SidenavComponent } from './shared/components/sidenav/sidenav.component'
 
 const routes: Routes = [
   { path: 'Callback', component: CallbackComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'wells', pathMatch: 'full' },
   {
     path: '', component: SidenavComponent,
     children: [
