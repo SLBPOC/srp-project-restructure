@@ -15,11 +15,12 @@ interface IEmbeddedChartData {
   styleUrls: ['./alert-categories-table.component.scss']
 })
 export class AlertCategoriesTableComponent implements OnInit, OnChanges {
-
   displayedColumns = ['wellname', 'alertCount', 'snoozAlertCount', 'priority'];
   dataSource: any = [];
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions!: Highcharts.Options;
+  chartOptions: Highcharts.Options[] = [];
+  // chartOptionsArr: Highcharts.Options[] = [];
+
   loading = true;
   pageSize: number = 5;
   pageNumber = 1;
@@ -28,26 +29,6 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
   pageSizeOption = [10, 20, 30]
   @Input() barChartData: any;
   snoozeData!: any[];
-  embeddedChartData: any[] = [];
-  // embeddedChartData: IEmbeddedChartData[] = [
-  //   {
-  //     name: '',
-  //     y: 10,
-  //     color: '#D11F1F'
-  //   },
-
-  //   {
-  //     name: '',
-  //     y: 25,
-  //     color: '#FABB42'
-  //   },
-  //   {
-  //     name: '',
-  //     y: 50,
-  //     color: '#28A228'
-  //   },
-  // ]
-
   constructor(private alertService: AlertListService) { }
 
   ngOnInit() {
@@ -66,31 +47,11 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
     this.dataSource = new MatTableDataSource<any>(this.barChartData);
   }
 
-  setEmbeddedChartData () {
+  loadChartData(){
     let chartSeriesArr = []
     let high = {}
     let medium = {}
     let low = {}
-
-    // this.embeddedChartData = [
-    //   {
-    //     name: '',
-    //     y: this.dataSource.data.high,
-    //     color: '#D11F1F'
-    //   },
-  
-    //   {
-    //     name: '',
-    //     y: this.dataSource.data.medium,
-    //     color: '#FABB42'
-    //   },
-    //   {
-    //     name: '',
-    //     y: this.dataSource.data.low,
-    //     color: '#28A228'
-    //   },
-    // ]
-
     for (let i = 0; i < this.barChartData?.length; i++) {
       high = {
         name: '',
@@ -107,26 +68,80 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
         y: this.barChartData[i].low,
         color: '#28A228'
       }
-      chartSeriesArr.push(high, medium, low);
-    }
-    this.embeddedChartData = [...chartSeriesArr];
-    // console.log('barChartData', this.barChartData)
-    // console.log('embeddedChartData', this.embeddedChartData)
-  }
-  loadChartData() {
-    this.setEmbeddedChartData();
+      chartSeriesArr.push(high,medium,low);
+      // this.chartOptions.series[i].data
+      this.prepateChart([high, medium, low])
 
-    this.chartOptions = {
+    }
+    // this.chartOptions.series[0].data
+    // this.chartOptions = {
+    //   chart: {
+    //     type: 'pie',
+    //     renderTo: 'container',
+    //     margin: 0,
+    //     spacing: [0,0,0,0],
+    //     backgroundColor: undefined
+    //   },
+    //   exporting: { enabled: false },
+    //   legend : {enabled: false},
+      
+    //   yAxis: {
+    //     labels: {
+    //       enabled: false
+    //     },
+    //     tickAmount: 6,
+    //     gridLineWidth: 1,
+    //     visible: false
+    //   },
+    //   xAxis: {
+    //     labels: {
+    //       enabled: false
+    //     },
+    //     tickAmount: 6,
+    //     gridLineWidth: 1,
+    //     visible: false
+    //   },
+    //   title: {
+    //     text: ''
+    //   },
+    //  plotOptions: {
+    //       bar: {
+    //           dataLabels: {
+    //               enabled: true,
+    //               inside: true,
+    //               align: 'left',
+    //               x: -40
+    //           },
+    //       },
+    //       series: {
+           
+    //     }
+  
+    //   },
+      
+    //   series: [ 
+    //     {
+    //       type: 'bar',
+    //       // data: chartSeriesArr
+    //       data: []
+    //     }
+    //   ]
+    // };
+  }
+
+  prepateChart(x: any) {
+
+    let chartOptions = {
       chart: {
         type: 'pie',
         renderTo: 'container',
         margin: 0,
-        spacing: [0, 0, 0, 0],
+        spacing: [0,0,0,0],
         backgroundColor: undefined
       },
       exporting: { enabled: false },
-      legend: { enabled: false },
-
+      legend : {enabled: false},
+      
       yAxis: {
         labels: {
           enabled: false
@@ -146,29 +161,32 @@ export class AlertCategoriesTableComponent implements OnInit, OnChanges {
       title: {
         text: ''
       },
-      plotOptions: {
-        bar: {
-          dataLabels: {
-            enabled: true,
-            inside: true,
-            align: 'left',
-            x: -40
+     plotOptions: {
+          bar: {
+              dataLabels: {
+                  enabled: true,
+                  inside: true,
+                  align: 'left',
+                  x: -40
+              },
           },
-        },
-        series: {
-
+          series: {
+           
         }
-
+  
       },
-
+      
       series: [ 
         {
           type: 'bar',
           // data: chartSeriesArr
-          data: this.embeddedChartData
+          data: x
         }
       ]
-    };
+    } as any;
+    this.chartOptions.push(chartOptions)
+    // console.log('==> chartOptionArr', this.chartOptionsArr);
+
   }
 
   onSortChanged(event: any) {
