@@ -6,27 +6,18 @@ import { SidenavComponent } from './shared/components/sidenav/sidenav.component'
 
 const routes: Routes = [
   { path: 'Callback', component: CallbackComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'wells', pathMatch: 'full' },
   {
     path: '', component: SidenavComponent,
     children: [
-      { path: 'wells', loadChildren: () => import('./wells/wells.module').then(m => m.WellsModule) },
-      { path: 'alerts', loadChildren: () => import('./alerts/alerts.module').then(m => m.AlertsModule) },
+      { path: 'wells', loadChildren: () => import('./wells/wells.module').then(m => m.WellsModule), canActivate: [AuthGuard] },
+      { path: 'alerts', loadChildren: () => import('./alerts/alerts.module').then(m => m.AlertsModule), canActivate: [AuthGuard] },
       { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },
-      { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) }
+      { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule), canActivate: [AuthGuard] }
     ]
   },
 ]
 
-// const routes: Routes = [
-//   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-//   { path: 'Callback', component: CallbackComponent },
-//   { path: 'alerts', loadChildren: () => import('./alerts/alerts.module').then(m => m.AlertsModule) },
-//   { path: 'wells', loadChildren: () => import('./wells/wells.module').then(m => m.WellListModule) },
-//   { path: 'alerts', loadChildren: () => import('./alerts/alerts.module').then(m => m.AlertsModule) },
-//   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule), canActivate: [AuthGuard] },
-//   { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventListModule) },
-// ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

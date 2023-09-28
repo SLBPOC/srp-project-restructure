@@ -57,7 +57,7 @@ export class CallbackComponent implements OnInit{
       .exchangeAuthorizationCode(authorizationResponse)
       .pipe()
       .subscribe((token) => {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/wells']);
       });
   }
 }
