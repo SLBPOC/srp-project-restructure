@@ -75,9 +75,9 @@
 
 <ng-container matColumnDef="priority">
   <th mat-header-cell *matHeaderCellDef class="priority-custom"> Priority </th>
-  <td mat-cell *matCellDef="let element" class="align-col" >{{ element.priority}}
+  <td mat-cell *matCellDef="let element; let i= index" class="align-col" >{{ element.priority}}
       <div class="pichrtData">
-          <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+          <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions[i]"
               style="width:100%; min-height: 90px; display: block" class="highchart-custom">
           </highcharts-chart>
       </div>
