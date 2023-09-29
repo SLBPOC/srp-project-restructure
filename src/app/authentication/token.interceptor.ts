@@ -13,32 +13,54 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.authorizationService.accessToken?.access_token;
 
-    if (token) {
+    // if (token) {
+    //   request = request.clone({
+    //     setHeaders: { Authorization: `Authorization token ${token}` }
+    //   });
+    // } else {
+    //   const params = this.activatedRoute.snapshot.queryParamMap;
+    //     if(!params.get('code')) {
+    //       this.authorizationService.authorize();
+    //     }
+    // }
+
+    if (token && this.authorizationService.validAccessTokens()) {
       request = request.clone({
-        setHeaders: { Authorization: `Authorization token ${token}` }
+        setHeaders: { Authorization: `Bearer ${token}` }
       });
     } else {
-      // after the callback
+      console.log('==> token missing');
       const params = this.activatedRoute.snapshot.queryParamMap;
         if(!params.get('code')) {
-          // alert('Token/Code missing, redirecting ...')
           this.authorizationService.authorize();
         }
     }
+
     
     return next.handle(request).pipe(
       catchError((err) => {
-        console.log('==>err', err);
+        // console.log('==>err', err);
         if (err instanceof HttpErrorResponse) {
+          let errMsg = `Request failed!!! status code ${err.status}`;
 
-          if (err.status === 404) {
-            alert('Request failed (status code: 404)')
-          }
-          if (err.status === 401) {
-            // redirect user to the logout page
+          switch (err.status) {
+            case 401:
+              // alert(errMsg);
+              console.log(errMsg);
+              // rediect to logout page
+              break;
+          
+              case 404:
+              // alert(errMsg);
+              console.log(errMsg);
+              // rediect to page not found page
+              break;
+
+            default:
+              break;
           }
         }
-        return throwError(err);
+        return throwError(() => err);
       })
     )
 

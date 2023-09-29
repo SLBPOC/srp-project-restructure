@@ -26,7 +26,8 @@ export class AuthGuard {
     if(this.validAccessToken) {
       return true;
     } else {
-      alert('Auth Token missing, redirecting ...')
+      console.log("==> Auth token missing, redirecting");
+      // alert('Auth Token missing, redirecting ...')
       this.authorizationService.authorize();
       return false;
     }
